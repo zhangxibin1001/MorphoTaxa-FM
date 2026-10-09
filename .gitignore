@@ -1,0 +1,36 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+.env
+outputs/
+artifacts/
+checkpoints/
+*.pth
+*.pt
+*.ckpt
+*.npz
+*.npy
+wandb/
+.DS_Store
+*.md
+*.zip
+
+# 数据集、权重
+
+
+*.bin
+dataset/
+
+/autodl-tmp/
+# 日志
+logs/
+runs/
+# 缓存
+__pycache__/
+*.pyc
+*.ipynb_checkpoints
+# 环境
+.venv/
+medplant26/
