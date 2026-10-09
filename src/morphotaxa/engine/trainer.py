@@ -1,0 +1,610 @@
+from __future__ import annotations
+
+import json
+import math
+import time
+from pathlib import Path
+from typing import Any
+
+import numpy as np
+import torch
+from torch import nn
+from torch.utils.data import DataLoader
+
+from morphotaxa.calibration import expected_calibration_error, multiclass_brier, nll
+from morphotaxa.metrics import classification_metrics
+from morphotaxa.data.fixed_folder import FixedClassFolder, discover_classes
+from morphotaxa.data.manifest_dataset import (
+    ManifestDataset,
+    discover_manifest_classes,
+)
+from morphotaxa.models.c4a import BoundedSemanticResidual
+from morphotaxa.models.lora import inject_lora_last_blocks
+from morphotaxa.models.bioclip25 import load_bioclip25
+from morphotaxa.models.modeling import MorphoTaxaModel
+from morphotaxa.models.prototypes import build_text_prototypes
+from morphotaxa.utils.io import dump_json
+from morphotaxa.engine.checkpoint_compat import load_init_checkpoint_compatible
+
+
+def count_parameters(model: nn.Module) -> dict[str, int]:
+    return {
+        "total": sum(p.numel() for p in model.parameters()),
+        "trainable": sum(p.numel() for p in model.parameters() if p.requires_grad),
+    }
+
+
+
+def _is_portable_task_key(key: str) -> bool:
+    """
+    Parameters required to reconstruct a trained task model on top of
+    the original pretrained backbone.
+
+    Included:
+      - classifier
+      - LoRA adapters
+      - semantic/C4-A head
+
+    Excluded:
+      - frozen pretrained backbone weights
+    """
+    return (
+        key.startswith("classifier.")
+        or key.startswith("semantic_head.")
+        or ".lora_a" in key
+        or ".lora_b" in key
+    )
+
+
+def _portable_task_state_dict(
+    model: nn.Module,
+) -> dict[str, torch.Tensor]:
+    full_state = model.state_dict()
+
+    state = {
+        key: value.detach().cpu()
+        for key, value in full_state.items()
+        if _is_portable_task_key(key)
+    }
+
+    if "classifier.weight" not in state:
+        raise RuntimeError(
+            "Portable checkpoint missing classifier.weight"
+        )
+
+    if "classifier.bias" not in state:
+        raise RuntimeError(
+            "Portable checkpoint missing classifier.bias"
+        )
+
+    return state
+
+
+def _device():
+    return torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+
+def _amp_context(enabled: bool):
+    device_type = "cuda" if torch.cuda.is_available() else "cpu"
+    return torch.autocast(device_type=device_type, enabled=enabled and device_type == "cuda")
+
+
+def _make_scaler(enabled: bool):
+    return torch.amp.GradScaler("cuda", enabled=enabled and torch.cuda.is_available())
+
+
+def build_training_state(cfg: dict[str, Any], init_checkpoint: str | None = None):
+    dcfg, mcfg = cfg["dataset"], cfg["model"]
+    data_root = Path(dcfg["path"])
+
+    manifest_path = dcfg.get("manifest")
+
+    if manifest_path:
+        manifest_path = Path(manifest_path)
+
+        class_names, class_to_idx = (
+            discover_manifest_classes(
+                manifest_path
+            )
+        )
+    else:
+        class_names, class_to_idx = (
+            discover_classes(
+                data_root / "train"
+            )
+        )
+
+    num_classes = len(class_names)
+    expected = dcfg.get("expected_classes")
+    if expected is not None and num_classes != int(expected):
+        raise RuntimeError(f"Dataset class count {num_classes} != expected {expected}. Resolve audit before training.")
+
+    backbone, tf_train, tf_val = load_bioclip25(
+        mcfg.get("open_clip_model", "hf-hub:imageomics/bioclip-2.5-vith14"),
+        mcfg.get("cache_dir"),
+        bool(mcfg.get("offline", True)),
+    )
+    for p in backbone.parameters():
+        p.requires_grad = False
+
+    lcfg = mcfg.get("lora", {})
+    if lcfg.get("enabled", False):
+        replaced = inject_lora_last_blocks(
+            backbone,
+            last_n_blocks=int(lcfg.get("last_n_blocks", 8)),
+            rank=int(lcfg.get("rank", 8)),
+            alpha=float(lcfg.get("alpha", 16.0)),
+            dropout=float(lcfg.get("dropout", 0.0)),
+            targets=tuple(lcfg.get("targets", ["qkv", "proj"])),
+        )
+    else:
+        replaced = []
+
+    scfg = mcfg.get("semantic", {})
+    semantic = None
+    if scfg.get("enabled", False):
+        semantic = BoundedSemanticResidual(num_classes, float(scfg.get("alpha_max", 0.2)), float(scfg.get("kappa", 1.0)))
+
+    model = MorphoTaxaModel(backbone, int(mcfg.get("embedding_dim", 1024)), num_classes, semantic)
+
+    stage = str(cfg.get("experiment", {}).get("stage", "C0")).upper()
+    if init_checkpoint:
+        load_report = load_init_checkpoint_compatible(
+            model,
+            init_checkpoint,
+        )
+    
+        print({
+            "checkpoint_init": load_report["checkpoint"],
+            "checkpoint_epoch": load_report["checkpoint_epoch"],
+            "remapped_count": load_report["remapped_count"],
+            "expected_missing_count": len(load_report["expected_missing"]),
+        })
+    elif stage == "C4A":
+        raise RuntimeError("C4-A must be initialized from a selected C1 checkpoint via --init-checkpoint")
+
+    if stage == "C0":
+        for p in model.classifier.parameters():
+            p.requires_grad = True
+    elif stage == "C1":
+        for p in model.classifier.parameters():
+            p.requires_grad = True
+    elif stage == "C4A":
+        # Freeze the entire selected C1 model; train semantic correction only.
+        for p in model.parameters():
+            p.requires_grad = False
+        for p in model.semantic_head.parameters():
+            p.requires_grad = True
+    else:
+        raise ValueError(f"Unknown stage: {stage}")
+
+    dev = _device()
+    model.to(dev)
+    if semantic is not None:
+        proto = build_text_prototypes(backbone, mcfg.get("open_clip_model", "hf-hub:imageomics/bioclip-2.5-vith14"), class_names, dev)
+        model.set_class_prototypes(proto)
+
+    if manifest_path:
+        train_ds = ManifestDataset(
+            manifest=manifest_path,
+            split="train",
+            class_to_idx=class_to_idx,
+            transform=tf_train,
+            root=data_root,
+        )
+
+        val_ds = ManifestDataset(
+            manifest=manifest_path,
+            split="val",
+            class_to_idx=class_to_idx,
+            transform=tf_val,
+            root=data_root,
+        )
+    else:
+        train_ds = FixedClassFolder(
+            data_root / "train",
+            class_to_idx,
+            tf_train,
+        )
+
+        val_ds = FixedClassFolder(
+            data_root / "val",
+            class_to_idx,
+            tf_val,
+        )
+    tcfg = cfg["train"]
+    loader_kwargs = dict(num_workers=int(cfg["data"].get("workers", 8)), pin_memory=bool(cfg["data"].get("pin_memory", True)))
+    train_loader = DataLoader(train_ds, batch_size=int(tcfg.get("batch_size", 24)), shuffle=True, drop_last=False, **loader_kwargs)
+    val_loader = DataLoader(val_ds, batch_size=int(tcfg.get("eval_batch_size", 96)), shuffle=False, drop_last=False, **loader_kwargs)
+    return model, train_loader, val_loader, class_names, replaced
+
+
+def _collect_eval(model, loader, amp: bool):
+    model.eval()
+    logits_all, y_all, ids = [], [], []
+    with torch.no_grad():
+        for x, y, paths in loader:
+            x = x.to(_device(), non_blocking=True)
+            with _amp_context(amp):
+                logits, _ = model(x)
+            logits_all.append(logits.float().cpu().numpy())
+            y_all.append(y.numpy())
+            ids.extend(paths)
+    logits = np.concatenate(logits_all)
+    targets = np.concatenate(y_all)
+    metrics = classification_metrics(logits, targets)
+    metrics.update({
+        "ece": expected_calibration_error(logits, targets),
+        "nll": nll(logits, targets),
+        "brier": multiclass_brier(logits, targets),
+    })
+    return metrics, logits, targets, ids
+
+
+def train_experiment(cfg: dict[str, Any], output_dir: str | Path, init_checkpoint: str | None = None):
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    model, train_loader, val_loader, class_names, replaced = build_training_state(cfg, init_checkpoint)
+    tcfg = cfg["train"]
+    stage = str(
+        cfg.get("experiment", {}).get("stage", "C0")
+    ).upper()
+
+    amp = bool(tcfg.get("amp", True))
+    scaler = _make_scaler(amp)
+
+    criterion = nn.CrossEntropyLoss(
+        label_smoothing=float(
+            tcfg.get("label_smoothing", 0.0)
+        )
+    )
+
+    epochs = int(tcfg.get("epochs", 1))
+    grad_accum = int(tcfg.get("grad_accum_steps", 1))
+    grad_clip = float(tcfg.get("grad_clip", 0.0))
+
+    lambda_alpha = float(
+        cfg["model"]
+        .get("semantic", {})
+        .get("lambda_alpha", 0.0)
+    )
+
+    scheduler = None
+
+    if stage == "C1":
+        lora_params = []
+        head_params = []
+        other_trainable = []
+
+        for name, param in model.named_parameters():
+            if not param.requires_grad:
+                continue
+
+            if name.startswith("classifier."):
+                head_params.append(param)
+
+            elif (
+                "lora_a" in name
+                or "lora_b" in name
+            ):
+                lora_params.append(param)
+
+            else:
+                other_trainable.append(name)
+
+        if other_trainable:
+            raise RuntimeError(
+                "Unexpected C1 trainable parameters: "
+                + ", ".join(other_trainable)
+            )
+
+        if not lora_params:
+            raise RuntimeError(
+                "C1 has no trainable LoRA parameters"
+            )
+
+        if not head_params:
+            raise RuntimeError(
+                "C1 has no trainable classifier parameters"
+            )
+
+        lora_count = sum(
+            p.numel() for p in lora_params
+        )
+        head_count = sum(
+            p.numel() for p in head_params
+        )
+
+        params = lora_params + head_params
+
+        opt = torch.optim.AdamW(
+            [
+                {
+                    "params": lora_params,
+                    "lr": float(
+                        tcfg["lr_lora"]
+                    ),
+                    "weight_decay": float(
+                        tcfg[
+                            "weight_decay_lora"
+                        ]
+                    ),
+                },
+                {
+                    "params": head_params,
+                    "lr": float(
+                        tcfg["lr_head"]
+                    ),
+                    "weight_decay": float(
+                        tcfg[
+                            "weight_decay_head"
+                        ]
+                    ),
+                },
+            ]
+        )
+
+        updates_per_epoch = (
+            len(train_loader)
+            + grad_accum
+            - 1
+        ) // grad_accum
+
+        warmup_epochs = int(
+            tcfg.get("warmup_epochs", 1)
+        )
+
+        warmup_updates = (
+            warmup_epochs
+            * updates_per_epoch
+        )
+
+        total_updates = (
+            epochs
+            * updates_per_epoch
+        )
+
+        if warmup_updates >= total_updates:
+            raise RuntimeError(
+                "warmup_updates must be "
+                "< total_updates"
+            )
+
+        scheduler_name = str(
+            tcfg.get(
+                "scheduler",
+                "linear_warmup_cosine",
+            )
+        ).lower()
+
+        if scheduler_name != "linear_warmup_cosine":
+            raise ValueError(
+                "C1 requires scheduler="
+                "linear_warmup_cosine; got "
+                f"{scheduler_name}"
+            )
+
+        def lr_factor(step_idx):
+            # LambdaLR applies lambda(0) immediately.
+            # During epoch 1, LR rises linearly from
+            # approximately zero to the configured base LR.
+            if step_idx < warmup_updates:
+                return float(
+                    step_idx + 1
+                ) / float(
+                    max(1, warmup_updates)
+                )
+
+            remaining = max(
+                1,
+                total_updates
+                - warmup_updates
+                - 1,
+            )
+
+            progress = (
+                step_idx
+                - warmup_updates
+            ) / float(remaining)
+
+            progress = min(
+                1.0,
+                max(0.0, progress),
+            )
+
+            return 0.5 * (
+                1.0
+                + math.cos(
+                    math.pi * progress
+                )
+            )
+
+        scheduler = (
+            torch.optim.lr_scheduler.LambdaLR(
+                opt,
+                lr_lambda=lr_factor,
+            )
+        )
+
+        print({
+            "c1_optimizer": {
+                "lora_params": lora_count,
+                "head_params": head_count,
+                "total_trainable": (
+                    lora_count
+                    + head_count
+                ),
+                "lr_lora": float(
+                    tcfg["lr_lora"]
+                ),
+                "lr_head": float(
+                    tcfg["lr_head"]
+                ),
+                "wd_lora": float(
+                    tcfg[
+                        "weight_decay_lora"
+                    ]
+                ),
+                "wd_head": float(
+                    tcfg[
+                        "weight_decay_head"
+                    ]
+                ),
+                "updates_per_epoch": (
+                    updates_per_epoch
+                ),
+                "warmup_updates": (
+                    warmup_updates
+                ),
+                "total_updates": (
+                    total_updates
+                ),
+                "grad_clip": grad_clip,
+            }
+        })
+
+    else:
+        params = [
+            p
+            for p in model.parameters()
+            if p.requires_grad
+        ]
+
+        if not params:
+            raise RuntimeError(
+                "No trainable parameters"
+            )
+
+        opt = torch.optim.AdamW(
+            params,
+            lr=float(
+                tcfg.get("lr", 1e-4)
+            ),
+            weight_decay=float(
+                tcfg.get(
+                    "weight_decay",
+                    0.0,
+                )
+            ),
+        )
+
+    metadata = {"parameter_counts": count_parameters(model), "lora_replaced": replaced, "classes": class_names}
+    dump_json(metadata, output_dir / "metadata.json")
+    if torch.cuda.is_available():
+        torch.cuda.reset_peak_memory_stats()
+
+    best = -1.0
+    history = []
+    for epoch in range(1, epochs + 1):
+        model.train()
+        opt.zero_grad(set_to_none=True)
+        total_loss, seen = 0.0, 0
+        start = time.time()
+        for step, (x, y, _) in enumerate(train_loader, 1):
+            x, y = x.to(_device(), non_blocking=True), y.to(_device(), non_blocking=True)
+            with _amp_context(amp):
+                logits, _ = model(x)
+                loss = criterion(logits, y)
+                if model.semantic_head is not None and lambda_alpha > 0:
+                    loss = loss + lambda_alpha * model.semantic_head.regularization()
+                loss = loss / grad_accum
+            scaler.scale(loss).backward()
+            if (
+                step % grad_accum == 0
+                or step == len(train_loader)
+            ):
+                if grad_clip > 0:
+                    scaler.unscale_(opt)
+                    torch.nn.utils.clip_grad_norm_(
+                        params,
+                        max_norm=grad_clip,
+                    )
+
+                scaler.step(opt)
+                scaler.update()
+
+                if scheduler is not None:
+                    scheduler.step()
+
+                opt.zero_grad(
+                    set_to_none=True
+                )
+            total_loss += float(loss.detach()) * grad_accum * len(y)
+            seen += len(y)
+        val, logits, targets, ids = _collect_eval(model, val_loader, amp)
+        elapsed = time.time() - start
+        row = {
+            "epoch": epoch,
+            "train_loss": (
+                total_loss / max(1, seen)
+            ),
+            "epoch_seconds": elapsed,
+            **{
+                f"val_{k}": v
+                for k, v in val.items()
+            },
+        }
+
+        if stage == "C1":
+            row["lr_lora_end"] = float(
+                opt.param_groups[0]["lr"]
+            )
+            row["lr_head_end"] = float(
+                opt.param_groups[1]["lr"]
+            )
+        history.append(row)
+        dump_json(history, output_dir / "history.json")
+        if val["macro_f1"] > best:
+            best = val["macro_f1"]
+            checkpoint_format = str(
+                tcfg.get(
+                    "checkpoint_format",
+                    "full",
+                )
+            ).lower()
+
+            if checkpoint_format == "portable_task_v1":
+                state = _portable_task_state_dict(model)
+
+                payload = {
+                    "model": state,
+                    "cfg": cfg,
+                    "epoch": epoch,
+                    "val": val,
+                    "checkpoint_format": "portable_task_v1",
+                    "source_stage": str(
+                        cfg.get("experiment", {}).get(
+                            "stage",
+                            "",
+                        )
+                    ).upper(),
+                    "saved_keys": sorted(state),
+                }
+            elif checkpoint_format == "full":
+                payload = {
+                    "model": model.state_dict(),
+                    "cfg": cfg,
+                    "epoch": epoch,
+                    "val": val,
+                }
+            else:
+                raise ValueError(
+                    "Unknown checkpoint_format: "
+                    f"{checkpoint_format}"
+                )
+
+            torch.save(
+                payload,
+                output_dir / "best.pth",
+            )
+            np.save(output_dir / "val_logits.npy", logits)
+            np.save(output_dir / "val_targets.npy", targets)
+            (output_dir / "val_sample_ids.txt").write_text("\n".join(ids) + "\n", encoding="utf-8")
+            dump_json(val, output_dir / "val_metrics.json")
+        print(json.dumps(row, ensure_ascii=False))
+
+    summary = {"best_val_macro_f1": best, "parameter_counts": count_parameters(model)}
+    if torch.cuda.is_available():
+        summary["peak_vram_bytes"] = int(torch.cuda.max_memory_allocated())
+    dump_json(summary, output_dir / "summary.json")
+    return summary

@@ -1,0 +1,2732 @@
+{
+  "protocol": "canonical_2026_strict",
+  "development_source": "outputs/dataset_audits/tcmp300/leakage_control/development_pool_strict.json",
+  "test_source": "outputs/dataset_audits/tcmp300/leakage_control/test_locked_inventory.json",
+  "near_report": "outputs/dataset_audits/tcmp300/near_duplicates_phash4.json",
+  "split_seed": 42,
+  "near_threshold": 2,
+  "historical_ratio_reference": {
+    "train": 31130,
+    "val": 5193,
+    "train_ratio": 0.8570327340803348,
+    "val_ratio": 0.14296726591966522
+  },
+  "counts": {
+    "development": 35851,
+    "train": 30725,
+    "val": 5126,
+    "test": 15765,
+    "canonical_total": 51616
+  },
+  "classes": {
+    "development": 300,
+    "test": 300
+  },
+  "intra_dev_hard_near_edges": 792,
+  "broken_near_groups": 0,
+  "hard_near_train_val_edges": 0,
+  "class_report": {
+    "001.Veronica persica Poir.": {
+      "samples": 245,
+      "train": 210,
+      "val": 35,
+      "val_target": 35,
+      "groups": 243,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "002.Lysimachia clethroides Duby": {
+      "samples": 144,
+      "train": 123,
+      "val": 21,
+      "val_target": 21,
+      "groups": 142,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "003.Alangium chinense (Lour.) Harms": {
+      "samples": 168,
+      "train": 144,
+      "val": 24,
+      "val_target": 24,
+      "groups": 161,
+      "multi_sample_groups": 7,
+      "max_group_size": 2
+    },
+    "004.Smilax china L.": {
+      "samples": 158,
+      "train": 135,
+      "val": 23,
+      "val_target": 23,
+      "groups": 155,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "005.Datura metel L.": {
+      "samples": 181,
+      "train": 155,
+      "val": 26,
+      "val_target": 26,
+      "groups": 179,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "006.Bletilla striata (Thunb. ex A. Murray) Rchb. f.": {
+      "samples": 169,
+      "train": 145,
+      "val": 24,
+      "val_target": 24,
+      "groups": 166,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "007.Fraxinus chinensis Roxb.": {
+      "samples": 116,
+      "train": 99,
+      "val": 17,
+      "val_target": 17,
+      "groups": 113,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "008.Ampelopsis japonica (Thunb.) Makino": {
+      "samples": 79,
+      "train": 68,
+      "val": 11,
+      "val_target": 11,
+      "groups": 76,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "009.Chelidonium majus L.": {
+      "samples": 217,
+      "train": 186,
+      "val": 31,
+      "val_target": 31,
+      "groups": 215,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "010.Cynanchum bungei Decne.": {
+      "samples": 93,
+      "train": 80,
+      "val": 13,
+      "val_target": 13,
+      "groups": 89,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "011.Pulsatilla chinensis (Bunge) Regel": {
+      "samples": 122,
+      "train": 105,
+      "val": 17,
+      "val_target": 17,
+      "groups": 119,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "012.Solanum lyratum Thunb.": {
+      "samples": 145,
+      "train": 124,
+      "val": 21,
+      "val_target": 21,
+      "groups": 139,
+      "multi_sample_groups": 6,
+      "max_group_size": 2
+    },
+    "013.Angelica dahurica (Fisch. ex Hoffm.) Benth. & Hook. f. ex Franch. & Sav.": {
+      "samples": 94,
+      "train": 81,
+      "val": 13,
+      "val_target": 13,
+      "groups": 90,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "014.Lilium brownii F. E. Brown ex Miellez var. viridulum Baker": {
+      "samples": 108,
+      "train": 93,
+      "val": 15,
+      "val_target": 15,
+      "groups": 106,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "015.Patrinia scabiosaefolia Fisch.ex Trev.": {
+      "samples": 184,
+      "train": 158,
+      "val": 26,
+      "val_target": 26,
+      "groups": 180,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "016.Euphorbia maculata L.": {
+      "samples": 108,
+      "train": 93,
+      "val": 15,
+      "val_target": 15,
+      "groups": 107,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "017.Bothriospermum chinense Bunge": {
+      "samples": 131,
+      "train": 112,
+      "val": 19,
+      "val_target": 19,
+      "groups": 128,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "018.Lobelia chinensis Lour.": {
+      "samples": 123,
+      "train": 105,
+      "val": 18,
+      "val_target": 18,
+      "groups": 115,
+      "multi_sample_groups": 8,
+      "max_group_size": 2
+    },
+    "019.Pinellia ternata (Thunb.) Ten. ex Breitenb.": {
+      "samples": 125,
+      "train": 107,
+      "val": 18,
+      "val_target": 18,
+      "groups": 124,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "020.Scutellaria barbata D. Don": {
+      "samples": 90,
+      "train": 77,
+      "val": 13,
+      "val_target": 13,
+      "groups": 89,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "021.Mentha canadensis L.": {
+      "samples": 124,
+      "train": 106,
+      "val": 18,
+      "val_target": 18,
+      "groups": 124,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "022.Polygonum aviculare L.": {
+      "samples": 128,
+      "train": 110,
+      "val": 18,
+      "val_target": 18,
+      "groups": 124,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "023.Menispermum dauricum DC.": {
+      "samples": 99,
+      "train": 85,
+      "val": 14,
+      "val_target": 14,
+      "groups": 97,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "024.Areca catechu L.": {
+      "samples": 104,
+      "train": 89,
+      "val": 15,
+      "val_target": 15,
+      "groups": 104,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "025.Descurainia sophia (L.) Webb ex Prantl": {
+      "samples": 142,
+      "train": 122,
+      "val": 20,
+      "val_target": 20,
+      "groups": 142,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "026.Macleaya cordata (Willd.) R. Br.": {
+      "samples": 124,
+      "train": 106,
+      "val": 18,
+      "val_target": 18,
+      "groups": 120,
+      "multi_sample_groups": 3,
+      "max_group_size": 3
+    },
+    "027.Xanthium strumarium L.": {
+      "samples": 210,
+      "train": 180,
+      "val": 30,
+      "val_target": 30,
+      "groups": 207,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "028.Atractylodes lancea (Thunb.) DC.": {
+      "samples": 86,
+      "train": 74,
+      "val": 12,
+      "val_target": 12,
+      "groups": 83,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "029.Platycladus orientalis (L.) Franco": {
+      "samples": 148,
+      "train": 127,
+      "val": 21,
+      "val_target": 21,
+      "groups": 147,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "030.Acorus calamus L.": {
+      "samples": 92,
+      "train": 79,
+      "val": 13,
+      "val_target": 13,
+      "groups": 89,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "031.Hedera nepalensis var. sinensis (Tobler) Rehder": {
+      "samples": 105,
+      "train": 90,
+      "val": 15,
+      "val_target": 15,
+      "groups": 104,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "032.Plantago asiatica L.": {
+      "samples": 152,
+      "train": 130,
+      "val": 22,
+      "val_target": 22,
+      "groups": 151,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "033.Penthorum chinense Pursh": {
+      "samples": 100,
+      "train": 86,
+      "val": 14,
+      "val_target": 14,
+      "groups": 99,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "034.Thladiantha dubia Bunge": {
+      "samples": 159,
+      "train": 136,
+      "val": 23,
+      "val_target": 23,
+      "groups": 158,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "035.Clerodendrum bungei Steud.": {
+      "samples": 195,
+      "train": 167,
+      "val": 28,
+      "val_target": 28,
+      "groups": 192,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "036.Cyathula officinalis K. C. Kuan": {
+      "samples": 82,
+      "train": 70,
+      "val": 12,
+      "val_target": 12,
+      "groups": 80,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "037.Ligusticum chuanxiong Hort.": {
+      "samples": 81,
+      "train": 69,
+      "val": 12,
+      "val_target": 12,
+      "groups": 80,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "038.Andrographis paniculata (Burm. f.) Wall. ex Nees in Wallich": {
+      "samples": 71,
+      "train": 61,
+      "val": 10,
+      "val_target": 10,
+      "groups": 68,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "039.Sagittaria trifolia subsp. leucopetala (Miquel) Q. F. Wang": {
+      "samples": 144,
+      "train": 123,
+      "val": 21,
+      "val_target": 21,
+      "groups": 144,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "040.Cirsium arvense var. integrifolium Wimm. & Grab.": {
+      "samples": 148,
+      "train": 127,
+      "val": 21,
+      "val_target": 21,
+      "groups": 148,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "041.Aralia elata (Miq.) Seem.": {
+      "samples": 136,
+      "train": 117,
+      "val": 19,
+      "val_target": 19,
+      "groups": 136,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "042.Euphorbia pekinensis Rupr.": {
+      "samples": 98,
+      "train": 84,
+      "val": 14,
+      "val_target": 14,
+      "groups": 94,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "043.Sargentodoxa cuneata (Oliv.) Rehd. & E. H. Wilson in C. S. Sargent": {
+      "samples": 101,
+      "train": 87,
+      "val": 14,
+      "val_target": 14,
+      "groups": 92,
+      "multi_sample_groups": 8,
+      "max_group_size": 3
+    },
+    "044.Salvia miltiorrhiza Bunge": {
+      "samples": 68,
+      "train": 58,
+      "val": 10,
+      "val_target": 10,
+      "groups": 67,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "045.Mazus stachydifolius (Turcz.) Maxim.": {
+      "samples": 69,
+      "train": 59,
+      "val": 10,
+      "val_target": 10,
+      "groups": 69,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "046.Angelica sinensis (Oliv.) Diels": {
+      "samples": 74,
+      "train": 63,
+      "val": 11,
+      "val_target": 11,
+      "groups": 73,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "047.Codonopsis pilosula (Franch.) Nannf.": {
+      "samples": 86,
+      "train": 74,
+      "val": 12,
+      "val_target": 12,
+      "groups": 84,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "048.Lapsanastrum apogonoides (Maxim.) Pak & K.Bremer": {
+      "samples": 75,
+      "train": 64,
+      "val": 11,
+      "val_target": 11,
+      "groups": 72,
+      "multi_sample_groups": 2,
+      "max_group_size": 3
+    },
+    "049.Juncus effusus L.": {
+      "samples": 105,
+      "train": 90,
+      "val": 15,
+      "val_target": 15,
+      "groups": 103,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "050.Hypericum japonicum Thunb. in Murr.": {
+      "samples": 72,
+      "train": 62,
+      "val": 10,
+      "val_target": 10,
+      "groups": 70,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "051.Geranium wilfordii Maxim.": {
+      "samples": 72,
+      "train": 62,
+      "val": 10,
+      "val_target": 10,
+      "groups": 72,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "052.Rehmannia glutinosa (Gaertn.) Libosch. ex Fisch. & C. A. Mey.": {
+      "samples": 74,
+      "train": 63,
+      "val": 11,
+      "val_target": 11,
+      "groups": 72,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "053.Lycopus lucidus Turcz. ex Benth.": {
+      "samples": 76,
+      "train": 65,
+      "val": 11,
+      "val_target": 11,
+      "groups": 76,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "054.Sanguisorba officinalis L.": {
+      "samples": 152,
+      "train": 130,
+      "val": 22,
+      "val_target": 22,
+      "groups": 146,
+      "multi_sample_groups": 6,
+      "max_group_size": 2
+    },
+    "055.Atropa belladonna L.": {
+      "samples": 95,
+      "train": 81,
+      "val": 14,
+      "val_target": 14,
+      "groups": 89,
+      "multi_sample_groups": 6,
+      "max_group_size": 2
+    },
+    "056.Androsace umbellata (Lour.) Merr.": {
+      "samples": 105,
+      "train": 90,
+      "val": 15,
+      "val_target": 15,
+      "groups": 104,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "057.Sauromatum giganteum (Engl.) Cusimano & Hett.": {
+      "samples": 102,
+      "train": 87,
+      "val": 15,
+      "val_target": 15,
+      "groups": 97,
+      "multi_sample_groups": 5,
+      "max_group_size": 2
+    },
+    "058.Asarum forbesii Maxim.": {
+      "samples": 81,
+      "train": 69,
+      "val": 12,
+      "val_target": 12,
+      "groups": 79,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "059.Eucommia ulmoides Oliv.": {
+      "samples": 104,
+      "train": 89,
+      "val": 15,
+      "val_target": 15,
+      "groups": 99,
+      "multi_sample_groups": 5,
+      "max_group_size": 2
+    },
+    "060.Crocus sativus L.": {
+      "samples": 152,
+      "train": 130,
+      "val": 22,
+      "val_target": 22,
+      "groups": 150,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "061.Potentilla discolor Bunge": {
+      "samples": 76,
+      "train": 65,
+      "val": 11,
+      "val_target": 11,
+      "groups": 76,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "062.Stellaria media (L.) Vill.": {
+      "samples": 181,
+      "train": 155,
+      "val": 26,
+      "val_target": 26,
+      "groups": 179,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "063.Saposhnikovia divaricata (Turcz.) Schischk.": {
+      "samples": 112,
+      "train": 96,
+      "val": 16,
+      "val_target": 16,
+      "groups": 109,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "064.Euphorbia hirta L.": {
+      "samples": 145,
+      "train": 124,
+      "val": 21,
+      "val_target": 21,
+      "groups": 142,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "065.Phedimus aizoon (L.) 't Hart": {
+      "samples": 168,
+      "train": 144,
+      "val": 24,
+      "val_target": 24,
+      "groups": 165,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "066.Stephania tetrandra S. Moore": {
+      "samples": 77,
+      "train": 66,
+      "val": 11,
+      "val_target": 11,
+      "groups": 71,
+      "multi_sample_groups": 5,
+      "max_group_size": 3
+    },
+    "067.Clinopodium chinense (Benth.) Kuntze": {
+      "samples": 126,
+      "train": 108,
+      "val": 18,
+      "val_target": 18,
+      "groups": 125,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "068.Coniogramme japonica (Thunb.) Diels": {
+      "samples": 109,
+      "train": 93,
+      "val": 16,
+      "val_target": 16,
+      "groups": 108,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "069.Impatiens balsamina L.": {
+      "samples": 147,
+      "train": 126,
+      "val": 21,
+      "val_target": 21,
+      "groups": 144,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "070.Trigonotis peduncularis (Trevis.) Benth. ex Baker & S. Moore": {
+      "samples": 115,
+      "train": 99,
+      "val": 16,
+      "val_target": 16,
+      "groups": 113,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "071.Rubus idaeus L": {
+      "samples": 154,
+      "train": 132,
+      "val": 22,
+      "val_target": 22,
+      "groups": 154,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "072.Stachys sieboldii Miq.": {
+      "samples": 74,
+      "train": 63,
+      "val": 11,
+      "val_target": 11,
+      "groups": 71,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "073.Periploca sepium Bunge": {
+      "samples": 92,
+      "train": 79,
+      "val": 13,
+      "val_target": 13,
+      "groups": 89,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "074.Rhodiola cretinii subsp. sinoalpina (Fröd.) H. Ohba": {
+      "samples": 117,
+      "train": 100,
+      "val": 17,
+      "val_target": 17,
+      "groups": 114,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "075.Pueraria montana var. lobata (Ohwi) Maesen & S. M. Almeida": {
+      "samples": 78,
+      "train": 67,
+      "val": 11,
+      "val_target": 11,
+      "groups": 78,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "076.Ilex cornuta Lindl. & Paxton": {
+      "samples": 91,
+      "train": 78,
+      "val": 13,
+      "val_target": 13,
+      "groups": 90,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "077.Lycium chinense Mill.": {
+      "samples": 91,
+      "train": 78,
+      "val": 13,
+      "val_target": 13,
+      "groups": 91,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "078.Broussonetia papyrifera (L.) L'Hér. ex Vent.": {
+      "samples": 113,
+      "train": 97,
+      "val": 16,
+      "val_target": 16,
+      "groups": 111,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "079.Eriocaulon buergerianum Körn.": {
+      "samples": 74,
+      "train": 63,
+      "val": 11,
+      "val_target": 11,
+      "groups": 73,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "080.Polygala japonica Houtt.": {
+      "samples": 88,
+      "train": 75,
+      "val": 13,
+      "val_target": 13,
+      "groups": 86,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "081.Alkekengi officinarum var. franchetii (Mast.) R. J. Wang": {
+      "samples": 133,
+      "train": 114,
+      "val": 19,
+      "val_target": 19,
+      "groups": 132,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "082.Hypericum perforatum L.": {
+      "samples": 114,
+      "train": 98,
+      "val": 16,
+      "val_target": 16,
+      "groups": 112,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "083.Cyrtomium fortunei J. Sm.": {
+      "samples": 92,
+      "train": 79,
+      "val": 13,
+      "val_target": 13,
+      "groups": 89,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "084.Vicia cracca L.": {
+      "samples": 161,
+      "train": 138,
+      "val": 23,
+      "val_target": 23,
+      "groups": 161,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "085.Bidens pilosa L.": {
+      "samples": 157,
+      "train": 135,
+      "val": 22,
+      "val_target": 22,
+      "groups": 156,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "086.Lysimachia christinae Hance": {
+      "samples": 88,
+      "train": 75,
+      "val": 13,
+      "val_target": 13,
+      "groups": 85,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "087.Lygodium japonicum (Thunb.) Sw.": {
+      "samples": 100,
+      "train": 86,
+      "val": 14,
+      "val_target": 14,
+      "groups": 99,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "088.Pittosporum tobira (Thunb.) W. T. Aiton": {
+      "samples": 121,
+      "train": 104,
+      "val": 17,
+      "val_target": 17,
+      "groups": 121,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "089.Clerodendrum trichotomum Thunb.": {
+      "samples": 191,
+      "train": 164,
+      "val": 27,
+      "val_target": 27,
+      "groups": 188,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "090.Mimosa pudica L.": {
+      "samples": 104,
+      "train": 89,
+      "val": 15,
+      "val_target": 15,
+      "groups": 98,
+      "multi_sample_groups": 5,
+      "max_group_size": 3
+    },
+    "091.Scutellaria indica L.": {
+      "samples": 116,
+      "train": 99,
+      "val": 17,
+      "val_target": 17,
+      "groups": 114,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "092.Rorippa indica (L.) Hiern": {
+      "samples": 134,
+      "train": 115,
+      "val": 19,
+      "val_target": 19,
+      "groups": 131,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "093.Albizia julibrissin Durazz.": {
+      "samples": 173,
+      "train": 148,
+      "val": 25,
+      "val_target": 25,
+      "groups": 171,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "094.Pleuropterus multiflorus (Thunb.) Nakai": {
+      "samples": 105,
+      "train": 90,
+      "val": 15,
+      "val_target": 15,
+      "groups": 105,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "095.Taxus wallichiana var. chinensis (Pilg.) Florin": {
+      "samples": 122,
+      "train": 105,
+      "val": 17,
+      "val_target": 17,
+      "groups": 116,
+      "multi_sample_groups": 6,
+      "max_group_size": 2
+    },
+    "096.Carthamus tinctorius L.": {
+      "samples": 118,
+      "train": 101,
+      "val": 17,
+      "val_target": 17,
+      "groups": 116,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "097.Oxalis corymbosa DC.": {
+      "samples": 141,
+      "train": 121,
+      "val": 20,
+      "val_target": 20,
+      "groups": 137,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "098.Lycoris aurea (L'Hér.) Herb.": {
+      "samples": 148,
+      "train": 127,
+      "val": 21,
+      "val_target": 21,
+      "groups": 146,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "099.Drynaria roosii Nakaike": {
+      "samples": 84,
+      "train": 72,
+      "val": 12,
+      "val_target": 12,
+      "groups": 82,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "100.Saxifraga stolonifera Curtis": {
+      "samples": 163,
+      "train": 140,
+      "val": 23,
+      "val_target": 23,
+      "groups": 161,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "101.Reynoutria japonica Houtt.": {
+      "samples": 115,
+      "train": 99,
+      "val": 16,
+      "val_target": 16,
+      "groups": 115,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "102.Styphnolobium japonicum (L.) Schott": {
+      "samples": 91,
+      "train": 78,
+      "val": 13,
+      "val_target": 13,
+      "groups": 91,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "103.Youngia japonica (L.) DC.": {
+      "samples": 127,
+      "train": 109,
+      "val": 18,
+      "val_target": 18,
+      "groups": 125,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "104.Hemerocallis citrina Baroni": {
+      "samples": 114,
+      "train": 98,
+      "val": 16,
+      "val_target": 16,
+      "groups": 110,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "105.Vitex negundo L.": {
+      "samples": 74,
+      "train": 63,
+      "val": 11,
+      "val_target": 11,
+      "groups": 72,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "106.Polygonatum sibiricum Redouté": {
+      "samples": 76,
+      "train": 65,
+      "val": 11,
+      "val_target": 11,
+      "groups": 71,
+      "multi_sample_groups": 5,
+      "max_group_size": 2
+    },
+    "107.Berberis amurensis Rupr.": {
+      "samples": 92,
+      "train": 79,
+      "val": 13,
+      "val_target": 13,
+      "groups": 92,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "108.Scutellaria baicalensis Georgi": {
+      "samples": 85,
+      "train": 73,
+      "val": 12,
+      "val_target": 12,
+      "groups": 83,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "109.Ranunculus chinensis Bunge": {
+      "samples": 139,
+      "train": 119,
+      "val": 20,
+      "val_target": 20,
+      "groups": 135,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "110.Glechoma longituba (Nakai) Kupr.": {
+      "samples": 104,
+      "train": 89,
+      "val": 15,
+      "val_target": 15,
+      "groups": 102,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "111.Sedum sarmentosum Bunge": {
+      "samples": 164,
+      "train": 140,
+      "val": 24,
+      "val_target": 24,
+      "groups": 157,
+      "multi_sample_groups": 7,
+      "max_group_size": 2
+    },
+    "112.Agastache rugosa (Fisch. & C. A. Mey.) Kuntze": {
+      "samples": 85,
+      "train": 73,
+      "val": 12,
+      "val_target": 12,
+      "groups": 81,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "113.Rhodotypos scandens (Thunb.) Makino": {
+      "samples": 128,
+      "train": 110,
+      "val": 18,
+      "val_target": 18,
+      "groups": 127,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "114.Paederia  foetida L.": {
+      "samples": 135,
+      "train": 116,
+      "val": 19,
+      "val_target": 19,
+      "groups": 132,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "115.Viola acuminata Ledeb.": {
+      "samples": 139,
+      "train": 119,
+      "val": 20,
+      "val_target": 20,
+      "groups": 132,
+      "multi_sample_groups": 7,
+      "max_group_size": 2
+    },
+    "116.Chloranthus serratus (Thunb.) Roem. & Schult.": {
+      "samples": 104,
+      "train": 89,
+      "val": 15,
+      "val_target": 15,
+      "groups": 102,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "117.Houttuynia cordata Thunb.": {
+      "samples": 105,
+      "train": 90,
+      "val": 15,
+      "val_target": 15,
+      "groups": 104,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "118.Cirsium japonicum Fisch. ex DC.": {
+      "samples": 82,
+      "train": 70,
+      "val": 12,
+      "val_target": 12,
+      "groups": 80,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "119.Nerium oleander L.": {
+      "samples": 184,
+      "train": 158,
+      "val": 26,
+      "val_target": 26,
+      "groups": 181,
+      "multi_sample_groups": 2,
+      "max_group_size": 3
+    },
+    "120.Crepidiastrum sonchifolium (Bunge) Pak & Kawano": {
+      "samples": 89,
+      "train": 76,
+      "val": 13,
+      "val_target": 13,
+      "groups": 88,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "121.Gynostemma pentaphyllum (Thunb.) Makino": {
+      "samples": 72,
+      "train": 62,
+      "val": 10,
+      "val_target": 10,
+      "groups": 71,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "122.Sambucus javanica Reinw. ex Blume": {
+      "samples": 142,
+      "train": 122,
+      "val": 20,
+      "val_target": 20,
+      "groups": 140,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "123.Sambucus williamsii Hance": {
+      "samples": 121,
+      "train": 104,
+      "val": 17,
+      "val_target": 17,
+      "groups": 119,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "124.Cuscuta japonica Choisy in Zoll.": {
+      "samples": 71,
+      "train": 61,
+      "val": 10,
+      "val_target": 10,
+      "groups": 70,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "125.Stephania cephalantha Hayata": {
+      "samples": 90,
+      "train": 77,
+      "val": 13,
+      "val_target": 13,
+      "groups": 87,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "126.Rosa laevigata Michx.": {
+      "samples": 143,
+      "train": 123,
+      "val": 20,
+      "val_target": 20,
+      "groups": 137,
+      "multi_sample_groups": 6,
+      "max_group_size": 2
+    },
+    "127.Lysimachia grammica Hance": {
+      "samples": 66,
+      "train": 57,
+      "val": 9,
+      "val_target": 9,
+      "groups": 57,
+      "multi_sample_groups": 7,
+      "max_group_size": 3
+    },
+    "128.Ajuga decumbens Thunb.": {
+      "samples": 124,
+      "train": 106,
+      "val": 18,
+      "val_target": 18,
+      "groups": 124,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "129.Nepeta cataria L.": {
+      "samples": 70,
+      "train": 60,
+      "val": 10,
+      "val_target": 10,
+      "groups": 67,
+      "multi_sample_groups": 2,
+      "max_group_size": 3
+    },
+    "130.Vicia sativa L.": {
+      "samples": 135,
+      "train": 116,
+      "val": 19,
+      "val_target": 19,
+      "groups": 133,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "131.Platycodon grandiflorus (Jacq.) A. DC.": {
+      "samples": 118,
+      "train": 101,
+      "val": 17,
+      "val_target": 17,
+      "groups": 114,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "132.Chrysanthemum morifolium Ramat.": {
+      "samples": 214,
+      "train": 183,
+      "val": 31,
+      "val_target": 31,
+      "groups": 210,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "133.Gynura japonica (Thunb.) Juel": {
+      "samples": 79,
+      "train": 68,
+      "val": 11,
+      "val_target": 11,
+      "groups": 73,
+      "multi_sample_groups": 6,
+      "max_group_size": 2
+    },
+    "134.Selaginella tamariscina (P. Beauv.) Spring": {
+      "samples": 128,
+      "train": 110,
+      "val": 18,
+      "val_target": 18,
+      "groups": 124,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "135.Senna tora (L.) Roxb.": {
+      "samples": 134,
+      "train": 115,
+      "val": 19,
+      "val_target": 19,
+      "groups": 124,
+      "multi_sample_groups": 10,
+      "max_group_size": 2
+    },
+    "136.Justicia procumbens L.": {
+      "samples": 82,
+      "train": 70,
+      "val": 12,
+      "val_target": 12,
+      "groups": 82,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "137.Persicaria perfoliata (L.) H. Gross": {
+      "samples": 127,
+      "train": 109,
+      "val": 18,
+      "val_target": 18,
+      "groups": 123,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "138.Corydalis incisa (Thunb.) Pers.": {
+      "samples": 131,
+      "train": 112,
+      "val": 19,
+      "val_target": 19,
+      "groups": 129,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "139.Sophora flavescens Aiton": {
+      "samples": 84,
+      "train": 72,
+      "val": 12,
+      "val_target": 12,
+      "groups": 83,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "140.Trichosanthes kirilowii Maxim.": {
+      "samples": 140,
+      "train": 120,
+      "val": 20,
+      "val_target": 20,
+      "groups": 139,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "141.Geranium wilfordii Maxim.": {
+      "samples": 96,
+      "train": 82,
+      "val": 14,
+      "val_target": 14,
+      "groups": 95,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "142.Amana edulis (Miq.) Honda": {
+      "samples": 124,
+      "train": 106,
+      "val": 18,
+      "val_target": 18,
+      "groups": 124,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "143.Viola japonica Langsd. ex DC.": {
+      "samples": 135,
+      "train": 116,
+      "val": 19,
+      "val_target": 19,
+      "groups": 134,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "144.Chenopodium album L.": {
+      "samples": 101,
+      "train": 87,
+      "val": 14,
+      "val_target": 14,
+      "groups": 101,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "145.Veratrum nigrum L.": {
+      "samples": 143,
+      "train": 123,
+      "val": 20,
+      "val_target": 20,
+      "groups": 137,
+      "multi_sample_groups": 6,
+      "max_group_size": 2
+    },
+    "146.Eclipta prostrata (L.) L.": {
+      "samples": 141,
+      "train": 121,
+      "val": 20,
+      "val_target": 20,
+      "groups": 137,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "147.Salvia plebeia R. Br.": {
+      "samples": 84,
+      "train": 72,
+      "val": 12,
+      "val_target": 12,
+      "groups": 83,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "148.Forsythia suspensa (Thunb.) Vahl": {
+      "samples": 78,
+      "train": 67,
+      "val": 11,
+      "val_target": 11,
+      "groups": 76,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "149.Hyoscyamus niger L.": {
+      "samples": 131,
+      "train": 112,
+      "val": 19,
+      "val_target": 19,
+      "groups": 130,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "150.Lysimachia congestiflora Hemsl.": {
+      "samples": 76,
+      "train": 65,
+      "val": 11,
+      "val_target": 11,
+      "groups": 72,
+      "multi_sample_groups": 3,
+      "max_group_size": 3
+    },
+    "151.Solanum nigrum L.": {
+      "samples": 164,
+      "train": 141,
+      "val": 23,
+      "val_target": 23,
+      "groups": 160,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "152.Agrimonia pilosa Ledeb.": {
+      "samples": 106,
+      "train": 91,
+      "val": 15,
+      "val_target": 15,
+      "groups": 104,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "153.Adenophora tetraphylla (Thunb.) Fisch.": {
+      "samples": 83,
+      "train": 71,
+      "val": 12,
+      "val_target": 12,
+      "groups": 81,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "154.Apocynum venetum L.": {
+      "samples": 97,
+      "train": 83,
+      "val": 14,
+      "val_target": 14,
+      "groups": 96,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "155.Raphanus sativus L.": {
+      "samples": 75,
+      "train": 64,
+      "val": 11,
+      "val_target": 11,
+      "groups": 73,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "156.Cynanchum rostellatum (Turcz.) Liede & Khanum": {
+      "samples": 114,
+      "train": 98,
+      "val": 16,
+      "val_target": 16,
+      "groups": 113,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "157.Trachelospermum jasminoides (Lindl.) Lem.": {
+      "samples": 132,
+      "train": 113,
+      "val": 19,
+      "val_target": 19,
+      "groups": 131,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "158.Astilbe chinensis (Maxim.) Franch. & Sav.": {
+      "samples": 206,
+      "train": 176,
+      "val": 30,
+      "val_target": 30,
+      "groups": 201,
+      "multi_sample_groups": 5,
+      "max_group_size": 2
+    },
+    "159.Humulus scandens (Lour.) Merr.": {
+      "samples": 146,
+      "train": 125,
+      "val": 21,
+      "val_target": 21,
+      "groups": 145,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "160.Verbena officinalis L.": {
+      "samples": 102,
+      "train": 87,
+      "val": 15,
+      "val_target": 15,
+      "groups": 102,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "161.Zehneria indica (Lour.)Keraudren": {
+      "samples": 76,
+      "train": 65,
+      "val": 11,
+      "val_target": 11,
+      "groups": 75,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "162.Portulaca oleracea L.": {
+      "samples": 136,
+      "train": 117,
+      "val": 19,
+      "val_target": 19,
+      "groups": 135,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "163.Aristolochia debilis Siebold & Zucc.": {
+      "samples": 116,
+      "train": 99,
+      "val": 17,
+      "val_target": 17,
+      "groups": 114,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "164.Baphicacanthus cusia(Nees)Bremek.": {
+      "samples": 166,
+      "train": 142,
+      "val": 24,
+      "val_target": 24,
+      "groups": 162,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "165.Ophiopogon japonicus (L. f.) Ker Gawl.": {
+      "samples": 94,
+      "train": 81,
+      "val": 13,
+      "val_target": 13,
+      "groups": 93,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "166.Vaccaria segetalis(Neck.)Garcke": {
+      "samples": 74,
+      "train": 63,
+      "val": 11,
+      "val_target": 11,
+      "groups": 74,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "167.Ranunculus ternatus Thunb.": {
+      "samples": 74,
+      "train": 63,
+      "val": 11,
+      "val_target": 11,
+      "groups": 69,
+      "multi_sample_groups": 5,
+      "max_group_size": 2
+    },
+    "168.Ranunculus japonicus Thunb.": {
+      "samples": 90,
+      "train": 77,
+      "val": 13,
+      "val_target": 13,
+      "groups": 90,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "169.Spatholobus suberectus Dunn": {
+      "samples": 77,
+      "train": 66,
+      "val": 11,
+      "val_target": 11,
+      "groups": 75,
+      "multi_sample_groups": 1,
+      "max_group_size": 3
+    },
+    "170.Vitex negundo var. cannabifolia (Siebold & Zucc.) Hand.-Mazz.": {
+      "samples": 89,
+      "train": 76,
+      "val": 13,
+      "val_target": 13,
+      "groups": 87,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "171.Momordica cochinchinensis (Lour.) Spreng.": {
+      "samples": 92,
+      "train": 79,
+      "val": 13,
+      "val_target": 13,
+      "groups": 89,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "172.Cocculus orbiculatus (L.) DC.": {
+      "samples": 70,
+      "train": 60,
+      "val": 10,
+      "val_target": 10,
+      "groups": 70,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "173.Oroxylum indicum (L.) Kurz": {
+      "samples": 96,
+      "train": 82,
+      "val": 14,
+      "val_target": 14,
+      "groups": 86,
+      "multi_sample_groups": 8,
+      "max_group_size": 3
+    },
+    "174.Hibiscus syriacus L.": {
+      "samples": 202,
+      "train": 173,
+      "val": 29,
+      "val_target": 29,
+      "groups": 199,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "175.Equisetum hyemale L.": {
+      "samples": 113,
+      "train": 97,
+      "val": 16,
+      "val_target": 16,
+      "groups": 113,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "176.Nandina domestica Thunb.": {
+      "samples": 123,
+      "train": 105,
+      "val": 18,
+      "val_target": 18,
+      "groups": 120,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "177.Arctium lappa L.": {
+      "samples": 179,
+      "train": 153,
+      "val": 26,
+      "val_target": 26,
+      "groups": 175,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "178.Achyranthes bidentata Blume": {
+      "samples": 84,
+      "train": 72,
+      "val": 12,
+      "val_target": 12,
+      "groups": 80,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "179.Origanum vulgare L.": {
+      "samples": 153,
+      "train": 131,
+      "val": 22,
+      "val_target": 22,
+      "groups": 147,
+      "multi_sample_groups": 5,
+      "max_group_size": 3
+    },
+    "180.Ligustrum lucidum W. T. Aiton": {
+      "samples": 107,
+      "train": 92,
+      "val": 15,
+      "val_target": 15,
+      "groups": 106,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "181.Eupatorium fortunei Turcz.": {
+      "samples": 93,
+      "train": 80,
+      "val": 13,
+      "val_target": 13,
+      "groups": 93,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "182.Eriobotrya japonica (Thunb.) Lindl.": {
+      "samples": 136,
+      "train": 117,
+      "val": 19,
+      "val_target": 19,
+      "groups": 134,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "183.Sinosenecio oldhamianus (Maxim.) B. Nord.": {
+      "samples": 87,
+      "train": 75,
+      "val": 12,
+      "val_target": 12,
+      "groups": 86,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "184.Taraxacum mongolicum Hand.-Mazz.": {
+      "samples": 128,
+      "train": 110,
+      "val": 18,
+      "val_target": 18,
+      "groups": 124,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "185.Viola diffusa Ging. in DC.": {
+      "samples": 82,
+      "train": 70,
+      "val": 12,
+      "val_target": 12,
+      "groups": 81,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "186.Paris polyphylla Sm.": {
+      "samples": 156,
+      "train": 134,
+      "val": 22,
+      "val_target": 22,
+      "groups": 152,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "187.Capsella bursa-pastoris (L.) Medik.": {
+      "samples": 110,
+      "train": 94,
+      "val": 16,
+      "val_target": 16,
+      "groups": 107,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "188.Adenophora trachelioides Maxim.": {
+      "samples": 103,
+      "train": 88,
+      "val": 15,
+      "val_target": 15,
+      "groups": 101,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "189.Senecio scandens Buch.-Ham. ex D. Don": {
+      "samples": 94,
+      "train": 81,
+      "val": 13,
+      "val_target": 13,
+      "groups": 90,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "190.Ipomoea nil (L.) Roth": {
+      "samples": 134,
+      "train": 115,
+      "val": 19,
+      "val_target": 19,
+      "groups": 133,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "191.Peucedanum praeruptorum Dunn": {
+      "samples": 77,
+      "train": 66,
+      "val": 11,
+      "val_target": 11,
+      "groups": 74,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "192.Euryale ferox Salisb. ex K. D. Koenig & Sims": {
+      "samples": 116,
+      "train": 99,
+      "val": 17,
+      "val_target": 17,
+      "groups": 114,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "193.Rubia  cordifolia L.": {
+      "samples": 129,
+      "train": 111,
+      "val": 18,
+      "val_target": 18,
+      "groups": 124,
+      "multi_sample_groups": 5,
+      "max_group_size": 2
+    },
+    "194.Fagopyrum esculentum Moench": {
+      "samples": 127,
+      "train": 109,
+      "val": 18,
+      "val_target": 18,
+      "groups": 124,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "195.Cardiocrinum cathayanum (E. H. Wilson) Stearn": {
+      "samples": 135,
+      "train": 116,
+      "val": 19,
+      "val_target": 19,
+      "groups": 131,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "196.Torilis scabra (Thunb.) DC.": {
+      "samples": 133,
+      "train": 114,
+      "val": 19,
+      "val_target": 19,
+      "groups": 132,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "197.Abutilon theophrasti Medikus": {
+      "samples": 174,
+      "train": 149,
+      "val": 25,
+      "val_target": 25,
+      "groups": 172,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "198.Dianthus superbus L.": {
+      "samples": 167,
+      "train": 143,
+      "val": 24,
+      "val_target": 24,
+      "groups": 163,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "199.P.bistorta L.": {
+      "samples": 98,
+      "train": 84,
+      "val": 14,
+      "val_target": 14,
+      "groups": 97,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "200.Panax ginseng C. A. Mey.": {
+      "samples": 80,
+      "train": 69,
+      "val": 11,
+      "val_target": 11,
+      "groups": 78,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "201.Lonicera japonica Thunb.": {
+      "samples": 106,
+      "train": 91,
+      "val": 15,
+      "val_target": 15,
+      "groups": 104,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "202.Euphorbia esula L.": {
+      "samples": 133,
+      "train": 114,
+      "val": 19,
+      "val_target": 19,
+      "groups": 123,
+      "multi_sample_groups": 10,
+      "max_group_size": 2
+    },
+    "203.Saururus chinensis (Lour.) Baill.": {
+      "samples": 128,
+      "train": 110,
+      "val": 18,
+      "val_target": 18,
+      "groups": 123,
+      "multi_sample_groups": 5,
+      "max_group_size": 2
+    },
+    "204.Coptis deltoidea C. Y. Cheng & P. G. Xiao": {
+      "samples": 76,
+      "train": 65,
+      "val": 11,
+      "val_target": 11,
+      "groups": 75,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "205.Panax notoginseng (Burkill) F. H. Chen ex C. H. Chow": {
+      "samples": 90,
+      "train": 77,
+      "val": 13,
+      "val_target": 13,
+      "groups": 88,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "206.Morus alba L.": {
+      "samples": 77,
+      "train": 66,
+      "val": 11,
+      "val_target": 11,
+      "groups": 77,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "207.Cornus officinalis Sieb. & Zucc.": {
+      "samples": 142,
+      "train": 122,
+      "val": 20,
+      "val_target": 20,
+      "groups": 137,
+      "multi_sample_groups": 5,
+      "max_group_size": 2
+    },
+    "208.Glehnia littoralis F. Schmidt ex Miq.": {
+      "samples": 89,
+      "train": 76,
+      "val": 13,
+      "val_target": 13,
+      "groups": 88,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "209.Solanum pseudocapsicum L.": {
+      "samples": 114,
+      "train": 98,
+      "val": 16,
+      "val_target": 16,
+      "groups": 114,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "210.Phytolacca acinosa Roxb.": {
+      "samples": 189,
+      "train": 162,
+      "val": 27,
+      "val_target": 27,
+      "groups": 185,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "211.Paeonia lactiflora Pall.": {
+      "samples": 118,
+      "train": 101,
+      "val": 17,
+      "val_target": 17,
+      "groups": 117,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "212.Corydalis ophiocarpa Hook. f. & Thomson": {
+      "samples": 82,
+      "train": 70,
+      "val": 12,
+      "val_target": 12,
+      "groups": 77,
+      "multi_sample_groups": 5,
+      "max_group_size": 2
+    },
+    "213.Belamcanda chinensis (L.) Redouté": {
+      "samples": 180,
+      "train": 154,
+      "val": 26,
+      "val_target": 26,
+      "groups": 176,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "214.Actaea cimicifuga L.": {
+      "samples": 129,
+      "train": 111,
+      "val": 18,
+      "val_target": 18,
+      "groups": 129,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "215.Staphylea bumalda DC.": {
+      "samples": 108,
+      "train": 93,
+      "val": 15,
+      "val_target": 15,
+      "groups": 107,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "216.Mahonia fortunei (Lindl.) Fedde": {
+      "samples": 148,
+      "train": 127,
+      "val": 21,
+      "val_target": 21,
+      "groups": 144,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "217.Centipeda minima (L.) A. Braun & Asch.": {
+      "samples": 86,
+      "train": 74,
+      "val": 12,
+      "val_target": 12,
+      "groups": 84,
+      "multi_sample_groups": 1,
+      "max_group_size": 3
+    },
+    "218.Ranunculus sceleratus L.": {
+      "samples": 169,
+      "train": 145,
+      "val": 24,
+      "val_target": 24,
+      "groups": 167,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "219.Lycoris radiata (L'Hér.) Herb.": {
+      "samples": 144,
+      "train": 123,
+      "val": 21,
+      "val_target": 21,
+      "groups": 142,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "220.Pyrrosia lingua (Thunb.) Farw.": {
+      "samples": 146,
+      "train": 125,
+      "val": 21,
+      "val_target": 21,
+      "groups": 144,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "221.Dianthus chinensis L.": {
+      "samples": 212,
+      "train": 182,
+      "val": 30,
+      "val_target": 30,
+      "groups": 210,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "222.Pseudognaphalium affine (D. Don) Anderb.": {
+      "samples": 161,
+      "train": 138,
+      "val": 23,
+      "val_target": 23,
+      "groups": 161,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "223.Dioscorea polystachya Turcz.": {
+      "samples": 161,
+      "train": 138,
+      "val": 23,
+      "val_target": 23,
+      "groups": 150,
+      "multi_sample_groups": 11,
+      "max_group_size": 2
+    },
+    "224.Persicaria hydropiper (L.) Spach": {
+      "samples": 160,
+      "train": 137,
+      "val": 23,
+      "val_target": 23,
+      "groups": 159,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "225.Isatis tinctoria L.": {
+      "samples": 134,
+      "train": 115,
+      "val": 19,
+      "val_target": 19,
+      "groups": 131,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "226.Cycas revoluta Thunb.": {
+      "samples": 163,
+      "train": 140,
+      "val": 23,
+      "val_target": 23,
+      "groups": 162,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "227.Isodon rubescens (Hemsl.) H. Hara": {
+      "samples": 80,
+      "train": 69,
+      "val": 11,
+      "val_target": 11,
+      "groups": 76,
+      "multi_sample_groups": 3,
+      "max_group_size": 3
+    },
+    "228.Semiaquilegia adoxoides (DC.) Makino": {
+      "samples": 96,
+      "train": 82,
+      "val": 14,
+      "val_target": 14,
+      "groups": 93,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "229.Gastrodia elata Bl.": {
+      "samples": 80,
+      "train": 69,
+      "val": 11,
+      "val_target": 11,
+      "groups": 80,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "230.Asparagus cochinchinensis (Lour.) Merr.": {
+      "samples": 128,
+      "train": 110,
+      "val": 18,
+      "val_target": 18,
+      "groups": 126,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "231.Carpesium abrotanoides L.": {
+      "samples": 91,
+      "train": 78,
+      "val": 13,
+      "val_target": 13,
+      "groups": 90,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "232.Arisaema heterophyllum Blume": {
+      "samples": 118,
+      "train": 101,
+      "val": 17,
+      "val_target": 17,
+      "groups": 118,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "233.Convolvulus arvensis L.": {
+      "samples": 238,
+      "train": 204,
+      "val": 34,
+      "val_target": 34,
+      "groups": 230,
+      "multi_sample_groups": 8,
+      "max_group_size": 2
+    },
+    "234.Acalypha australis L.": {
+      "samples": 155,
+      "train": 133,
+      "val": 22,
+      "val_target": 22,
+      "groups": 154,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "235.Clematis florida Thunb.": {
+      "samples": 145,
+      "train": 124,
+      "val": 21,
+      "val_target": 21,
+      "groups": 144,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "236.Draba nemorosa L.": {
+      "samples": 142,
+      "train": 122,
+      "val": 20,
+      "val_target": 20,
+      "groups": 139,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "237.Mazus pumilus (Burm. f.) Steenis": {
+      "samples": 187,
+      "train": 160,
+      "val": 27,
+      "val_target": 27,
+      "groups": 184,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "238.Tetrapanax papyrifer (Hook.) K. Koch": {
+      "samples": 148,
+      "train": 127,
+      "val": 21,
+      "val_target": 21,
+      "groups": 146,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "239.Pilea pumila (L.) A. Gray": {
+      "samples": 103,
+      "train": 88,
+      "val": 15,
+      "val_target": 15,
+      "groups": 102,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "240.Talinum paniculatum (Jacq.) Gaertn.": {
+      "samples": 151,
+      "train": 129,
+      "val": 22,
+      "val_target": 22,
+      "groups": 151,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "241.Syneilesis aconitifolia (Bunge) Maxim.": {
+      "samples": 126,
+      "train": 108,
+      "val": 18,
+      "val_target": 18,
+      "groups": 120,
+      "multi_sample_groups": 5,
+      "max_group_size": 3
+    },
+    "242.Cuscuta chinensis Lam.": {
+      "samples": 76,
+      "train": 65,
+      "val": 11,
+      "val_target": 11,
+      "groups": 74,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "243.Orostachys fimbriata (Turcz.) A. Berger": {
+      "samples": 137,
+      "train": 117,
+      "val": 20,
+      "val_target": 20,
+      "groups": 137,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "244.Lepisorus thunbergianus (Kaulf.) Ching": {
+      "samples": 90,
+      "train": 77,
+      "val": 13,
+      "val_target": 13,
+      "groups": 89,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "245.Euonymus alatus (Thunb.) Siebold": {
+      "samples": 94,
+      "train": 81,
+      "val": 13,
+      "val_target": 13,
+      "groups": 92,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "246.Equisetum arvense L.": {
+      "samples": 146,
+      "train": 125,
+      "val": 21,
+      "val_target": 21,
+      "groups": 143,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "247.Triadica sebifera (L.) Small": {
+      "samples": 113,
+      "train": 97,
+      "val": 16,
+      "val_target": 16,
+      "groups": 109,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "248.Aconitum carmichaelii Debeaux": {
+      "samples": 169,
+      "train": 145,
+      "val": 24,
+      "val_target": 24,
+      "groups": 169,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "249.Schisandra chinensis (Turcz.) Baill.": {
+      "samples": 131,
+      "train": 112,
+      "val": 19,
+      "val_target": 19,
+      "groups": 130,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "250.Thlaspi arvense L.": {
+      "samples": 146,
+      "train": 125,
+      "val": 21,
+      "val_target": 21,
+      "groups": 143,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "251.Siegesbeckia orientalis L": {
+      "samples": 98,
+      "train": 84,
+      "val": 14,
+      "val_target": 14,
+      "groups": 95,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "252.Asarum heterotropoides F. Schmidt": {
+      "samples": 106,
+      "train": 91,
+      "val": 15,
+      "val_target": 15,
+      "groups": 103,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "253.Eleutherococcus nodiflorus (Dunn) S. Y. Hu": {
+      "samples": 89,
+      "train": 76,
+      "val": 13,
+      "val_target": 13,
+      "groups": 89,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "254.Bupleurum scorzonerifolium Willd.": {
+      "samples": 105,
+      "train": 90,
+      "val": 15,
+      "val_target": 15,
+      "groups": 105,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "255.Prunella vulgaris L.": {
+      "samples": 171,
+      "train": 146,
+      "val": 25,
+      "val_target": 25,
+      "groups": 166,
+      "multi_sample_groups": 5,
+      "max_group_size": 2
+    },
+    "256.Curculigo orchioides Gaertn.": {
+      "samples": 76,
+      "train": 65,
+      "val": 11,
+      "val_target": 11,
+      "groups": 72,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "257.Cyperus rotundus L.": {
+      "samples": 133,
+      "train": 114,
+      "val": 19,
+      "val_target": 19,
+      "groups": 129,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "258.Vicia hirsuta (L.) Gray": {
+      "samples": 116,
+      "train": 99,
+      "val": 17,
+      "val_target": 17,
+      "groups": 111,
+      "multi_sample_groups": 5,
+      "max_group_size": 2
+    },
+    "259.Allium macrostemon Bunge": {
+      "samples": 78,
+      "train": 67,
+      "val": 11,
+      "val_target": 11,
+      "groups": 77,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "260.Vincetoxicum pycnostelma Kitag.": {
+      "samples": 105,
+      "train": 90,
+      "val": 15,
+      "val_target": 15,
+      "groups": 101,
+      "multi_sample_groups": 3,
+      "max_group_size": 3
+    },
+    "261.Scrophularia ningpoensis Hemsl.": {
+      "samples": 71,
+      "train": 61,
+      "val": 10,
+      "val_target": 10,
+      "groups": 70,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "262.Inula japonica Thunb.": {
+      "samples": 121,
+      "train": 104,
+      "val": 17,
+      "val_target": 17,
+      "groups": 114,
+      "multi_sample_groups": 7,
+      "max_group_size": 2
+    },
+    "263.Commelina communis L.": {
+      "samples": 194,
+      "train": 166,
+      "val": 28,
+      "val_target": 28,
+      "groups": 180,
+      "multi_sample_groups": 13,
+      "max_group_size": 3
+    },
+    "264.Corydalis yanhusuo (Y. H. Chou & C. C. Hsu) W. T. Wang ex Z. Y. Su & C. Y. Wu": {
+      "samples": 73,
+      "train": 63,
+      "val": 10,
+      "val_target": 10,
+      "groups": 70,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "265.Rhus chinensis Mill.": {
+      "samples": 97,
+      "train": 83,
+      "val": 14,
+      "val_target": 14,
+      "groups": 92,
+      "multi_sample_groups": 4,
+      "max_group_size": 3
+    },
+    "266.Codonopsis lanceolata (Siebold & Zucc.) Trautv.": {
+      "samples": 114,
+      "train": 98,
+      "val": 16,
+      "val_target": 16,
+      "groups": 113,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "267.Daucus carota L.": {
+      "samples": 182,
+      "train": 156,
+      "val": 26,
+      "val_target": 26,
+      "groups": 171,
+      "multi_sample_groups": 11,
+      "max_group_size": 2
+    },
+    "268.Erigeron annuus (L.) Pers.": {
+      "samples": 194,
+      "train": 166,
+      "val": 28,
+      "val_target": 28,
+      "groups": 191,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "269.Leonurus japonicus Houtt.": {
+      "samples": 117,
+      "train": 100,
+      "val": 17,
+      "val_target": 17,
+      "groups": 115,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "270.Coix lacryma-jobi L.": {
+      "samples": 133,
+      "train": 114,
+      "val": 19,
+      "val_target": 19,
+      "groups": 130,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "271.Pteroxygonum giraldii Damm. & Diels": {
+      "samples": 88,
+      "train": 75,
+      "val": 13,
+      "val_target": 13,
+      "groups": 81,
+      "multi_sample_groups": 6,
+      "max_group_size": 3
+    },
+    "272.Sceptridium ternatum (Thunb.) Lyon": {
+      "samples": 131,
+      "train": 112,
+      "val": 19,
+      "val_target": 19,
+      "groups": 127,
+      "multi_sample_groups": 3,
+      "max_group_size": 3
+    },
+    "273.Siphonostegia chinensis Benth.": {
+      "samples": 74,
+      "train": 63,
+      "val": 11,
+      "val_target": 11,
+      "groups": 72,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "274.Artemisia capillaris Thunb.": {
+      "samples": 69,
+      "train": 59,
+      "val": 10,
+      "val_target": 10,
+      "groups": 68,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "275.Ginkgo biloba L.": {
+      "samples": 107,
+      "train": 92,
+      "val": 15,
+      "val_target": 15,
+      "groups": 102,
+      "multi_sample_groups": 5,
+      "max_group_size": 2
+    },
+    "276.Epimedium brevicornu Maxim.": {
+      "samples": 113,
+      "train": 97,
+      "val": 16,
+      "val_target": 16,
+      "groups": 107,
+      "multi_sample_groups": 6,
+      "max_group_size": 2
+    },
+    "277.Papaver somniferum L.": {
+      "samples": 95,
+      "train": 81,
+      "val": 14,
+      "val_target": 14,
+      "groups": 91,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "278.Yulania denudata (Desr.) D. L. Fu": {
+      "samples": 119,
+      "train": 102,
+      "val": 17,
+      "val_target": 17,
+      "groups": 117,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "279.Polygonatum odoratum (Mill.) Druce": {
+      "samples": 130,
+      "train": 111,
+      "val": 19,
+      "val_target": 19,
+      "groups": 129,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "280.Iris tectorum Maxim.": {
+      "samples": 153,
+      "train": 131,
+      "val": 22,
+      "val_target": 22,
+      "groups": 148,
+      "multi_sample_groups": 5,
+      "max_group_size": 2
+    },
+    "281.Hypericum sampsonii Hance": {
+      "samples": 70,
+      "train": 60,
+      "val": 10,
+      "val_target": 10,
+      "groups": 68,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "282.Daphne genkwa Siebold & Zucc.": {
+      "samples": 136,
+      "train": 117,
+      "val": 19,
+      "val_target": 19,
+      "groups": 132,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "283.Polygala tenuifolia Willd.": {
+      "samples": 77,
+      "train": 66,
+      "val": 11,
+      "val_target": 11,
+      "groups": 74,
+      "multi_sample_groups": 2,
+      "max_group_size": 3
+    },
+    "284.Gleditsia sinensis Lam.": {
+      "samples": 98,
+      "train": 84,
+      "val": 14,
+      "val_target": 14,
+      "groups": 98,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "285.Euphorbia helioscopia L.": {
+      "samples": 202,
+      "train": 173,
+      "val": 29,
+      "val_target": 29,
+      "groups": 197,
+      "multi_sample_groups": 5,
+      "max_group_size": 2
+    },
+    "286.Alisma plantago-aquatica L.": {
+      "samples": 154,
+      "train": 132,
+      "val": 22,
+      "val_target": 22,
+      "groups": 152,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "287.Catharanthus roseus (L.) G. Don": {
+      "samples": 151,
+      "train": 129,
+      "val": 22,
+      "val_target": 22,
+      "groups": 150,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "288.Fritillaria thunbergii Miq.": {
+      "samples": 86,
+      "train": 74,
+      "val": 12,
+      "val_target": 12,
+      "groups": 84,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "289.Anemarrhena asphodeloides Bunge": {
+      "samples": 96,
+      "train": 82,
+      "val": 14,
+      "val_target": 14,
+      "groups": 92,
+      "multi_sample_groups": 3,
+      "max_group_size": 3
+    },
+    "290.Gardenia  jasminoides J. Ellis": {
+      "samples": 99,
+      "train": 85,
+      "val": 14,
+      "val_target": 14,
+      "groups": 99,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "291.Ixeris chinensis (Thunb.) Nakai": {
+      "samples": 140,
+      "train": 120,
+      "val": 20,
+      "val_target": 20,
+      "groups": 139,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "292.Rumex crispus L.": {
+      "samples": 125,
+      "train": 107,
+      "val": 18,
+      "val_target": 18,
+      "groups": 124,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "293.Orychophragmus violaceus (L.) O. E. Schulz": {
+      "samples": 149,
+      "train": 128,
+      "val": 21,
+      "val_target": 21,
+      "groups": 146,
+      "multi_sample_groups": 3,
+      "max_group_size": 2
+    },
+    "294.Lithospermum zollingeri A. DC.": {
+      "samples": 80,
+      "train": 69,
+      "val": 11,
+      "val_target": 11,
+      "groups": 80,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "295.Viola philippica Cav.": {
+      "samples": 147,
+      "train": 126,
+      "val": 21,
+      "val_target": 21,
+      "groups": 146,
+      "multi_sample_groups": 1,
+      "max_group_size": 2
+    },
+    "296.Angelica decursiva (Miq.) Franch. & Sav.": {
+      "samples": 159,
+      "train": 136,
+      "val": 23,
+      "val_target": 23,
+      "groups": 159,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "297.Osmunda japonica Thunb.": {
+      "samples": 75,
+      "train": 64,
+      "val": 11,
+      "val_target": 11,
+      "groups": 75,
+      "multi_sample_groups": 0,
+      "max_group_size": 1
+    },
+    "298.Perilla frutescens (L.) Britton": {
+      "samples": 80,
+      "train": 69,
+      "val": 11,
+      "val_target": 11,
+      "groups": 76,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    },
+    "299.Aster tataricus L. f.": {
+      "samples": 142,
+      "train": 122,
+      "val": 20,
+      "val_target": 20,
+      "groups": 140,
+      "multi_sample_groups": 2,
+      "max_group_size": 2
+    },
+    "300.Callicarpa bodinieri H. Lév.": {
+      "samples": 207,
+      "train": 177,
+      "val": 30,
+      "val_target": 30,
+      "groups": 203,
+      "multi_sample_groups": 4,
+      "max_group_size": 2
+    }
+  },
+  "manifest": "manifests/canonical/tcmp300_canonical_2026.csv",
+  "manifest_sha256": "e37029881ed4920075b98777bee57706269b7ea3b0db9a3c67bf44188ca6821f"
+}

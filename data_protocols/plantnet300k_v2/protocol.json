@@ -1,0 +1,23 @@
+{
+  "dataset": "PlantNet-300K V2",
+  "protocol": "PlantNet-300K-V2-Official-2026",
+  "num_classes": 1000,
+  "split_policy": "official train/val/test; no re-split",
+  "counts": {
+    "train": 243866,
+    "val": 31115,
+    "test": 31106
+  },
+  "total": 306087,
+  "semantic_names": "full_species from species_metadata.csv",
+  "class_index_policy": "folder indices 0000..0999 verified against all 306087 metadata records; folder_idx == species_id",
+  "mapping_source": "derived and verified using PN_hash + split + actual image folder + plantnet300K_metadata.csv",
+  "legacy_mapping_policy": "metadata_v1_legacy 1081-class mapping excluded from V2 protocol",
+  "test_policy": "locked; no model selection or hyperparameter tuning on test",
+  "longtail_policy": {
+    "source": "train split only",
+    "head": "n > 100",
+    "medium": "20 < n <= 100",
+    "few": "n <= 20"
+  }
+}

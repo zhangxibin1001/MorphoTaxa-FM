@@ -1,0 +1,26 @@
+experiment:
+  name: c4a_smoke_portable
+  stage: C4A
+
+model:
+  freeze_backbone: true
+
+  lora:
+    enabled: true
+    last_n_blocks: 8
+    rank: 8
+    alpha: 16.0
+    dropout: 0.0
+    targets: [qkv, proj]
+
+  semantic:
+    enabled: true
+    alpha_max: 0.2
+    lambda_alpha: 0.001
+    kappa: 1.0
+
+train:
+  epochs: 1
+  lr: 0.01
+  weight_decay: 0.0
+  checkpoint_format: portable_task_v1

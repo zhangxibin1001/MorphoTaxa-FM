@@ -1,0 +1,7 @@
+dataset:
+  name: plantnet300k_v2_official_2026
+  path: /root/autodl-tmp/datasets_raw/plantnet300kV2
+  expected_classes: 1000
+  protocol: PlantNet-300K-V2-Official-2026
+  primary_metric: macro_f1
+  manifest: data_protocols/plantnet300k_v2/manifest.csv

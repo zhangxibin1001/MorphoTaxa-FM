@@ -1,0 +1,25 @@
+dataset:
+  name: leafsnap_cd184_lab2field
+
+  path: /root/autodl-tmp/datasets_raw/leafsnap/dataset
+
+  manifest: /root/autodl-tmp/MorphoTaxa_FM_PaperReady_v1/data_protocols/leafsnap/manifest_lab2field.csv
+
+  expected_classes: 184
+
+  protocol: lab_to_field_cd184
+
+  source_domain: lab
+  target_domain: field
+
+  primary_metric: macro_f1
+
+  group_aware_source_split: true
+  target_domain_used_for_training: false
+
+  notes: >
+    LeafSnap-CD-184 strict cross-domain protocol.
+    Train and validation use only the laboratory domain.
+    Validation is specimen-group disjoint from training.
+    The complete 7,719-image field domain is reserved as
+    the unseen target-domain test set.

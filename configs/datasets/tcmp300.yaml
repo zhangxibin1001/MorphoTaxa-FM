@@ -1,0 +1,7 @@
+dataset:
+  name: tcmp300_canonical_2026
+  path: /root/autodl-tmp/datasets_raw/tcmp300_raw
+  expected_classes: 300
+  protocol: TCMP-300-Canonical-2026
+  primary_metric: macro_f1
+  manifest: data_protocols/tcmp300/manifest.csv

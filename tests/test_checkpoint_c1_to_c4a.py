@@ -1,0 +1,95 @@
+import torch
+from torch import nn
+
+from morphotaxa.engine.checkpoint_compat import (
+    load_init_checkpoint_compatible,
+)
+from morphotaxa.models.c4a import (
+    BoundedSemanticResidual,
+)
+
+
+class BaseModel(nn.Module):
+    def __init__(self, semantic=False):
+        super().__init__()
+
+        self.backbone = nn.Linear(
+            8,
+            8,
+        )
+
+        self.classifier = nn.Linear(
+            8,
+            3,
+        )
+
+        self.semantic_head = (
+            BoundedSemanticResidual(
+                num_classes=3,
+                alpha_max=0.2,
+                kappa=1.0,
+            )
+            if semantic
+            else None
+        )
+
+
+def test_c1_to_c4a_allows_new_semantic_head(tmp_path):
+    torch.manual_seed(42)
+
+    c1 = BaseModel(
+        semantic=False
+    )
+
+    ckpt = tmp_path / "c1.pth"
+
+    torch.save(
+        {
+            "model": c1.state_dict(),
+            "epoch": 10,
+            "val": {
+                "macro_f1": 0.938
+            },
+        },
+        ckpt,
+    )
+
+    torch.manual_seed(123)
+
+    c4a = BaseModel(
+        semantic=True
+    )
+
+    report = (
+        load_init_checkpoint_compatible(
+            c4a,
+            ckpt,
+        )
+    )
+
+    assert report["checkpoint_epoch"] == 10
+
+    assert report["remapped_count"] == 0
+
+    assert report["unexpected"] == []
+
+    assert set(report["expected_missing"]) == {
+        "semantic_head.raw_alpha",
+        "semantic_head.kappa",
+    }
+
+    # C1 classifier must be inherited exactly.
+    assert torch.equal(
+        c1.classifier.weight,
+        c4a.classifier.weight,
+    )
+
+    assert torch.equal(
+        c1.classifier.bias,
+        c4a.classifier.bias,
+    )
+
+    # New BSPRC parameter must remain identity initialized.
+    assert torch.count_nonzero(
+        c4a.semantic_head.raw_alpha
+    ).item() == 0

@@ -1,0 +1,34 @@
+from __future__ import annotations
+
+import torch
+from torch import nn
+import torch.nn.functional as F
+
+
+class BoundedSemanticResidual(nn.Module):
+    """C4-A / BSPRC correction.
+
+    Given base logits, normalized image features and class semantic prototypes,
+    adds class-wise bounded residuals. `raw_alpha` initializes to zero, so the
+    module is exactly identity at initialization.
+    """
+
+    def __init__(self, num_classes: int, alpha_max: float = 0.2, kappa: float = 1.0):
+        super().__init__()
+        self.raw_alpha = nn.Parameter(torch.zeros(num_classes))
+        self.alpha_max = float(alpha_max)
+        self.kappa = float(kappa)
+
+    @property
+    def bounded_alpha(self):
+        return self.alpha_max * torch.tanh(self.raw_alpha)
+
+    def forward(self, logits, image_features, class_prototypes):
+        z = F.normalize(image_features, dim=-1)
+        u = F.normalize(class_prototypes, dim=-1)
+        semantic_similarity = z @ u.t()
+        residual = self.kappa * semantic_similarity * self.bounded_alpha.unsqueeze(0)
+        return logits + residual
+
+    def regularization(self):
+        return (self.bounded_alpha ** 2).mean()

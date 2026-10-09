@@ -1,0 +1,6 @@
+sweep:
+  alpha_max: [0.1, 0.2, 0.3]
+  lambda_alpha: [0.0, 0.0001, 0.001, 0.01]
+  variants: [global_unbounded, classwise_unbounded, classwise_bounded]
+  seed: 42
+  selection_split: val

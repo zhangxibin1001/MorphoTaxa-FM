@@ -1,0 +1,35 @@
+{
+  "protocol": "LeafSnap-CD-184",
+  "seed": 42,
+  "val_ratio": 0.2,
+  "num_classes": 184,
+  "images": {
+    "lab_all": 23027,
+    "field_all": 7719,
+    "lab_train": 18430,
+    "lab_val": 4597,
+    "field_train": 6178,
+    "field_val": 1541
+  },
+  "groups": {
+    "lab_all": 5939,
+    "field_all": 7719,
+    "lab_train": 4755,
+    "lab_val": 1184,
+    "field_train": 6178,
+    "field_val": 1541
+  },
+  "class_coverage": {
+    "lab_train": 184,
+    "lab_val": 184,
+    "field_train": 184,
+    "field_val": 184
+  },
+  "leakage": {
+    "lab_train_val_group_overlap": 0,
+    "field_train_val_group_overlap": 0
+  },
+  "excluded_species": [
+    "Ulmus procera"
+  ]
+}

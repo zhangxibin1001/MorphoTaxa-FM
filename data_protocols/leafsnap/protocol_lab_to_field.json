@@ -1,0 +1,13 @@
+{
+  "name": "LeafSnap-CD-184 Lab-to-Field",
+  "num_classes": 184,
+  "seed": 42,
+  "source_domain": "lab",
+  "target_domain": "field",
+  "train_csv": "lab_train.csv",
+  "validation_csv": "lab_val.csv",
+  "test_csv": "field_all.csv",
+  "checkpoint_selection": "lab_val",
+  "target_domain_used_for_training": false,
+  "group_aware_source_split": true
+}

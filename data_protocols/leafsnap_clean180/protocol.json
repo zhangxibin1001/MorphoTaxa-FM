@@ -1,0 +1,43 @@
+{
+  "protocol": "Leafsnap-Clean180-Canonical-2026",
+  "seed": 42,
+  "requested_val_fraction": 0.15,
+  "grouping_policy": "Within class, repeated filename prefix before the final '-<digits>' token forms a filename-derived acquisition bundle; single-occurrence prefixes remain independent singleton groups.",
+  "grouping_claim_limit": "The group ID is a leakage-control acquisition bundle inferred from the released filenames. It is not claimed to be an authoritative biological leaf-instance identifier.",
+  "phash_policy": "DCT-pHash is audit-only for Leafsnap Lab and is not used as a train/val barrier.",
+  "counts": {
+    "train": 19217,
+    "val": 3117,
+    "test": 7011,
+    "total": 29345,
+    "classes": 180
+  },
+  "actual_val_fraction_of_lab": 0.13956299811945913,
+  "lab_grouping": {
+    "bundle_images": 22121,
+    "singleton_images": 213,
+    "bundle_groups": 5553,
+    "singleton_groups": 213
+  },
+  "verification": {
+    "train_val_group_overlap": 0,
+    "train_val_path_overlap": 0,
+    "train_test_path_overlap": 0,
+    "val_test_path_overlap": 0,
+    "unique_paths": 29345,
+    "unique_sha256": 29345,
+    "field_test_preserved_exactly": true
+  },
+  "files": {
+    "train": "manifests/canonical/leafsnap_clean180_train.csv",
+    "val": "manifests/canonical/leafsnap_clean180_val.csv",
+    "test": "manifests/canonical/leafsnap_clean180_test.csv",
+    "canonical": "manifests/canonical/leafsnap_clean180_canonical_2026.csv"
+  },
+  "sha256": {
+    "train": "e57d3bd099244bdd1645901f91e99b7e48ebc02602f4ff116551ac68efbb76ae",
+    "val": "c70cecedb27734bfdb2900fb354b5809295b522a66312d1b9b7b033004782c0a",
+    "test": "e51ee79231408c4d053fb6628787d49be04cb7bbf6e03768133217d4be5f9a26",
+    "canonical": "044137181040468df48c774557436c78fecf7a2de2927cc72e3a5e6bf36f6223"
+  }
+}

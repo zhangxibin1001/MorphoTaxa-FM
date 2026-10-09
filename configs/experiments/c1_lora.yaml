@@ -1,0 +1,42 @@
+experiment:
+  name: c1_lora
+  stage: C1
+
+model:
+  freeze_backbone: true
+
+  lora:
+    enabled: true
+    last_n_blocks: 8
+    rank: 8
+    alpha: 16.0
+    dropout: 0.0
+    targets:
+      - qkv
+      - proj
+
+  semantic:
+    enabled: false
+
+train:
+  epochs: 15
+
+  batch_size: 2
+  eval_batch_size: 16
+  grad_accum_steps: 8
+
+  amp: true
+
+  lr_lora: 0.0001
+  lr_head: 0.00005
+
+  weight_decay_lora: 0.0
+  weight_decay_head: 0.01
+
+  warmup_epochs: 1
+  scheduler: linear_warmup_cosine
+
+  label_smoothing: 0.0
+  grad_clip: 1.0
+
+  checkpoint_format: full

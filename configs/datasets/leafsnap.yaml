@@ -1,0 +1,7 @@
+dataset:
+  name: leafsnap
+  path: /root/autodl-tmp/datasets_raw/leafsnap/dataset
+  expected_classes: 185
+  protocol: preserve_domain_metadata
+  primary_metric: macro_f1
+  notes: Resolve 180/185 discrepancy. Preserve lab/field metadata when available.

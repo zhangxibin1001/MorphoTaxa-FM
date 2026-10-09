@@ -1,0 +1,23 @@
+experiment:
+  name: c0_frozen_cached
+  stage: C0
+
+model:
+  freeze_backbone: true
+  lora:
+    enabled: false
+  semantic:
+    enabled: false
+
+train:
+  epochs: 50
+  batch_size: 1024
+  eval_batch_size: 2048
+  lr: 0.001
+  weight_decay: 0.01
+  label_smoothing: 0.0
+
+cache:
+  deterministic: true
+  preprocess: val
+  extraction_batch_size: 96

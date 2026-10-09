@@ -1,0 +1,1001 @@
+label,class_id,species_id,class_name
+0,0000,0,Lactuca virosa L.
+1,0001,1,Pelargonium capitatum (L.) L'Hér.
+2,0002,2,Pelargonium graveolens L'Hér.
+3,0003,3,Cirsium arvense (L.) Scop.
+4,0004,4,Cirsium vulgare (Savi) Ten.
+5,0005,5,Pelargonium odoratissimum (L.) L'Hér.
+6,0006,6,Pelargonium peltatum (L.) L'Hér.
+7,0007,7,Pelargonium quercifolium (L.f.) L'Hér.
+8,0008,8,Pelargonium zonale (L.) L'Hér.
+9,0009,9,Mercurialis annua L.
+10,0010,10,Phyllanthus tenellus Roxb.
+11,0011,11,Hypericum perforatum L.
+12,0012,12,Elodea densa (Planch.) Casp.
+13,0013,13,Ibicella lutea (Lindl.) Van Eselt.
+14,0014,14,Tradescantia fluminensis Vell.
+15,0015,15,Tradescantia zebrina Bosse
+16,0016,16,Lamium amplexicaule L.
+17,0017,17,Lavandula dentata L.
+18,0018,18,Striga asiatica (L.) Kuntze
+19,0019,19,Melilotus albus Medik.
+20,0020,20,Trifolium fragiferum L.
+21,0021,21,Asystasia gangetica (L.) T.Anderson
+22,0022,22,Nymphaea nouchali Burm.f.
+23,0023,23,Dryopteris aemula (Aiton) Kuntze
+24,0024,24,Dryopteris affinis (Lowe) Fraser-Jenk.
+25,0025,25,Dryopteris filix-mas (L.) Schott
+26,0026,26,Nephrolepis cordifolia (L.) C.Presl
+27,0027,27,Nephrolepis exaltata (L.) Schott
+28,0028,28,Osmunda regalis L.
+29,0029,29,Achyranthes aspera L.
+30,0030,30,Lithodora fruticosa (L.) Griseb.
+31,0031,31,Humulus lupulus L.
+32,0032,32,Gypsophila vaccaria (L.) Sm.
+33,0033,33,Spergularia rubra (L.) J.Presl & C.Presl
+34,0034,34,Moehringia trinervia (L.) Clairv.
+35,0035,35,Calendula officinalis L.
+36,0036,36,Calendula stellata Cav.
+37,0037,37,Carthamus caeruleus L.
+38,0038,38,Phonus lanatus (L.) Hill
+39,0039,39,Cirsium monspessulanum (L.) Hill.
+40,0040,40,Helminthotheca echioides (L.) Holub
+41,0041,41,Hyoseris radiata L.
+42,0042,42,Lactuca muralis (L.) Gaertn.
+43,0043,43,Lactuca saligna L.
+44,0044,44,Lactuca tenerrima Pourr.
+45,0045,45,Limbarda crithmoides (L.) Dumort.
+46,0046,46,Sedum acre L.
+47,0047,47,Sedum album L.
+48,0048,48,Petrosedum amplexicaule (DC.) Velayos
+49,0049,49,Sedum andegavense (DC.) Desv.
+50,0050,50,Sedum brevifolium DC.
+51,0051,51,Sedum caeruleum L.
+52,0052,52,Sedum cespitosum (Cav.) DC.
+53,0053,53,Sedum cepaea L.
+54,0054,54,Sedum dasyphyllum L.
+55,0055,55,Petrosedum forsterianum (Sm.) Grulich
+56,0056,56,Sedum hirsutum All.
+57,0057,57,Sedum litoreum Guss.
+58,0058,58,Sedum multiceps Coss. & Durieu
+59,0059,59,Sedum rubens L.
+60,0060,60,Petrosedum sediforme (Jacq.) Grulich
+61,0061,61,Alliaria petiolata (M.Bieb.) Cavara & Grande
+62,0062,62,Boscia integrifolia J.St.-Hil.
+63,0063,63,Fibigia clypeata (L.) Medik.
+64,0064,64,Maerua angolensis DC.
+65,0065,65,Acalypha virginica L.
+66,0066,66,Mercurialis perennis L.
+67,0067,67,Phyllanthus reticulatus Poir.
+68,0068,68,Hypericum androsaemum L.
+69,0069,69,Hypericum australe Ten.
+70,0070,70,Hypericum canariense L.
+71,0071,71,Hypericum empetrifolium Willd.
+72,0072,72,Hypericum hircinum L.
+73,0073,73,Hypericum hirsutum L.
+74,0074,74,Hypericum humifusum L.
+75,0075,75,Hypericum linariifolium Vahl
+76,0076,76,Hypericum montanum L.
+77,0077,77,Hypericum perfoliatum L.
+78,0078,78,Hypericum tetrapterum Fr.
+79,0079,79,Hypericum tomentosum L.
+80,0080,80,Lamium bifidum Cirillo
+81,0081,81,Lamium flexuosum Ten.
+82,0082,82,Lamium garganicum L.
+83,0083,83,Lamium hybridum Vill.
+84,0084,84,Lamium purpureum L.
+85,0085,85,Lavandula canariensis Mill.
+86,0086,86,Lavandula minutolii Bolle
+87,0087,87,Lavandula multifida L.
+88,0088,88,Lavandula stoechas L.
+89,0089,89,Senegalia mellifera (Vahl) Seigler & Ebinger
+90,0090,90,Vachellia seyal (Delile) P.J.H.Hurter
+91,0091,91,Vachellia tortilis (Forssk.) Galasso & Banfi
+92,0092,92,Galega officinalis L.
+93,0093,93,Lupinus cosentinii Guss.
+94,0094,94,Lupinus gussoneanus J.Agardh
+95,0095,95,Melilotus italicus (L.) Lam.
+96,0096,96,Melilotus sulcatus Desf.
+97,0097,97,Trifolium angustifolium L.
+98,0098,98,Trifolium arvense L.
+99,0099,99,Trifolium aureum Pollich
+100,0100,100,Trifolium campestre Schreb.
+101,0101,101,Trifolium cherleri L.
+102,0102,102,Trifolium hirtum All.
+103,0103,103,Trifolium hybridum L.
+104,0104,104,Trifolium incarnatum L.
+105,0105,105,Trifolium lappaceum L.
+106,0106,106,Trifolium michelianum Savi
+107,0107,107,Trifolium micranthum Viv.
+108,0108,108,Trifolium montanum L.
+109,0109,109,Trifolium ochroleucon Huds.
+110,0110,110,Trifolium pannonicum Jacq.
+111,0111,111,Trifolium patens Schreb.
+112,0112,112,Trifolium pratense L.
+113,0113,113,Trifolium purpureum Loisel.
+114,0114,114,Trifolium resupinatum L.
+115,0115,115,Trifolium scabrum L.
+116,0116,116,Trifolium spumosum L.
+117,0117,117,Trifolium squamosum L.
+118,0118,118,Trifolium stellatum L.
+119,0119,119,Trifolium striatum L.
+120,0120,120,Trifolium subterraneum L.
+121,0121,121,Trifolium tomentosum L.
+122,0122,122,Punica granatum L.
+123,0123,123,Alcea rosea L.
+124,0124,124,Althaea cannabina L.
+125,0125,125,Althaea officinalis L.
+126,0126,126,Nymphaea alba L.
+127,0127,127,Hunnemannia fumariifolia Sweet
+128,0128,128,Papaver atlanticum (Ball) Coss.
+129,0129,129,Papaver rupifragum Boiss. & Reut.
+130,0130,130,Goniolimon tataricum (L.) Boiss.
+131,0131,131,Adonis aestivalis L.
+132,0132,132,Adonis annua L.
+133,0133,133,Adonis flammea Jacq.
+134,0134,134,Adonis microcarpa DC.
+135,0135,135,Anemone coronaria L.
+136,0136,136,Anemone palmata L.
+137,0137,137,Oldenlandia corymbosa L.
+138,0138,138,Hyoscyamus albus L.
+139,0139,139,Hyoscyamus niger L.
+140,0140,140,Daphne gnidium L.
+141,0141,141,Daphne laureola L.
+142,0142,142,Daphne oleoides Schreb.
+143,0143,143,Berula erecta (Huds.) Coville
+144,0144,144,Chaerophyllum temulum L.
+145,0145,145,Daucus muricatus (L.) L.
+146,0146,146,Meum athamanticum Jacq.
+147,0147,147,Thapsia garganica L.
+148,0148,148,Thapsia villosa L.
+149,0149,149,Valeriana calcitrapae L.
+150,0150,150,Valeriana cornucopiae L.
+151,0151,151,Pancratium canariense Ker Gawl.
+152,0152,152,Pancratium maritimum L.
+153,0153,153,Anthericum liliago L.
+154,0154,154,Butomus umbellatus L.
+155,0155,155,Danthonia decumbens (L.) DC.
+156,0156,156,Leersia oryzoides (L.) Sw.
+157,0157,157,Phalaris coerulescens Desf.
+158,0158,158,Scilla peruviana L.
+159,0159,159,Elodea canadensis Michx.
+160,0160,160,Neotinea maculata (Desf.) Stearn
+161,0161,161,Ophrys apifera Huds.
+162,0162,162,Ophrys bombyliflora Link
+163,0163,163,Ophrys fusca Link
+164,0164,164,Ophrys lutea Cav.
+165,0165,165,Ophrys scolopax Cav.
+166,0166,166,Ophrys speculum Link
+167,0167,167,Ophrys tenthredinifera Willd.
+168,0168,168,Groenlandia densa (L.) Fourr.
+169,0169,169,Stellaria aquatica (L.) Scop.
+170,0170,170,Cirsium palustre (L.) Scop.
+171,0171,171,Lamium galeobdolon (L.) L.
+172,0172,172,Lavandula angustifolia Mill.
+173,0173,173,Casuarina cunninghamiana Miq.
+174,0174,174,Trifolium rubens L.
+175,0175,175,Falcaria vulgaris Bernh.
+176,0176,176,Hypericum triquetrifolium Turra
+177,0177,177,Wigandia urens (Ruiz & Pav.) Kunth
+178,0178,178,Nymphaea lotus L.
+179,0179,179,Sedum villosum L.
+180,0180,180,Epipactis helleborine (L.) Crantz
+181,0181,181,Thesium humifusum DC.
+182,0182,182,Vachellia etbaica (Schweinf.) Kyal. & Boatwr.
+183,0183,183,Valeriana angustifolia Mill.
+184,0184,184,Valeriana lecoqii (Jord.) Christenh. & Byng
+185,0185,185,Sedum anglicum Huds.
+186,0186,186,Petrosedum rupestre (L.) P.V.Heath
+187,0187,187,Ophrys insectifera L.
+188,0188,188,Freesia refracta (Jacq.) Klatt
+189,0189,189,Tuberaria lignosa (Sweet) Samp.
+190,0190,190,Tradescantia pallida (Rose) D.R.Hunt
+191,0191,191,Cenchrus longispinus (Hack.) Fernald
+192,0192,192,Heptapleurum actinophyllum (Endl.) Lowry & G.M.Plunkett
+193,0193,193,Cenchrus clandestinus (Hochst. ex Chiov.) Morrone
+194,0194,194,Cenchrus purpureus (Schumach.) Morrone
+195,0195,195,Cenchrus setaceus (Forssk.) Morrone
+196,0196,196,Anemone hortensis L.
+197,0197,197,Tradescantia cerinthoides Kunth
+198,0198,198,"Roemeria argemone (L.) C.Morales, R.Mend. & Romero García"
+199,0199,199,"Roemeria sicula (Guss.) Galasso, Banfi, L.Sáez & Bartolucci"
+200,0200,200,Papaver rhoeas L.
+201,0201,201,Papaver dubium L.
+202,0202,202,Papaver somniferum L.
+203,0203,203,Daucus carota L.
+204,0204,204,Smilax aspera L.
+205,0205,205,Aizoon canariense L.
+206,0206,206,Zannichellia palustris L.
+207,0207,207,Secale cereale L.
+208,0208,208,Cenchrus ciliaris L.
+209,0209,209,Cenchrus echinatus L.
+210,0210,210,Phalaris aquatica L.
+211,0211,211,Phalaris arundinacea L.
+212,0212,212,Phalaris canariensis L.
+213,0213,213,Phalaris minor Retz.
+214,0214,214,Phalaris paradoxa L.
+215,0215,215,Sedum hispanicum L.
+216,0216,216,Crotalaria juncea L.
+217,0217,217,Lupinus angustifolius L.
+218,0218,218,Lupinus luteus L.
+219,0219,219,Lupinus pilosus L.
+220,0220,220,Lupinus albus L.
+221,0221,221,Trifolium alexandrinum L.
+222,0222,222,Trifolium dubium Sibth.
+223,0223,223,Trifolium glomeratum L.
+224,0224,224,Trifolium nigrescens Viv.
+225,0225,225,Trifolium repens L.
+226,0226,226,Dalbergia melanoxylon Guill. & Perr.
+227,0227,227,Melilotus indicus (L.) All.
+228,0228,228,Melilotus officinalis (L.) Lam.
+229,0229,229,Acacia dealbata Link
+230,0230,230,Acacia longifolia (Andrews) Willd.
+231,0231,231,Acacia mearnsii De Wild.
+232,0232,232,Acacia pycnantha Benth.
+233,0233,233,Acacia retinodes Schltdl.
+234,0234,234,Barbarea verna (Mill.) Asch.
+235,0235,235,Barbarea intermedia Boreau
+236,0236,236,Ranunculus minimus (L.) E.H.L.Krause
+237,0237,237,Fragaria vesca L.
+238,0238,238,Potentilla indica (Andrews) Th.Wolf
+239,0239,239,Valeriana rubra L.
+240,0240,240,Guizotia abyssinica (L.f.) Cass.
+241,0241,241,Tagetes minuta L.
+242,0242,242,Tagetes erecta L.
+243,0243,243,Calendula arvensis L.
+244,0244,244,Lapsana communis L.
+245,0245,245,Carthamus tinctorius L.
+246,0246,246,Lactuca sativa L.
+247,0247,247,Lactuca serriola L.
+248,0248,248,Arthraxon hispidus (Thunb.) Makino
+249,0249,249,Microchloa kunthii Desv.
+250,0250,250,Harpachne schimperi Hochst. ex A.Rich.
+251,0251,251,Cedrela odorata L.
+252,0252,252,Aeschynomene americana L.
+253,0253,253,Neltuma alba (Griseb.) C.E.Hughes & G.P.Lewis
+254,0254,254,Neltuma juliflora (Sw.) Raf.
+255,0255,255,Crotalaria spectabilis Roth
+256,0256,256,Crotalaria chrysochlora Baker f. ex Harms
+257,0257,257,Crotalaria deflersii Schweinf.
+258,0258,258,Crotalaria polysperma Kotschy
+259,0259,259,Crotalaria uguenensis Taub.
+260,0260,260,Crotalaria verrucosa L.
+261,0261,261,Lupinus perennis L.
+262,0262,262,Lupinus polyphyllus Lindl.
+263,0263,263,Dalbergia latifolia Roxb.
+264,0264,264,Cordyla africana Lour.
+265,0265,265,Vachellia xanthophloea (Benth.) Banfi & Galasso
+266,0266,266,Vachellia drepanolobium (Harms ex Y.Sjöstedt) P.J.H.Hurter
+267,0267,267,Vachellia hockii (De Wild.) Seigler & Ebinger
+268,0268,268,Acaciella angustissima (Mill.) Britton & Rose
+269,0269,269,Gomphocarpus integer (N.E.Br.) Bullock
+270,0270,270,Trachelospermum jasminoides (Lindl.) Lem.
+271,0271,271,Tradescantia spathacea Sw.
+272,0272,272,Gymnosporia putterlickioides Loes.
+273,0273,273,Conostomium longitubum (Beck) Cufod.
+274,0274,274,Conostomium quadrangulare (Rendle) Cufod.
+275,0275,275,Mussaenda frondosa L.
+276,0276,276,Mussaenda erythrophylla Schumach. & Thonn.
+277,0277,277,Morinda citrifolia L.
+278,0278,278,Pilocarpus racemosus Vahl
+279,0279,279,Pelargonium alchemilloides (L.) L'Hér.
+280,0280,280,Pelargonium quinquelobatum Hochst. ex A.Rich.
+281,0281,281,Pelargonium glechomoides A.Rich.
+282,0282,282,Gynura aurantiaca (Blume) DC.
+283,0283,283,Gynura procumbens (Lour.) Merr.
+284,0284,284,Aspilia mossambicensis (Oliv.) Wild
+285,0285,285,Aspilia pluriseta Schweinf. ex Engl.
+286,0286,286,Schkuhria pinnata (Lam.) Kuntze ex Thell.
+287,0287,287,Montanoa hibiscifolia Benth.
+288,0288,288,Acalypha crenata Hochst. ex A.Rich.
+289,0289,289,Acalypha hispida Burm.f.
+290,0290,290,Phyllanthus fischeri Pax
+291,0291,291,Phyllanthus suffrutescens Pax
+292,0292,292,Phyllanthus acidus (L.) Skeels
+293,0293,293,Phyllanthus amarus Schumach. & Thonn.
+294,0294,294,Triadica sebifera (L.) Small
+295,0295,295,Petiveria alliacea L.
+296,0296,296,Peperomia pellucida (L.) Kunth
+297,0297,297,Guaiacum officinale L.
+298,0298,298,Hypericum annulatum Moris
+299,0299,299,Mussaenda philippica A.Rich.
+300,0300,300,Boscia mossambicensis Klotzsch
+301,0301,301,Boscia coriacea Graells
+302,0302,302,Mecardonia procumbens (Mill.) Small
+303,0303,303,Browallia americana L.
+304,0304,304,Acacia mangium Willd.
+305,0305,305,Casuarina equisetifolia L.
+306,0306,306,Aristea abyssinica Pax
+307,0307,307,Aristea ecklonii Baker
+308,0308,308,Erianthemum dregei (Eckl. & Zeyh.) Tiegh.
+309,0309,309,Cucurbita ficifolia Bouché
+310,0310,310,Cucurbita pepo L.
+311,0311,311,Luffa acutangula (L.) Roxb.
+312,0312,312,Lagenaria siceraria (Molina) Standl.
+313,0313,313,Lagenaria sphaerica (Sond.) Naudin
+314,0314,314,Asystasia riparia Lindau
+315,0315,315,Barringtonia asiatica (L.) Kurz
+316,0316,316,Couroupita guianensis Aubl.
+317,0317,317,Asystasia charmian S.Moore
+318,0318,318,Raphia farinifera (Gaertn.) Hyl.
+319,0319,319,Zamioculcas zamiifolia (G.Lodd.) Engl.
+320,0320,320,Kniphofia linearifolia Baker
+321,0321,321,Smilax anceps Willd.
+322,0322,322,Vanilla planifolia Andrews
+323,0323,323,Ansellia africana Lindl.
+324,0324,324,Hypericum balearicum L.
+325,0325,325,Ophrys holosericea (Burm.f.) Greuter
+326,0326,326,Odontites longiflorus (Vahl) Webb
+327,0327,327,Pyracantha koidzumii (Hayata) Rehder
+328,0328,328,Cicerbita plumieri (L.) Kirschl.
+329,0329,329,Aizoanthemopsis hispanica (L.) Klak
+330,0330,330,Phedimus aizoon (L.) 't Hart
+331,0331,331,Phedimus spurius (M.Bieb.) 't Hart
+332,0332,332,Cereus jamacaru DC.
+333,0333,333,Sedum pachyphyllum Rose
+334,0334,334,Sedum dendroideum Moc. & Sessé ex DC.
+335,0335,335,Liriodendron chinense (Hemsl.) Sarg.
+336,0336,336,Atocion rupestre (L.) Oxelman
+337,0337,337,Tagetes tenuifolia Cav.
+338,0338,338,Aegopodium podagraria L.
+339,0339,339,Acacia melanoxylon R.Br.
+340,0340,340,Acacia saligna (Labill.) H.L.Wendl.
+341,0341,341,Patzkea paniculata (L.) G.H.Loos
+342,0342,342,Salvia abrotanoides (Kar.) Sytsma
+343,0343,343,Ophrys × arachnitiformis Gren. & M.Philippe
+344,0344,344,Erechtites hieraciifolius (L.) Raf. ex DC.
+345,0345,345,Cenchrus longisetus M.C.Johnst.
+346,0346,346,Nothofagus obliqua (Mirb.) Oerst.
+347,0347,347,Carthamus carduncellus L.
+348,0348,348,Carthamus mitissimus L.
+349,0349,349,Chaerophyllum aureum L.
+350,0350,350,Chaerophyllum hirsutum L.
+351,0351,351,Chaerophyllum villarsii W.D.J.Koch
+352,0352,352,Cirsium alsophilum (Pollini) Soldano
+353,0353,353,Cirsium canum (L.) All.
+354,0354,354,Cirsium dissectum (L.) Hill
+355,0355,355,"Lophiolepis eriophora (L.) Del Guacchio, Bureš, Iamonico & P.Caputo"
+356,0356,356,Cirsium erisithales (Jacq.) Scop.
+357,0357,357,"Lophiolepis ferox (L.) Del Guacchio, Bureš, Iamonico & P.Caputo"
+358,0358,358,Cirsium filipendulum Lange
+359,0359,359,Cirsium glabrum DC.
+360,0360,360,Cirsium heterophyllum (L.) Hill
+361,0361,361,"Lophiolepis morisiana (Rchb.f.) Del Guacchio, Bureš, Iamonico & P.Caputo"
+362,0362,362,Cirsium oleraceum (L.) Scop.
+363,0363,363,Cirsium rivulare (Jacq.) All.
+364,0364,364,Cirsium tuberosum (L.) All.
+365,0365,365,Collomia grandiflora Douglas ex Lindl.
+366,0366,366,Cucurbita maxima Duchesne
+367,0367,367,Cymbalaria aequitriloba (Viv.) A.Chev.
+368,0368,368,Cymbalaria hepaticifolia (Poir.) Wettst.
+369,0369,369,Cytinus hypocistis (L.) L.
+370,0370,370,Cytinus ruber (Fourr.) Fritsch
+371,0371,371,Daphne alpina L.
+372,0372,372,Daphne cneorum L.
+373,0373,373,Daphne mezereum L.
+374,0374,374,Daphne striata Tratt.
+375,0375,375,Cleretum bellidiforme (Burm.f.) G.D.Rowley
+376,0376,376,Dryas octopetala L.
+377,0377,377,Dryopteris carthusiana (Vill.) H.P.Fuchs
+378,0378,378,Dryopteris cristata (L.) A.Gray
+379,0379,379,Dryopteris dilatata (Hoffm.) A.Gray
+380,0380,380,Dryopteris expansa (C.Presl) Fraser-Jenk. & Jermy
+381,0381,381,Dryopteris villarii (Bellardi) Woyn. ex Schinz & Thell.
+382,0382,382,Empetrum nigrum L.
+383,0383,383,Epipactis atrorubens (Hoffm.) Besser
+384,0384,384,Epipactis leptochila (Godfery) Godfery
+385,0385,385,Epipactis microphylla (Ehrh.) Sw.
+386,0386,386,Epipactis muelleri Godfery
+387,0387,387,Epipactis palustris (L.) Crantz
+388,0388,388,Epipactis phyllanthes G.E.Sm.
+389,0389,389,Epipactis purpurata Sm.
+390,0390,390,Erucastrum gallicum (Willd.) O.E.Schulz
+391,0391,391,Hirschfeldia incana (L.) Lagr.-Foss.
+392,0392,392,Erucastrum nasturtiifolium (Poir.) O.E.Schulz
+393,0393,393,Valeriana graciliflora (Fisch. & C.A.Mey.) Byng & Christenh.
+394,0394,394,Fragaria moschata Duchesne ex Weston
+395,0395,395,Freesia × kewensis J.Wright bis
+396,0396,396,Galega orientalis Lam.
+397,0397,397,Geropogon hybridus (L.) Sch.Bip.
+398,0398,398,Gomphocarpus fruticosus (L.) W.T.Aiton
+399,0399,399,Gomphocarpus physocarpus E.Mey.
+400,0400,400,Veronica × andersonii Hérincq
+401,0401,401,Veronica brachysiphon (Summerh.) Bean
+402,0402,402,Veronica ochracea (Ashwin) Garn.-Jones
+403,0403,403,Veronica salicifolia G.Forst.
+404,0404,404,Helicodiceros muscivorus (L.f.) Engl.
+405,0405,405,Hippophae rhamnoides L.
+406,0406,406,Hypericum calycinum L.
+407,0407,407,Hypericum coris L.
+408,0408,408,Hypericum elodes L.
+409,0409,409,Hypericum × inodorum Mill.
+410,0410,410,Hypericum maculatum Crantz
+411,0411,411,Hypericum nummularium L.
+412,0412,412,Hypericum pulchrum L.
+413,0413,413,Hypericum richeri Vill.
+414,0414,414,Dierama pulcherrimum (Hook.f.) Baker
+415,0415,415,Euphrosyne xanthiifolia (Nutt.) A.Gray
+416,0416,416,Kniphofia uvaria (L.) Oken
+417,0417,417,Cicerbita alpina (L.) Wallr.
+418,0418,418,Cicerbita macrophylla (Willd.) Wallr.
+419,0419,419,Lactuca viminea (L.) J.Presl & C.Presl
+420,0420,420,Lamium album L.
+421,0421,421,Lamium maculatum (L.) L.
+422,0422,422,Lathraea clandestina L.
+423,0423,423,Lathraea squamaria L.
+424,0424,424,Lavandula × intermedia Emeric ex Loisel.
+425,0425,425,Lavandula latifolia Medik.
+426,0426,426,Limnanthes douglasii R.Br.
+427,0427,427,Liriodendron tulipifera L.
+428,0428,428,Lupinus arboreus Sims
+429,0429,429,Lupinus × regalis Bergmans
+430,0430,430,Maianthemum bifolium (L.) F.W.Schmidt
+431,0431,431,Melilotus altissimus Thuill.
+432,0432,432,Melilotus neapolitanus Ten.
+433,0433,433,Mercurialis tomentosa L.
+434,0434,434,Moehringia ciliata (Scop.) Dalla Torre
+435,0435,435,Moehringia muscosa L.
+436,0436,436,Moehringia pentandra J.Gay
+437,0437,437,Narthecium ossifragum (L.) Huds.
+438,0438,438,"Neotinea lactea (Poir.) R.M.Bateman, Pridgeon & M.W.Chase"
+439,0439,439,"Neotinea ustulata (L.) R.M.Bateman, Pridgeon & M.W.Chase"
+440,0440,440,Noccaea caerulescens (J.Presl & C.Presl) F.K.Mey.
+441,0441,441,Noccaea montana (L.) F.K.Mey.
+442,0442,442,Noccaea rotundifolia (L.) Moench
+443,0443,443,Nymphaea candida C.Presl
+444,0444,444,Nymphoides peltata (S.G.Gmel.) Kuntze
+445,0445,445,Ophrys sphegodes Mill.
+446,0446,446,Ophrys sphegodes J.J.Wood
+447,0447,447,Bourreria andrieuxii (A.DC.) Hemsl.
+448,0448,448,Ophrys bertolonii Moretti
+449,0449,449,Ophrys × flavicans Vis.
+450,0450,450,Ophrys sphegodes (Rchb.f.) A.Bolòs
+451,0451,451,Alibertia edulis (Rich.) A.Rich. ex DC.
+452,0452,452,Ophrys sphegodes (Sennen) Sanz & Nuet
+453,0453,453,Ophrys sphegodes (H.Baumann & Künkele) P.J.Cribb
+454,0454,454,Ophrys fusca (Viv.) Arcang.
+455,0455,455,Thelypteris limbosperma (All.) H.P.Fuchs
+456,0456,456,Eriocapitella × hybrida (L.H.Bailey) Christenh. & Byng
+457,0457,457,Pulsatilla alpina (L.) Chaz.
+458,0458,458,Pancratium illyricum L.
+459,0459,459,Anemonoides apennina (L.) Holub
+460,0460,460,"Anemonoides baldensis (L.) Galasso, Banfi & Soldano"
+461,0461,461,"Oreomecon alpina (L.) Banfi, Bartolucci, J.-M.Tison & Galasso"
+462,0462,462,"Oreomecon crocea (Ledeb.) Banfi, Bartolucci, J.-M.Tison & Galasso"
+463,0463,463,Papaver orientale L.
+464,0464,464,Papaver setiferum Goldblatt
+465,0465,465,Didymopanax morototoni (Aubl.) Decne. & Planch.
+466,0466,466,Pulsatilla halleri (All.) Willd.
+467,0467,467,Hepatica nobilis Schreb.
+468,0468,468,Pelargonium × hybridum (L.) L'Hér.
+469,0469,469,Pelargonium inquinans (L.) L'Hér.
+470,0470,470,Pulsatilla montana (Hoppe) Rchb.
+471,0471,471,Anemonoides nemorosa (L.) Holub
+472,0472,472,Pulsatilla vulgaris Mill.
+473,0473,473,Pulsatilla rubra (Lam.) Delarbre
+474,0474,474,Phedimus stellatus (L.) Raf.
+475,0475,475,"Anemonoides sylvestris (L.) Galasso, Banfi & Soldano"
+476,0476,476,Anemonoides trifolia (L.) Holub
+477,0477,477,Pulsatilla vernalis (L.) Mill.
+478,0478,478,Angelica heterocarpa M.J.Lloyd
+479,0479,479,Angelica razulii Gouan
+480,0480,480,Angelica sylvestris L.
+481,0481,481,Pleurospermum austriacum (L.) Hoffm.
+482,0482,482,Sasa palmata (Burb.) E.G.Camus
+483,0483,483,Anthericum ramosum L.
+484,0484,484,Pyracantha coccinea M.Roem.
+485,0485,485,Pyracantha crenulata (D.Don) M.Roem.
+486,0486,486,Holodiscus discolor (Pursh) Maxim.
+487,0487,487,Sagittaria graminea Michx.
+488,0488,488,Sagittaria latifolia Willd.
+489,0489,489,Sagittaria sagittifolia L.
+490,0490,490,Diascia rigescens E.Mey. ex Benth.
+491,0491,491,Diascia vigilis Hilliard & B.L.Burtt
+492,0492,492,Sedum sarmentosum Bunge
+493,0493,493,Sedum alpestre Vill.
+494,0494,494,Sedum annuum L.
+495,0495,495,Phedimus kamtschaticus (Fisch.) 't Hart
+496,0496,496,Sedum mexicanum Britton
+497,0497,497,Petrosedum ochroleucum (Chaix) Niederle
+498,0498,498,Sedum sexangulare L.
+499,0499,499,Metasequoia glyptostroboides Hu & W.C.Cheng
+500,0500,500,Telekia speciosa (Schreb.) Baumg.
+501,0501,501,Thesium alpinum L.
+502,0502,502,Thesium linophyllon L.
+503,0503,503,Tradescantia × andersoniana W.Ludw. & Rohweder
+504,0504,504,Tradescantia virginiana L.
+505,0505,505,Trifolium alpestre L.
+506,0506,506,Trifolium alpinum L.
+507,0507,507,Trifolium pallescens Schreb.
+508,0508,508,Trifolium spadiceum L.
+509,0509,509,Trifolium thalii Vill.
+510,0510,510,Viscaria alpina (L.) G.Don
+511,0511,511,Viscaria vulgaris Bernh.
+512,0512,512,Eriocapitella hupehensis (É.Lemoine) Christenh. & Byng
+513,0513,513,Eriocapitella vitifolia (Buch.-Ham. ex DC.) Nakai
+514,0514,514,Adenostyles alpina (L.) Bluff & Fingerh.
+515,0515,515,Alcea biennis Winterl
+516,0516,516,Anemonastrum narcissiflorum (L.) Holub
+517,0517,517,Anemonoides ranunculoides (L.) Holub
+518,0518,518,Angelica archangelica L.
+519,0519,519,Chaerophyllum bulbosum L.
+520,0520,520,Cirsium acaulon (L.) Scop.
+521,0521,521,Cirsium spinosissimum (L.) Scop.
+522,0522,522,"Cymbalaria muralis G.Gaertn., B.Mey. & Scherb."
+523,0523,523,Eritrichium nanum (L.) Gaudin
+524,0524,524,Fragaria viridis Weston
+525,0525,525,Honckenya peploides (L.) Ehrh.
+526,0526,526,Hypericum hyssopifolium Chaix
+527,0527,527,Hypericum mutilum L.
+528,0528,528,Lactuca perennis L.
+529,0529,529,Sedum atratum L.
+530,0530,530,Thesium pyrenaicum Pourr.
+531,0531,531,Trifolium medium L.
+532,0532,532,Trinia glauca (L.) Dumort.
+533,0533,533,Petrosedum montanum (Songeon & E.P.Perrier) Grulich
+534,0534,534,Trifolium badium Schreb.
+535,0535,535,Freesia leichtlinii Klatt
+536,0536,536,Cobaea scandens Cav.
+537,0537,537,Fragaria virginiana Mill.
+538,0538,538,Pulsatilla pratensis (L.) Mill.
+539,0539,539,Sagittaria lancifolia L.
+540,0540,540,"Neotinea tridentata (Scop.) R.M.Bateman, Pridgeon & M.W.Chase"
+541,0541,541,Adenostyles alliariae (Gouan) Kern.
+542,0542,542,Ophrys × minuticauda Duffort
+543,0543,543,Sedum palmeri S.Watson
+544,0544,544,Hypericum olympicum L.
+545,0545,545,Dryopteris erythrosora (D.C.Eaton) Kuntze
+546,0546,546,Adenostyles leucophylla Rchb.
+547,0547,547,Calycanthus floridus L.
+548,0548,548,Phyllanthus niruri L.
+549,0549,549,Ophrys sphegodes (Rchb.) M.Laínz
+550,0550,550,Anemonoides blanda (Schott & Kotschy) Holub
+551,0551,551,Aralia elata (Miq.) Seem.
+552,0552,552,Clethra alnifolia L.
+553,0553,553,Corispermum pallasii Steven
+554,0554,554,Hypericum patulum Thunb.
+555,0555,555,Hypericum × hidcoteense Geerinck
+556,0556,556,Lupinus nootkatensis Donn ex Sims
+557,0557,557,Smilax rotundifolia L.
+558,0558,558,Salvia yangii B.T.Drew
+559,0559,559,Nothofagus antarctica (G.Forst.) Oerst.
+560,0560,560,Iva annua L.
+561,0561,561,Dryopteris fragrans (L.) Schott
+562,0562,562,Neotinea conica (Willd.) R.M.Bateman
+563,0563,563,Tetraclinis articulata (Vahl) Mast.
+564,0564,564,Alcea setosa (Boiss.) Alef.
+565,0565,565,Chaerophyllum aromaticum L.
+566,0566,566,Cucurbita moschata Duchesne
+567,0567,567,Daphne sericea Vahl
+568,0568,568,Lamium orvala L.
+569,0569,569,Paederota bonarota (L.) L.
+570,0570,570,Rhodothamnus chamaecistus (L.) Rchb.
+571,0571,571,Ophrys lunulata Parl.
+572,0572,572,Astydamia latifolia (L.f.) Baill.
+573,0573,573,Lavandula pinnata Lundmark
+574,0574,574,Angelica atropurpurea L.
+575,0575,575,Acacia pravissima F.Muell. ex Benth.
+576,0576,576,Adonis pyrenaica DC.
+577,0577,577,Adonis vernalis L.
+578,0578,578,Barbarea rupicola Moris
+579,0579,579,Barbarea vulgaris W.T.Aiton
+580,0580,580,Acacia baileyana F.Muell.
+581,0581,581,Bellium bellidioides L.
+582,0582,582,Bocoa prouacensis Aubl.
+583,0583,583,Nephrolepis biserrata (Sw.) Schott
+584,0584,584,Vanilla pompona Schiede
+585,0585,585,Guatteria anteridifera Scharf & Maas
+586,0586,586,Caraipa densifolia Mart.
+587,0587,587,Caraipa punctulata Ducke
+588,0588,588,Vismia cayennensis (Jacq.) Pers.
+589,0589,589,Vismia macrophylla Kunth
+590,0590,590,Vismia sessilifolia (Aubl.) Choisy
+591,0591,591,Dryopteris wallichiana (Spreng.) Hyl.
+592,0592,592,Xylopia frutescens Aubl.
+593,0593,593,Xylopia nitida Dunal
+594,0594,594,Xylopia sericea A.St.-Hil.
+595,0595,595,Phyllanthus urinaria L.
+596,0596,596,Pogonophora schomburgkiana Miers ex Benth.
+597,0597,597,Sagotia racemosa Baill.
+598,0598,598,Tabernaemontana undulata Vahl
+599,0599,599,Guarea gomma Pulle
+600,0600,600,Nymphoides indica (L.) Kuntze
+601,0601,601,Anthurium hookeri Kunth
+602,0602,602,Anthurium jenmanii Engl.
+603,0603,603,Anthurium scandens (Aubl.) Engl.
+604,0604,604,Dracontium polyphyllum L.
+605,0605,605,Crotalaria retusa L.
+606,0606,606,Peperomia magnoliifolia (Jacq.) A.Dietr.
+607,0607,607,Peperomia obtusifolia (L.) A.Dietr.
+608,0608,608,Peperomia quadrangularis (J.V.Thomps.) A.Dietr.
+609,0609,609,Peperomia rotundifolia (L.) Kunth
+610,0610,610,Peperomia serpens (Sw.) G.Don
+611,0611,611,Declieuxia fruticosa (Willd.) Kuntze
+612,0612,612,Mauritia flexuosa L.f.
+613,0613,613,Urera baccifera (L.) Gaudich. ex Wedd.
+614,0614,614,Leuenbergeria bleo (Kunth) Lodé
+615,0615,615,Cereus hexagonus (L.) Mill.
+616,0616,616,Xylopia crinita R.E.Fr.
+617,0617,617,Aciotis rubricaulis (Mart. ex DC.) Triana
+618,0618,618,Guatteria amplifolia Triana & Planch.
+619,0619,619,Cucumis melo L.
+620,0620,620,Cryptostegia madagascariensis Bojer ex Decne.
+621,0621,621,Didymopanax decaphyllus (Seem.) Fiaschi & G.M.Plunkett
+622,0622,622,Aphelandra scabra (Vahl) Sm.
+623,0623,623,Piriqueta cistoides (L.) Griseb.
+624,0624,624,Acalypha wilkesiana Müll.Arg.
+625,0625,625,Breynia disticha J.R.Forst. & G.Forst.
+626,0626,626,Crotalaria incana L.
+627,0627,627,Crotalaria pallida Aiton
+628,0628,628,Kigelia africana (Lam.) Benth.
+629,0629,629,Guatteria citriodora Ducke
+630,0630,630,Acalypha indica L.
+631,0631,631,Guatteria punctata (Aubl.) R.A.Howard
+632,0632,632,Anthurium crystallinum Linden & André
+633,0633,633,Cryptopus elatus (Thouars) Lindl.
+634,0634,634,Cryptostegia grandiflora Roxb. ex R.Br.
+635,0635,635,Eranthemum pulchellum Andrews
+636,0636,636,Alocasia cucullata (Lour.) G.Don
+637,0637,637,Alocasia longiloba Miq.
+638,0638,638,Alocasia macrorrhizos (L.) G.Don
+639,0639,639,Faujasia salicifolia (Juss. ex Pers.) C.Jeffrey
+640,0640,640,Fernelia buxifolia Lam.
+641,0641,641,Fragaria × ananassa (Duchesne ex Weston) Duchesne ex Rozier
+642,0642,642,Geniostoma borbonicum (Lam.) Spreng.
+643,0643,643,Hernandia mascarenensis (Meisn.) Kubitzki
+644,0644,644,Hypericum lanceolatum Lam.
+645,0645,645,Acacia auriculiformis A.Cunn. ex Benth.
+646,0646,646,Leonotis nepetifolia (L.) R.Br.
+647,0647,647,Mussaenda arcuata Poir.
+648,0648,648,Nephrolepis abrupta (Bory) Mett.
+649,0649,649,Acacia heterophylla (Lam.) Willd.
+650,0650,650,Paederia foetida L.
+651,0651,651,Rhodocactus grandifolius (Haw.) F.M.Knuth
+652,0652,652,Antirhea borbonica J.F.Gmel.
+653,0653,653,Phyllanthus emblica L.
+654,0654,654,Phyllanthus niruroides Müll.Arg.
+655,0655,655,Phyllanthus phillyreifolius Poir.
+656,0656,656,Pongamia pinnata (L.) Pierre
+657,0657,657,Acacia podalyriifolia A.Cunn. ex G.Don
+658,0658,658,Acalypha integrifolia Willd.
+659,0659,659,Stemodia verticillata (Mill.) Hassl.
+660,0660,660,Seriphium passerinoides Lam.
+661,0661,661,Strongylodon macrobotrys A.Gray
+662,0662,662,Trimezia martinicensis (Jacq.) Herb.
+663,0663,663,Vangueria madagascariensis J.F.Gmel.
+664,0664,664,Vepris lanceolata (Lam.) G.Don
+665,0665,665,Zaleya pentandra (L.) C.Jeffrey
+666,0666,666,Cereus repandus (L.) Mill.
+667,0667,667,Bismarckia nobilis Hildebrandt & H.Wendl.
+668,0668,668,Vachellia nilotica (L.) P.J.H.Hurter & Mabb.
+669,0669,669,Heptapleurum arboricola Hayata
+670,0670,670,Fragaria chiloensis (L.) Mill.
+671,0671,671,Aphelandra squarrosa Nees
+672,0672,672,Pereskia aculeata Mill.
+673,0673,673,Peperomia argyraea W.Bull
+674,0674,674,Peperomia caperata Yunck.
+675,0675,675,Anthurium andraeanum Linden ex André
+676,0676,676,Anthurium scherzerianum Schott
+677,0677,677,Zamia furfuracea L.f. ex Aiton
+678,0678,678,Dendrobium nobile Lindl.
+679,0679,679,Nandina domestica Thunb.
+680,0680,680,Falcataria falcata (L.) Greuter & R.Rankin
+681,0681,681,Vachellia tortuosa (L.) Seigler & Ebinger
+682,0682,682,Bourreria succulenta Jacq.
+683,0683,683,Crotalaria brevidens Benth.
+684,0684,684,Crotalaria pumila Ortega
+685,0685,685,Dendrobium chrysotoxum Lindl.
+686,0686,686,Dendrobium crumenatum Sw.
+687,0687,687,Dendrobium moschatum (Banks) Sw.
+688,0688,688,Entada gigas (L.) Fawc. & Rendle
+689,0689,689,Fittonia albivenis (Lindl. ex Veitch) Brummitt
+690,0690,690,Illicium verum Hook.f.
+691,0691,691,Lactuca floridana (L.) Gaertn.
+692,0692,692,Mussaenda pubescens Dryand.
+693,0693,693,Neolamarckia cadamba (Roxb.) Bosser
+694,0694,694,Nymphaea ampla (Salisb.) DC.
+695,0695,695,Phyllanthus epiphyllanthus L.
+696,0696,696,Phyllanthus mimosoides Sw.
+697,0697,697,Pilosocereus polygonus (Lam.) Byles & G.D.Rowley
+698,0698,698,Selenicereus anthonyanus (Alexander) D.R.Hunt
+699,0699,699,Selenicereus grandiflorus (L.) Britton & Rose
+700,0700,700,Zamia pumila L.
+701,0701,701,Acalypha alopecuroidea Jacq.
+702,0702,702,Epilobium latifolium L.
+703,0703,703,Cirsium discolor (Muhl. ex Willd.) Spreng.
+704,0704,704,Cirsium foliosum DC.
+705,0705,705,Cirsium muticum Michx.
+706,0706,706,Cirsium undulatum (Nutt.) Spreng.
+707,0707,707,Comptonia peregrina (L.) Coult.
+708,0708,708,Conoclinium coelestinum (L.) DC.
+709,0709,709,Dalea purpurea Vent.
+710,0710,710,Daucus pusillus Michx.
+711,0711,711,Diervilla lonicera Mill.
+712,0712,712,Dryopteris intermedia A.Gray
+713,0713,713,Dryopteris marginalis (L.) A.Gray
+714,0714,714,Epipactis gigantea Douglas
+715,0715,715,Hypericum kalmianum L.
+716,0716,716,Hypericum prolificum L.
+717,0717,717,Hypericum punctatum Lam.
+718,0718,718,Anemonastrum canadense (L.) Mosyakin
+719,0719,719,Iva frutescens L.
+720,0720,720,Anemone multifida Poir.
+721,0721,721,Anemone virginiana L.
+722,0722,722,Lactuca biennis (Moench) Fernald
+723,0723,723,Lactuca canadensis L.
+724,0724,724,Leersia virginica Willd.
+725,0725,725,Angelica lucida L.
+726,0726,726,Lupinus argenteus Pursh
+727,0727,727,Lupinus bicolor Lindl.
+728,0728,728,Maianthemum canadense Desf.
+729,0729,729,Maianthemum racemosum (L.) Link
+730,0730,730,Maianthemum stellatum (L.) Link
+731,0731,731,Maianthemum trifolium (L.) Sloboda
+732,0732,732,Mertensia maritima (L.) Gray
+733,0733,733,Mertensia paniculata (Aiton) G.Don
+734,0734,734,Mertensia virginica (L.) Pers. ex Link
+735,0735,735,Mitella diphylla L.
+736,0736,736,Moehringia lateriflora (L.) Fenzl
+737,0737,737,Nymphaea mexicana Zucc.
+738,0738,738,Nymphaea odorata Aiton
+739,0739,739,Nymphaea tetragona Georgi
+740,0740,740,Osmundastrum cinnamomeum (L.) C.Presl
+741,0741,741,Osmunda claytoniana L.
+742,0742,742,"Oreomecon nudicaulis (L.) Banfi, Bartolucci, J.-M.Tison & Galasso"
+743,0743,743,Aralia hispida Vent.
+744,0744,744,Aralia nudicaulis L.
+745,0745,745,Aralia racemosa L.
+746,0746,746,Sedum divergens S.Watson
+747,0747,747,Sedum lanceolatum Torr.
+748,0748,748,Sedum oreganum Nutt.
+749,0749,749,Sedum spathulifolium Hook.
+750,0750,750,Sedum ternatum Michx.
+751,0751,751,Smilax herbacea L.
+752,0752,752,Smilax tamnoides L.
+753,0753,753,Tradescantia occidentalis (Britton) Smyth
+754,0754,754,Tradescantia ohiensis Raf.
+755,0755,755,Wyethia sagittata (Pursh) Mabb.
+756,0756,756,Barbarea orthoceras Ledeb.
+757,0757,757,Calochortus macrocarpus Douglas
+758,0758,758,Entada phaseoloides (L.) Merr.
+759,0759,759,Cerbera manghas L.
+760,0760,760,Hernandia cordigera Vieill.
+761,0761,761,Acacia simplex (Sparrm.) Pedley
+762,0762,762,Dubouzetia confusa Guillaumin & Virot
+763,0763,763,Dubouzetia campanulata Pancher ex Brongn. & Gris
+764,0764,764,Acacia spirorbis Labill.
+765,0765,765,Atractocarpus platixylon (Vieill. ex Pancher & Sebert) Guillaumin
+766,0766,766,Nepenthes vieillardii Hook.f.
+767,0767,767,Dendrobium closterium Rchb.f.
+768,0768,768,Dracophyllum verticillatum Labill.
+769,0769,769,Schefflera spp.
+770,0770,770,Tagetes lucida Cav.
+771,0771,771,Athyrium niponicum (Mett.) Hance
+772,0772,772,Mertensia ciliata (E.James ex Torr.) G.Don
+773,0773,773,Lithops fulviceps (N.E.Br.) N.E.Br.
+774,0774,774,Lithops karasmontana (Dinter & Schwantes) N.E.Br.
+775,0775,775,Lithops marmorata (N.E.Br.) N.E.Br.
+776,0776,776,Lithops pseudotruncatella (A.Berger) N.E.Br.
+777,0777,777,Lithops spp.
+778,0778,778,Cereus hildmannianus K.Schum.
+779,0779,779,Cephalocereus polylophus (DC.) Britton & Rose
+780,0780,780,Calycanthus occidentalis Hook. & Arn.
+781,0781,781,Tradescantia subaspera Ker Gawl.
+782,0782,782,Sedum lineare Thunb.
+783,0783,783,Sedum morganianum E.Walther
+784,0784,784,Cucurbita foetidissima Kunth
+785,0785,785,Eucryphia cordifolia Cav.
+786,0786,786,Dryopteris cycadina (Franch. & Sav.) C.Chr.
+787,0787,787,Dryopteris sieboldii (T.Moore) Kuntze
+788,0788,788,Rumohra adiantiformis (G.Forst.) Ching
+789,0789,789,Oxydendrum arboreum (L.) DC.
+790,0790,790,Lupinus albifrons Benth.
+791,0791,791,Lycoris radiata (L'Hér.) Herb.
+792,0792,792,Garrya elliptica Douglas ex Lindl.
+793,0793,793,Lycoris squamigera Maxim.
+794,0794,794,Pelargonium crispum (P.J.Bergius) L'Hér.
+795,0795,795,Loropetalum chinense (R.Br.) Oliv.
+796,0796,796,Hypericum frondosum Michx.
+797,0797,797,Liriope muscari (Decne.) L.H.Bailey
+798,0798,798,Nothofagus alpina (Poepp. & Endl.) Oerst.
+799,0799,799,Nothofagus pumilio (Poepp. & Endl.) Krasser
+800,0800,800,Abeliophyllum distichum Nakai
+801,0801,801,Dendrobium aphyllum (Roxb.) C.E.C.Fisch.
+802,0802,802,Dendrobium spp.
+803,0803,803,Heteromorpha arborescens (Spreng.) Cham. & Schltdl.
+804,0804,804,Lapageria rosea Ruiz & Pav.
+805,0805,805,Peperomia dolabriformis Kunth
+806,0806,806,Veronica × franciscana Eastw.
+807,0807,807,Maurandya barclayana Lindl.
+808,0808,808,Pulsatilla patens (L.) Mill.
+809,0809,809,Senegalia senegal (L.) Britton
+810,0810,810,Limonia acidissima L.
+811,0811,811,Illicium floridanum J.Ellis
+812,0812,812,Browallia speciosa Hook.
+813,0813,813,Alocasia cuprea (K.Koch & C.D.Bouché) K.Koch
+814,0814,814,Alocasia micholitziana Sander
+815,0815,815,Alocasia odora (G.Lodd.) Spach
+816,0816,816,Daphne odora Thunb.
+817,0817,817,Alocasia sanderiana W.Bull
+818,0818,818,Daphne tangutica Maxim.
+819,0819,819,Guaiacum sanctum L.
+820,0820,820,Nepenthes spp.
+821,0821,821,Pelargonium spp.
+822,0822,822,Aphelandra sinclairiana Nees
+823,0823,823,Acacia confusa Merr.
+824,0824,824,Acacia koa A.Gray
+825,0825,825,Nephrolepis falcata (Cav.) C.Chr.
+826,0826,826,Calodendrum capense (L.f.) Thunb.
+827,0827,827,Pelargonium grandiflorum Willd.
+828,0828,828,Hypericum revolutum Vahl
+829,0829,829,Maytenus boaria Molina
+830,0830,830,Melampodium perfoliatum (Cav.) Kunth
+831,0831,831,Hernandia nymphaeifolia (C.Presl) Kubitzki
+832,0832,832,Mazus pumilus (Burm.f.) Steenis
+833,0833,833,Melampodium divaricatum (Rich.) DC.
+834,0834,834,Breynia vitis-idaea (Burm.f.) C.E.C.Fisch.
+835,0835,835,Prosopis farcta (Banks & Sol.) J.F.Macbr.
+836,0836,836,Vachellia farnesiana (L.) Wight & Arn.
+837,0837,837,Freycinetia cumingiana Gaudich.
+838,0838,838,Crotalaria laburnifolia L.
+839,0839,839,Dalbergia sissoo Roxb. ex DC.
+840,0840,840,Dischidia nummularia R.Br.
+841,0841,841,Heptapleurum heptaphyllum (L.) Y.F.Deng
+842,0842,842,Schinopsis balansae Engl.
+843,0843,843,Smilax china L.
+844,0844,844,Barringtonia acutangula (L.) Gaertn.
+845,0845,845,Maerua triphylla A.Rich.
+846,0846,846,Asystasia mysorensis (Roth) T.Anderson
+847,0847,847,Herbertia lahue (Molina) Goldblatt
+848,0848,848,Hypericum hypericoides (L.) Crantz
+849,0849,849,Hypericum tetrapetalum Lam.
+850,0850,850,Keckiella cordifolia (Benth.) Straw
+851,0851,851,Lupinus chamissonis Eschsch.
+852,0852,852,Lupinus diffusus Nutt.
+853,0853,853,Lupinus formosus Greene
+854,0854,854,Lupinus hirsutissimus Benth.
+855,0855,855,Lupinus subcarnosus Hook.
+856,0856,856,Lupinus texensis Hook.
+857,0857,857,Lyonothamnus floribundus A.Gray
+858,0858,858,Melampodium leucanthum Torr. & A.Gray
+859,0859,859,Aralia californica S.Watson
+860,0860,860,Nyctaginia capitata Choisy
+861,0861,861,Aralia spinosa L.
+862,0862,862,Pelargonium panduriforme Eckl. & Zeyh.
+863,0863,863,Neltuma glandulosa (Torr.) Britton & Rose
+864,0864,864,Strombocarpa pubescens (Benth.) A.Gray
+865,0865,865,Sagittaria montevidensis Cham. & Schltdl.
+866,0866,866,Sedum albomarginatum R.T.Clausen
+867,0867,867,Sedum glaucophyllum R.T.Clausen
+868,0868,868,Sedum laxum (Britton) A.Berger
+869,0869,869,Sedum moranense Kunth
+870,0870,870,Sedum niveum Davidson
+871,0871,871,Sedum obtusatum A.Gray
+872,0872,872,Sedum pulchellum Michx.
+873,0873,873,Smilax bona-nox L.
+874,0874,874,Smilax glauca Walter
+875,0875,875,Smilax laurifolia L.
+876,0876,876,Stanleya pinnata (Pursh) Britton
+877,0877,877,Tagetes lemmonii A.Gray
+878,0878,878,Tradescantia crassifolia Cav.
+879,0879,879,Xylococcus bicolor Nutt.
+880,0880,880,Brodiaea elegans Hoover
+881,0881,881,Calochortus eurycarpus S.Watson
+882,0882,882,Calochortus gunnisonii S.Watson
+883,0883,883,Calochortus leichtlinii Hook.f.
+884,0884,884,Calochortus luteus Douglas ex Lindl.
+885,0885,885,Calochortus splendens Douglas ex Benth.
+886,0886,886,Calochortus tolmiei Hook. & Arn.
+887,0887,887,Oenothera hartwegii Benth.
+888,0888,888,Chaerophyllum tainturieri Hook. & Arn.
+889,0889,889,Cirsium altissimum (L.) Spreng.
+890,0890,890,Cirsium horridulum Michx.
+891,0891,891,Cirsium texanum Buckley
+892,0892,892,Diervilla sessilifolia Buckley
+893,0893,893,Senegalia berlandieri (Benth.) Britton & Rose
+894,0894,894,Elephantopus elatus Bertol.
+895,0895,895,Acacia redolens Maslin
+896,0896,896,Vachellia rigidula (Benth.) Seigler & Ebinger
+897,0897,897,Hackelia velutina (Piper) I.M.Johnst.
+898,0898,898,Haplophyton crooksii (L.D.Benson) L.D.Benson
+899,0899,899,Aextoxicon punctatum Ruiz & Pav.
+900,0900,900,Lithops aucampiae L.Bolus
+901,0901,901,Lithops olivacea L.Bolus
+902,0902,902,Cyrtanthus elatus (Jacq.) Traub
+903,0903,903,Guatteria aeruginosa Standl.
+904,0904,904,Dischidia ovata Benth.
+905,0905,905,Trachelospermum asiaticum (Siebold & Zucc.) Nakai
+906,0906,906,Alocasia baginda Kurniawan & P.C.Boyce
+907,0907,907,Alocasia lauterbachiana (Engl.) A.Hay
+908,0908,908,Alocasia reginula A.Hay
+909,0909,909,Alocasia wentii Engl. & K.Krause
+910,0910,910,Alocasia zebrina G.W.Johnson & R.Hogg
+911,0911,911,Anthurium clarinervium Matuda
+912,0912,912,Anthurium faustomirandae Pérez-Farr. & Croat
+913,0913,913,Anthurium salvinii Hemsl.
+914,0914,914,Anthurium schlechtendalii Kunth
+915,0915,915,Anthurium veitchii Mast.
+916,0916,916,Anthurium warocqueanum T.Moore
+917,0917,917,Wodyetia bifurcata A.K.Irvine
+918,0918,918,Cereus forbesii C.F.Först.
+919,0919,919,Bourreria costaricensis (Standl.) A.H.Gentry
+920,0920,920,Coryphantha elephantidens (Lem.) Lem.
+921,0921,921,Pilosocereus chrysostele (Vaupel) Byles & G.D.Rowley
+922,0922,922,Pilosocereus pachycladus F.Ritter
+923,0923,923,Stenocactus multicostatus (Daul) A.Berger
+924,0924,924,Tephrocactus alexanderi (Britton & Rose) Backeb.
+925,0925,925,Pterocephalus pterocephala (L.) Dörfl.
+926,0926,926,Maytenus ilicifolia Mart. ex Reissek
+927,0927,927,Cyanotis somaliensis C.B.Clarke
+928,0928,928,Tradescantia sillamontana Matuda
+929,0929,929,Senecio minimus Poir.
+930,0930,930,Leptinella potentillina F.Muell.
+931,0931,931,Leucophyta brownii Cass.
+932,0932,932,Crassothonna capensis (L.H.Bailey) B.Nord.
+933,0933,933,Rhodanthe chlorocephala (Turcz.) Paul G.Wilson
+934,0934,934,Tagetes lunulata Ortega
+935,0935,935,Sedum adolphi Raym.-Hamet
+936,0936,936,Sedum allantoides Rose
+937,0937,937,Sedum burrito Moran
+938,0938,938,Sedum clavatum R.T.Clausen
+939,0939,939,Hylotelephium cyaneum (Rudolph) H.Ohba
+940,0940,940,Sedum kimnachii V.V.Byalt
+941,0941,941,Sedum furfuraceum Moran
+942,0942,942,Sedum hernandezii J.Meyrán
+943,0943,943,Sedum japonicum Siebold ex Miq.
+944,0944,944,Sedum makinoi Maxim.
+945,0945,945,Sedum praealtum A.DC.
+946,0946,946,Sedum × rubrotinctum R.T.Clausen
+947,0947,947,Carex punicea K.A.Ford
+948,0948,948,Empetrum rubrum Vahl ex Willd.
+949,0949,949,Acalypha macrostachya Jacq.
+950,0950,950,Pelargonium echinatum Curtis
+951,0951,951,Pelargonium sidoides DC.
+952,0952,952,Pelargonium tomentosum Jacq.
+953,0953,953,Senegalia brevispica (Harms) Seigler & Ebinger
+954,0954,954,Vachellia caven (Molina) Seigler & Ebinger
+955,0955,955,Acacia cognata Domin
+956,0956,956,Acacia confluens Maiden & Blakely
+957,0957,957,Dalbergia retusa Hemsl.
+958,0958,958,Neltuma pallida (Humb. & Bonpl. ex Willd.) C.E.Hughes & G.P.Lewis
+959,0959,959,Cedrela fissilis Vell.
+960,0960,960,Nepenthes mirabilis (Lour.) Druce
+961,0961,961,Nepenthes × neglecta Macfarl.
+962,0962,962,Nothofagus betuloides (Mirb.) Oerst.
+963,0963,963,Nothofagus dombeyi (Mirb.) Oerst.
+964,0964,964,Nothofagus nitida (Phil.) Krasser
+965,0965,965,Nymphaea rubra Roxb. ex Andrews
+966,0966,966,Dendrobium anosmum Lindl.
+967,0967,967,Dendrobium kingianum Bidwill ex Lindl.
+968,0968,968,Dendrobium munificum (Finet) Schltr.
+969,0969,969,Dendrobium thyrsiflorum B.S.Williams
+970,0970,970,Dendrobium victoriae-reginae Loher
+971,0971,971,Erycina pusilla (L.) N.H.Williams & M.W.Chase
+972,0972,972,"Adlumia fungosa (Aiton) Britton, Sterns & Poggenb."
+973,0973,973,Peperomia albovittata C.DC.
+974,0974,974,Peperomia clusiifolia (Jacq.) Hook.
+975,0975,975,Peperomia columella Rauh & Hutchison
+976,0976,976,Peperomia ferreyrae Yunck.
+977,0977,977,Peperomia graveolens Rauh & Barthlott
+978,0978,978,Peperomia maculosa (L.) Hook.
+979,0979,979,Peperomia pecuniifolia Trel. & Standl.
+980,0980,980,Peperomia polybotrya Kunth
+981,0981,981,Peperomia prostrata B.S.Williams ex Mast. & T.Moore
+982,0982,982,Peperomia tetragona Ruiz & Pav.
+983,0983,983,Peperomia verticillata (L.) A.Dietr.
+984,0984,984,Lomatia ferruginea (Cav.) R.Br.
+985,0985,985,Anemone pavoniana Boiss.
+986,0986,986,Eriocapitella tomentosa (Maxim.) Christenh. & Byng
+987,0987,987,Eumachia haematocarpa (Standl.) C.M.Taylor & Razafim.
+988,0988,988,Angostura granulosa (Kallunki) Kallunki
+989,0989,989,Smilax excelsa L.
+990,0990,990,Coussapoa villosa Poepp. & Endl.
+991,0991,991,Cyphostemma cyphopetalum (Fresen.) Desc. ex Wild & R.B.Drumm.
+992,0992,992,Cyphostemma juttae (Dinter & Gilg) Desc.
+993,0993,993,Cyphostemma serpens (Hochst. ex A.Rich.) Desc.
+994,0994,994,Nepenthes alata Blanco
+995,0995,995,Nepenthes truncata Macfarl.
+996,0996,996,Lavandula spp.
+997,0997,997,Aphelandra aurantiaca (Scheidw.) Lindl.
+998,0998,998,Guatteria dolichopoda Donn.Sm.
+999,0999,999,Stenanona costaricensis R.E.Fr.

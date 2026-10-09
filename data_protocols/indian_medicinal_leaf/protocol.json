@@ -1,0 +1,1226 @@
+{
+  "dataset": "indian_medicinal_leaf",
+  "input_manifest": "manifests/pools/indian_medicinal_leaf_exact_unique.csv",
+  "near_report": "outputs/dataset_audits/indian_medicinal_leaf/near_duplicates_phash4.json",
+  "hard_near_threshold": 2,
+  "split_seed": 42,
+  "ratios": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "samples": 6859,
+  "classes": 80,
+  "split_counts": {
+    "train": 4813,
+    "val": 1023,
+    "test": 1023
+  },
+  "hard_near_edges": 196,
+  "hard_near_cross_split_edges": 0,
+  "exact_sha_cross_split_duplicates": 0,
+  "class_report": {
+    "Aloevera": {
+      "samples": 118,
+      "targets": {
+        "train": 82,
+        "val": 18,
+        "test": 18
+      },
+      "actual": {
+        "train": 82,
+        "val": 18,
+        "test": 18
+      },
+      "multi_components": 5,
+      "largest_component": 2
+    },
+    "Amla": {
+      "samples": 67,
+      "targets": {
+        "train": 47,
+        "val": 10,
+        "test": 10
+      },
+      "actual": {
+        "train": 47,
+        "val": 10,
+        "test": 10
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Amruthaballi": {
+      "samples": 91,
+      "targets": {
+        "train": 63,
+        "val": 14,
+        "test": 14
+      },
+      "actual": {
+        "train": 63,
+        "val": 14,
+        "test": 14
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Arali": {
+      "samples": 89,
+      "targets": {
+        "train": 63,
+        "val": 13,
+        "test": 13
+      },
+      "actual": {
+        "train": 63,
+        "val": 13,
+        "test": 13
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Astma_weed": {
+      "samples": 82,
+      "targets": {
+        "train": 58,
+        "val": 12,
+        "test": 12
+      },
+      "actual": {
+        "train": 58,
+        "val": 12,
+        "test": 12
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Badipala": {
+      "samples": 74,
+      "targets": {
+        "train": 52,
+        "val": 11,
+        "test": 11
+      },
+      "actual": {
+        "train": 52,
+        "val": 11,
+        "test": 11
+      },
+      "multi_components": 4,
+      "largest_component": 2
+    },
+    "Balloon_Vine": {
+      "samples": 60,
+      "targets": {
+        "train": 42,
+        "val": 9,
+        "test": 9
+      },
+      "actual": {
+        "train": 42,
+        "val": 9,
+        "test": 9
+      },
+      "multi_components": 2,
+      "largest_component": 2
+    },
+    "Bamboo": {
+      "samples": 118,
+      "targets": {
+        "train": 82,
+        "val": 18,
+        "test": 18
+      },
+      "actual": {
+        "train": 82,
+        "val": 18,
+        "test": 18
+      },
+      "multi_components": 5,
+      "largest_component": 2
+    },
+    "Beans": {
+      "samples": 97,
+      "targets": {
+        "train": 67,
+        "val": 15,
+        "test": 15
+      },
+      "actual": {
+        "train": 67,
+        "val": 15,
+        "test": 15
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Betel": {
+      "samples": 114,
+      "targets": {
+        "train": 80,
+        "val": 17,
+        "test": 17
+      },
+      "actual": {
+        "train": 80,
+        "val": 17,
+        "test": 17
+      },
+      "multi_components": 1,
+      "largest_component": 2
+    },
+    "Bhrami": {
+      "samples": 102,
+      "targets": {
+        "train": 72,
+        "val": 15,
+        "test": 15
+      },
+      "actual": {
+        "train": 72,
+        "val": 15,
+        "test": 15
+      },
+      "multi_components": 4,
+      "largest_component": 2
+    },
+    "Bringaraja": {
+      "samples": 73,
+      "targets": {
+        "train": 51,
+        "val": 11,
+        "test": 11
+      },
+      "actual": {
+        "train": 51,
+        "val": 11,
+        "test": 11
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Caricature": {
+      "samples": 76,
+      "targets": {
+        "train": 54,
+        "val": 11,
+        "test": 11
+      },
+      "actual": {
+        "train": 54,
+        "val": 11,
+        "test": 11
+      },
+      "multi_components": 3,
+      "largest_component": 2
+    },
+    "Castor": {
+      "samples": 129,
+      "targets": {
+        "train": 91,
+        "val": 19,
+        "test": 19
+      },
+      "actual": {
+        "train": 91,
+        "val": 19,
+        "test": 19
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Catharanthus": {
+      "samples": 134,
+      "targets": {
+        "train": 94,
+        "val": 20,
+        "test": 20
+      },
+      "actual": {
+        "train": 94,
+        "val": 20,
+        "test": 20
+      },
+      "multi_components": 5,
+      "largest_component": 2
+    },
+    "Chakte": {
+      "samples": 68,
+      "targets": {
+        "train": 48,
+        "val": 10,
+        "test": 10
+      },
+      "actual": {
+        "train": 48,
+        "val": 10,
+        "test": 10
+      },
+      "multi_components": 1,
+      "largest_component": 2
+    },
+    "Chilly": {
+      "samples": 69,
+      "targets": {
+        "train": 49,
+        "val": 10,
+        "test": 10
+      },
+      "actual": {
+        "train": 49,
+        "val": 10,
+        "test": 10
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Citron lime (herelikai)": {
+      "samples": 99,
+      "targets": {
+        "train": 69,
+        "val": 15,
+        "test": 15
+      },
+      "actual": {
+        "train": 69,
+        "test": 15,
+        "val": 15
+      },
+      "multi_components": 3,
+      "largest_component": 2
+    },
+    "Coffee": {
+      "samples": 83,
+      "targets": {
+        "train": 59,
+        "val": 12,
+        "test": 12
+      },
+      "actual": {
+        "train": 59,
+        "test": 12,
+        "val": 12
+      },
+      "multi_components": 3,
+      "largest_component": 2
+    },
+    "Common rue(naagdalli)": {
+      "samples": 67,
+      "targets": {
+        "train": 47,
+        "val": 10,
+        "test": 10
+      },
+      "actual": {
+        "train": 47,
+        "val": 10,
+        "test": 10
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Coriender": {
+      "samples": 115,
+      "targets": {
+        "train": 81,
+        "val": 17,
+        "test": 17
+      },
+      "actual": {
+        "train": 81,
+        "val": 17,
+        "test": 17
+      },
+      "multi_components": 1,
+      "largest_component": 2
+    },
+    "Curry": {
+      "samples": 168,
+      "targets": {
+        "train": 118,
+        "val": 25,
+        "test": 25
+      },
+      "actual": {
+        "train": 118,
+        "val": 25,
+        "test": 25
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Doddpathre": {
+      "samples": 140,
+      "targets": {
+        "train": 98,
+        "val": 21,
+        "test": 21
+      },
+      "actual": {
+        "train": 98,
+        "val": 21,
+        "test": 21
+      },
+      "multi_components": 7,
+      "largest_component": 2
+    },
+    "Drumstick": {
+      "samples": 56,
+      "targets": {
+        "train": 40,
+        "val": 8,
+        "test": 8
+      },
+      "actual": {
+        "train": 40,
+        "val": 8,
+        "test": 8
+      },
+      "multi_components": 4,
+      "largest_component": 3
+    },
+    "Ekka": {
+      "samples": 81,
+      "targets": {
+        "train": 57,
+        "val": 12,
+        "test": 12
+      },
+      "actual": {
+        "train": 57,
+        "val": 12,
+        "test": 12
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Eucalyptus": {
+      "samples": 80,
+      "targets": {
+        "train": 56,
+        "val": 12,
+        "test": 12
+      },
+      "actual": {
+        "train": 56,
+        "val": 12,
+        "test": 12
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Ganigale": {
+      "samples": 75,
+      "targets": {
+        "train": 53,
+        "val": 11,
+        "test": 11
+      },
+      "actual": {
+        "train": 53,
+        "test": 11,
+        "val": 11
+      },
+      "multi_components": 3,
+      "largest_component": 2
+    },
+    "Ganike": {
+      "samples": 63,
+      "targets": {
+        "train": 45,
+        "val": 9,
+        "test": 9
+      },
+      "actual": {
+        "train": 45,
+        "val": 9,
+        "test": 9
+      },
+      "multi_components": 6,
+      "largest_component": 2
+    },
+    "Gasagase": {
+      "samples": 79,
+      "targets": {
+        "train": 55,
+        "val": 12,
+        "test": 12
+      },
+      "actual": {
+        "train": 55,
+        "val": 12,
+        "test": 12
+      },
+      "multi_components": 1,
+      "largest_component": 2
+    },
+    "Ginger": {
+      "samples": 82,
+      "targets": {
+        "train": 58,
+        "val": 12,
+        "test": 12
+      },
+      "actual": {
+        "train": 58,
+        "val": 12,
+        "test": 12
+      },
+      "multi_components": 1,
+      "largest_component": 2
+    },
+    "Globe Amarnath": {
+      "samples": 69,
+      "targets": {
+        "train": 49,
+        "val": 10,
+        "test": 10
+      },
+      "actual": {
+        "train": 49,
+        "val": 10,
+        "test": 10
+      },
+      "multi_components": 2,
+      "largest_component": 3
+    },
+    "Guava": {
+      "samples": 128,
+      "targets": {
+        "train": 90,
+        "val": 19,
+        "test": 19
+      },
+      "actual": {
+        "train": 90,
+        "val": 19,
+        "test": 19
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Henna": {
+      "samples": 78,
+      "targets": {
+        "train": 54,
+        "val": 12,
+        "test": 12
+      },
+      "actual": {
+        "train": 54,
+        "val": 12,
+        "test": 12
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Hibiscus": {
+      "samples": 118,
+      "targets": {
+        "train": 82,
+        "val": 18,
+        "test": 18
+      },
+      "actual": {
+        "train": 82,
+        "test": 18,
+        "val": 18
+      },
+      "multi_components": 7,
+      "largest_component": 5
+    },
+    "Honge": {
+      "samples": 96,
+      "targets": {
+        "train": 68,
+        "val": 14,
+        "test": 14
+      },
+      "actual": {
+        "train": 68,
+        "val": 14,
+        "test": 14
+      },
+      "multi_components": 5,
+      "largest_component": 3
+    },
+    "Insulin": {
+      "samples": 89,
+      "targets": {
+        "train": 63,
+        "val": 13,
+        "test": 13
+      },
+      "actual": {
+        "train": 63,
+        "val": 13,
+        "test": 13
+      },
+      "multi_components": 2,
+      "largest_component": 2
+    },
+    "Jackfruit": {
+      "samples": 110,
+      "targets": {
+        "train": 76,
+        "val": 17,
+        "test": 17
+      },
+      "actual": {
+        "train": 76,
+        "val": 17,
+        "test": 17
+      },
+      "multi_components": 2,
+      "largest_component": 2
+    },
+    "Jasmine": {
+      "samples": 49,
+      "targets": {
+        "train": 35,
+        "val": 7,
+        "test": 7
+      },
+      "actual": {
+        "train": 35,
+        "val": 7,
+        "test": 7
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Kambajala": {
+      "samples": 59,
+      "targets": {
+        "train": 41,
+        "val": 9,
+        "test": 9
+      },
+      "actual": {
+        "train": 41,
+        "val": 9,
+        "test": 9
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Kasambruga": {
+      "samples": 48,
+      "targets": {
+        "train": 34,
+        "val": 7,
+        "test": 7
+      },
+      "actual": {
+        "train": 34,
+        "val": 7,
+        "test": 7
+      },
+      "multi_components": 4,
+      "largest_component": 2
+    },
+    "Kohlrabi": {
+      "samples": 73,
+      "targets": {
+        "train": 51,
+        "val": 11,
+        "test": 11
+      },
+      "actual": {
+        "train": 51,
+        "val": 11,
+        "test": 11
+      },
+      "multi_components": 17,
+      "largest_component": 4
+    },
+    "Lantana": {
+      "samples": 76,
+      "targets": {
+        "train": 54,
+        "val": 11,
+        "test": 11
+      },
+      "actual": {
+        "train": 54,
+        "val": 11,
+        "test": 11
+      },
+      "multi_components": 2,
+      "largest_component": 2
+    },
+    "Lemon": {
+      "samples": 123,
+      "targets": {
+        "train": 87,
+        "val": 18,
+        "test": 18
+      },
+      "actual": {
+        "train": 87,
+        "val": 18,
+        "test": 18
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Lemongrass": {
+      "samples": 8,
+      "targets": {
+        "train": 6,
+        "val": 1,
+        "test": 1
+      },
+      "actual": {
+        "train": 6,
+        "val": 1,
+        "test": 1
+      },
+      "multi_components": 2,
+      "largest_component": 2
+    },
+    "Malabar_Nut": {
+      "samples": 51,
+      "targets": {
+        "train": 35,
+        "val": 8,
+        "test": 8
+      },
+      "actual": {
+        "train": 35,
+        "val": 8,
+        "test": 8
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Malabar_Spinach": {
+      "samples": 79,
+      "targets": {
+        "train": 55,
+        "val": 12,
+        "test": 12
+      },
+      "actual": {
+        "train": 55,
+        "val": 12,
+        "test": 12
+      },
+      "multi_components": 2,
+      "largest_component": 2
+    },
+    "Mango": {
+      "samples": 103,
+      "targets": {
+        "train": 73,
+        "val": 15,
+        "test": 15
+      },
+      "actual": {
+        "train": 73,
+        "val": 15,
+        "test": 15
+      },
+      "multi_components": 1,
+      "largest_component": 2
+    },
+    "Marigold": {
+      "samples": 93,
+      "targets": {
+        "train": 65,
+        "val": 14,
+        "test": 14
+      },
+      "actual": {
+        "train": 65,
+        "val": 14,
+        "test": 14
+      },
+      "multi_components": 1,
+      "largest_component": 2
+    },
+    "Mint": {
+      "samples": 135,
+      "targets": {
+        "train": 95,
+        "val": 20,
+        "test": 20
+      },
+      "actual": {
+        "train": 95,
+        "val": 20,
+        "test": 20
+      },
+      "multi_components": 1,
+      "largest_component": 2
+    },
+    "Neem": {
+      "samples": 132,
+      "targets": {
+        "train": 92,
+        "val": 20,
+        "test": 20
+      },
+      "actual": {
+        "train": 92,
+        "val": 20,
+        "test": 20
+      },
+      "multi_components": 1,
+      "largest_component": 2
+    },
+    "Nelavembu": {
+      "samples": 90,
+      "targets": {
+        "train": 62,
+        "val": 14,
+        "test": 14
+      },
+      "actual": {
+        "train": 62,
+        "val": 14,
+        "test": 14
+      },
+      "multi_components": 1,
+      "largest_component": 2
+    },
+    "Nerale": {
+      "samples": 62,
+      "targets": {
+        "train": 44,
+        "val": 9,
+        "test": 9
+      },
+      "actual": {
+        "train": 44,
+        "val": 9,
+        "test": 9
+      },
+      "multi_components": 2,
+      "largest_component": 2
+    },
+    "Nooni": {
+      "samples": 72,
+      "targets": {
+        "train": 50,
+        "val": 11,
+        "test": 11
+      },
+      "actual": {
+        "train": 50,
+        "val": 11,
+        "test": 11
+      },
+      "multi_components": 1,
+      "largest_component": 2
+    },
+    "Onion": {
+      "samples": 92,
+      "targets": {
+        "train": 64,
+        "val": 14,
+        "test": 14
+      },
+      "actual": {
+        "train": 64,
+        "val": 14,
+        "test": 14
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Padri": {
+      "samples": 73,
+      "targets": {
+        "train": 51,
+        "val": 11,
+        "test": 11
+      },
+      "actual": {
+        "train": 51,
+        "val": 11,
+        "test": 11
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Palak(Spinach)": {
+      "samples": 149,
+      "targets": {
+        "train": 105,
+        "val": 22,
+        "test": 22
+      },
+      "actual": {
+        "train": 105,
+        "val": 22,
+        "test": 22
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Papaya": {
+      "samples": 135,
+      "targets": {
+        "train": 95,
+        "val": 20,
+        "test": 20
+      },
+      "actual": {
+        "train": 95,
+        "val": 20,
+        "test": 20
+      },
+      "multi_components": 1,
+      "largest_component": 2
+    },
+    "Parijatha": {
+      "samples": 66,
+      "targets": {
+        "train": 46,
+        "val": 10,
+        "test": 10
+      },
+      "actual": {
+        "train": 46,
+        "val": 10,
+        "test": 10
+      },
+      "multi_components": 4,
+      "largest_component": 2
+    },
+    "Pea": {
+      "samples": 47,
+      "targets": {
+        "train": 33,
+        "val": 7,
+        "test": 7
+      },
+      "actual": {
+        "train": 33,
+        "val": 7,
+        "test": 7
+      },
+      "multi_components": 8,
+      "largest_component": 5
+    },
+    "Pepper": {
+      "samples": 8,
+      "targets": {
+        "train": 6,
+        "val": 1,
+        "test": 1
+      },
+      "actual": {
+        "train": 6,
+        "val": 1,
+        "test": 1
+      },
+      "multi_components": 1,
+      "largest_component": 2
+    },
+    "Pomoegranate": {
+      "samples": 75,
+      "targets": {
+        "train": 53,
+        "val": 11,
+        "test": 11
+      },
+      "actual": {
+        "train": 53,
+        "val": 11,
+        "test": 11
+      },
+      "multi_components": 10,
+      "largest_component": 2
+    },
+    "Pumpkin": {
+      "samples": 92,
+      "targets": {
+        "train": 64,
+        "val": 14,
+        "test": 14
+      },
+      "actual": {
+        "train": 64,
+        "val": 14,
+        "test": 14
+      },
+      "multi_components": 1,
+      "largest_component": 2
+    },
+    "Raddish": {
+      "samples": 40,
+      "targets": {
+        "train": 28,
+        "val": 6,
+        "test": 6
+      },
+      "actual": {
+        "train": 28,
+        "val": 6,
+        "test": 6
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Rose": {
+      "samples": 106,
+      "targets": {
+        "train": 74,
+        "val": 16,
+        "test": 16
+      },
+      "actual": {
+        "train": 74,
+        "val": 16,
+        "test": 16
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Sampige": {
+      "samples": 61,
+      "targets": {
+        "train": 43,
+        "val": 9,
+        "test": 9
+      },
+      "actual": {
+        "train": 43,
+        "val": 9,
+        "test": 9
+      },
+      "multi_components": 1,
+      "largest_component": 2
+    },
+    "Sapota": {
+      "samples": 44,
+      "targets": {
+        "train": 30,
+        "val": 7,
+        "test": 7
+      },
+      "actual": {
+        "train": 30,
+        "val": 7,
+        "test": 7
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Seethaashoka": {
+      "samples": 47,
+      "targets": {
+        "train": 33,
+        "val": 7,
+        "test": 7
+      },
+      "actual": {
+        "train": 33,
+        "val": 7,
+        "test": 7
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Seethapala": {
+      "samples": 114,
+      "targets": {
+        "train": 80,
+        "val": 17,
+        "test": 17
+      },
+      "actual": {
+        "train": 80,
+        "val": 17,
+        "test": 17
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Spinach1": {
+      "samples": 67,
+      "targets": {
+        "train": 47,
+        "val": 10,
+        "test": 10
+      },
+      "actual": {
+        "train": 47,
+        "val": 10,
+        "test": 10
+      },
+      "multi_components": 1,
+      "largest_component": 2
+    },
+    "Tamarind": {
+      "samples": 176,
+      "targets": {
+        "train": 124,
+        "val": 26,
+        "test": 26
+      },
+      "actual": {
+        "train": 124,
+        "val": 26,
+        "test": 26
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Taro": {
+      "samples": 69,
+      "targets": {
+        "train": 49,
+        "val": 10,
+        "test": 10
+      },
+      "actual": {
+        "train": 49,
+        "val": 10,
+        "test": 10
+      },
+      "multi_components": 3,
+      "largest_component": 2
+    },
+    "Tecoma": {
+      "samples": 66,
+      "targets": {
+        "train": 46,
+        "val": 10,
+        "test": 10
+      },
+      "actual": {
+        "train": 46,
+        "val": 10,
+        "test": 10
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Thumbe": {
+      "samples": 74,
+      "targets": {
+        "train": 52,
+        "val": 11,
+        "test": 11
+      },
+      "actual": {
+        "train": 52,
+        "val": 11,
+        "test": 11
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Tomato": {
+      "samples": 62,
+      "targets": {
+        "train": 44,
+        "val": 9,
+        "test": 9
+      },
+      "actual": {
+        "train": 44,
+        "val": 9,
+        "test": 9
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "Tulsi": {
+      "samples": 177,
+      "targets": {
+        "train": 123,
+        "val": 27,
+        "test": 27
+      },
+      "actual": {
+        "train": 123,
+        "val": 27,
+        "test": 27
+      },
+      "multi_components": 1,
+      "largest_component": 2
+    },
+    "Turmeric": {
+      "samples": 39,
+      "targets": {
+        "train": 27,
+        "val": 6,
+        "test": 6
+      },
+      "actual": {
+        "train": 27,
+        "test": 6,
+        "val": 6
+      },
+      "multi_components": 3,
+      "largest_component": 3
+    },
+    "ashoka": {
+      "samples": 81,
+      "targets": {
+        "train": 57,
+        "val": 12,
+        "test": 12
+      },
+      "actual": {
+        "train": 57,
+        "val": 12,
+        "test": 12
+      },
+      "multi_components": 1,
+      "largest_component": 2
+    },
+    "camphor": {
+      "samples": 66,
+      "targets": {
+        "train": 46,
+        "val": 10,
+        "test": 10
+      },
+      "actual": {
+        "train": 46,
+        "val": 10,
+        "test": 10
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "kamakasturi": {
+      "samples": 67,
+      "targets": {
+        "train": 47,
+        "val": 10,
+        "test": 10
+      },
+      "actual": {
+        "train": 47,
+        "val": 10,
+        "test": 10
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    },
+    "kepala": {
+      "samples": 76,
+      "targets": {
+        "train": 54,
+        "val": 11,
+        "test": 11
+      },
+      "actual": {
+        "train": 54,
+        "val": 11,
+        "test": 11
+      },
+      "multi_components": 0,
+      "largest_component": 1
+    }
+  },
+  "manifest": "manifests/canonical/indian_medicinal_leaf.csv",
+  "manifest_sha256": "72670b075661c063aa86a905906f9f5e5ac4cad107726f4b5a9c3df3afdef732"
+}

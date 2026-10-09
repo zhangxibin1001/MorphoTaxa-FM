@@ -1,0 +1,26 @@
+{
+  "name": "LeafSnap-CD-184 Lab-to-Field",
+  "classes": 184,
+  "train": {
+    "domain": "lab",
+    "images": 18430,
+    "classes": 184
+  },
+  "val": {
+    "domain": "lab",
+    "images": 4597,
+    "classes": 184
+  },
+  "test": {
+    "domain": "field",
+    "images": 7719,
+    "classes": 184
+  },
+  "total_images": 30746,
+  "label_range": [
+    0,
+    183
+  ],
+  "lab_train_val_group_overlap": 0,
+  "target_domain_used_for_training": false
+}

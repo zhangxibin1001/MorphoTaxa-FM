@@ -1,0 +1,66 @@
+from __future__ import annotations
+
+import math
+import torch
+from torch import nn
+
+
+class LoRALinear(nn.Module):
+    """Frozen base Linear + trainable low-rank update."""
+
+    def __init__(self, base: nn.Linear, rank: int = 8, alpha: float = 16.0, dropout: float = 0.0):
+        super().__init__()
+        if rank <= 0:
+            raise ValueError("rank must be > 0")
+        self.base = base
+        for p in self.base.parameters():
+            p.requires_grad = False
+        self.rank = rank
+        self.scale = alpha / rank
+        self.dropout = nn.Dropout(dropout)
+        self.lora_a = nn.Linear(base.in_features, rank, bias=False)
+        self.lora_b = nn.Linear(rank, base.out_features, bias=False)
+        nn.init.kaiming_uniform_(self.lora_a.weight, a=math.sqrt(5))
+        nn.init.zeros_(self.lora_b.weight)
+
+    def forward(self, x):
+        return self.base(x) + self.scale * self.lora_b(self.lora_a(self.dropout(x)))
+
+
+def _set_child(parent: nn.Module, name: str, module: nn.Module) -> None:
+    if name.isdigit() and isinstance(parent, (nn.ModuleList, nn.Sequential)):
+        parent[int(name)] = module
+    else:
+        setattr(parent, name, module)
+
+
+def inject_lora_last_blocks(model: nn.Module, last_n_blocks: int = 8, rank: int = 8, alpha: float = 16.0, dropout: float = 0.0, targets=("qkv", "proj")) -> list[str]:
+    """Inject LoRA into timm-style ViT blocks.
+
+    Supports a model exposing either `.blocks` or `.visual.trunk.blocks`.
+    Returns names of replaced modules for audit logging.
+    """
+    blocks = None
+    prefix = ""
+    if hasattr(model, "blocks"):
+        blocks = model.blocks
+        prefix = "blocks"
+    elif hasattr(model, "visual") and hasattr(model.visual, "trunk") and hasattr(model.visual.trunk, "blocks"):
+        blocks = model.visual.trunk.blocks
+        prefix = "visual.trunk.blocks"
+    if blocks is None:
+        raise AttributeError("Could not find timm-style transformer blocks on model")
+    start = max(0, len(blocks) - int(last_n_blocks))
+    replaced: list[str] = []
+    for bi in range(start, len(blocks)):
+        attn = getattr(blocks[bi], "attn", None)
+        if attn is None:
+            continue
+        for target in targets:
+            layer = getattr(attn, target, None)
+            if isinstance(layer, nn.Linear):
+                setattr(attn, target, LoRALinear(layer, rank=rank, alpha=alpha, dropout=dropout))
+                replaced.append(f"{prefix}.{bi}.attn.{target}")
+    if not replaced:
+        raise RuntimeError("No target attention Linear modules were replaced; inspect backbone module names")
+    return replaced

@@ -1,0 +1,8 @@
+sweep:
+  blocks: [4, 8, 12]
+  ranks: [4, 8, 16]
+  targets:
+    - [qkv]
+    - [qkv, proj]
+  seed: 42
+  selection_split: val

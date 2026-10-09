@@ -1,0 +1,8 @@
+dataset:
+  name: indian_medicinal
+  path: /root/autodl-tmp/datasets_raw/indian_medicinal/medicinal_leaf
+  expected_classes: null
+  protocol: identify_source_then_freeze
+  primary_metric: macro_f1
+  notes: Record exact public source/version and whether images are whole-plant or
+    leaf before paper reporting.

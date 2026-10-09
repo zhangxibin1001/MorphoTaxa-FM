@@ -1,0 +1,27 @@
+{
+  "canonical": true,
+  "classes": 17,
+  "output_sha256": {
+    "canonical_manifest.csv": "68ad507b6b1db1df87a84188aa6bb838a4ce284bd2cfba5f0bd7b87c8e723ecc",
+    "classes.csv": "820e8f7287a6bb8878b64905f73fec34722da502f7707062c4f8f22a572dd07d",
+    "excluded_audit.csv": "2f25ef6f4e4eee3edff00bef6688447401c9f8d4348b9eca113cb134ee483344"
+  },
+  "protocol": "MED117-TB17-Pure",
+  "retained_fraction": 1.0,
+  "retained_images": 17166,
+  "selection_rule": "feasible=1 AND strategy=whole_strict_blocks; hard quality checks: min(val,test)>=20 AND retained_fraction>=0.90",
+  "source_images": 17166,
+  "split_counts": {
+    "excluded": 0,
+    "test": 3527,
+    "train": 9514,
+    "val": 4125
+  },
+  "strategy_counts": {
+    "whole_strict_blocks": 17
+  },
+  "upstream_sha256": {
+    "candidate_split_manifest.csv": "4a46ad1eeec782bb8c982d99d9232bd5aae1c9d57e2edad009f2caa44e4410ce",
+    "class_split_quality.csv": "1383b3a42e5bc517f646932fb10e61590c5e50d130d75c39d2cf335504b298b6"
+  }
+}

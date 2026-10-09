@@ -1,0 +1,9 @@
+dataset:
+  name: med117
+  path: /root/autodl-tmp/datasets_raw/med117_v4_official/MED117_Medicinal Plant Leaf
+    Dataset & Name Table/MED 117 Leaf Species
+  expected_classes: 117
+  protocol: audit_before_use
+  primary_metric: macro_f1
+  notes: Resolve 115/117 discrepancy and check near-duplicate/video-frame leakage
+    before final experiments.

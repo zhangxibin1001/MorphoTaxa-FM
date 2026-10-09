@@ -1,0 +1,13 @@
+experiment:
+  name: c0_smoke
+  stage: C0
+model:
+  freeze_backbone: true
+  lora:
+    enabled: false
+  semantic:
+    enabled: false
+train:
+  epochs: 1
+  lr: 0.001
+  weight_decay: 0.0001

@@ -1,0 +1,18 @@
+protocol,protocol_label,official_id,class_name,strategy,provenance,original_images,train,val,test,excluded,retained,retained_fraction,min_eval
+MED117-TB17-Pure,0,14,bixa orellana,whole_strict_blocks,strict_block_disjoint,650,300,200,150,0,650,1.0,150
+MED117-TB17-Pure,1,17,brucea mollis,whole_strict_blocks,strict_block_disjoint,900,625,75,200,0,900,1.0,75
+MED117-TB17-Pure,2,26,citrus aurantiifolia,whole_strict_blocks,strict_block_disjoint,660,282,220,158,0,660,1.0,158
+MED117-TB17-Pure,3,27,clerodendrum colebrookianum,whole_strict_blocks,source_stream_disjoint,1329,939,315,75,0,1329,1.0,75
+MED117-TB17-Pure,4,45,eryngium foetidum,whole_strict_blocks,strict_block_disjoint,1215,600,255,360,0,1215,1.0,255
+MED117-TB17-Pure,5,62,justicia adhatoda,whole_strict_blocks,strict_block_disjoint,1120,820,150,150,0,1120,1.0,150
+MED117-TB17-Pure,6,63,kaempferia galanga,whole_strict_blocks,strict_block_disjoint,1029,600,329,100,0,1029,1.0,100
+MED117-TB17-Pure,7,65,lasia spinosa,whole_strict_blocks,strict_block_disjoint,1135,600,400,135,0,1135,1.0,135
+MED117-TB17-Pure,8,70,mimusops elengi,whole_strict_blocks,strict_block_disjoint,756,528,113,115,0,756,1.0,113
+MED117-TB17-Pure,9,76,operculina turpethum,whole_strict_blocks,strict_block_disjoint,509,195,164,150,0,509,1.0,150
+MED117-TB17-Pure,10,79,paederia foetida,whole_strict_blocks,strict_block_disjoint,1373,825,424,124,0,1373,1.0,124
+MED117-TB17-Pure,11,93,rauvolfia serpentina,whole_strict_blocks,strict_block_disjoint,975,600,165,210,0,975,1.0,165
+MED117-TB17-Pure,12,94,rotheca serrata,whole_strict_blocks,source_stream_disjoint,1515,600,465,450,0,1515,1.0,450
+MED117-TB17-Pure,13,99,simarouba glauca,whole_strict_blocks,strict_block_disjoint,1500,600,400,500,0,1500,1.0,400
+MED117-TB17-Pure,14,109,terminalia bellirica,whole_strict_blocks,strict_block_disjoint,700,400,50,250,0,700,1.0,50
+MED117-TB17-Pure,15,113,vanilla planifolia,whole_strict_blocks,strict_block_disjoint,900,700,100,100,0,900,1.0,100
+MED117-TB17-Pure,16,116,zingiber officinale,whole_strict_blocks,strict_block_disjoint,900,300,300,300,0,900,1.0,300

@@ -1,0 +1,7 @@
+model:
+  backbone: bioclip25
+  open_clip_model: local-dir:/root/autodl-tmp/pretrained/huggingface/hub/models--imageomics--bioclip-2.5-vith14/snapshots/6e3d04e3d6522012c88181085c5ae666e14c45cd
+  cache_dir: null
+  embedding_dim: 1024
+  normalize_features: true
+  offline: true

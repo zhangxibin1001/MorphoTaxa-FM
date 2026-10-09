@@ -1,0 +1,240 @@
+from __future__ import annotations
+
+import csv
+from pathlib import Path
+from typing import Callable
+
+from PIL import Image
+from torch.utils.data import Dataset
+
+
+PATH_KEYS = (
+    "path",
+    "absolute_path",
+    "image_path",
+    "filepath",
+    "file",
+    "relpath",
+)
+
+CLASS_NAME_KEYS = (
+    "class_name",
+    "species",
+    "label_name",
+    "class",
+    "category",
+)
+
+CLASS_ID_KEYS = (
+    "class_id",
+    "label",
+    "protocol_label",
+    "target",
+)
+
+SPLIT_KEYS = (
+    "split",
+    "subset",
+    "partition",
+)
+
+
+def _first_key(fields, candidates):
+    for k in candidates:
+        if k in fields:
+            return k
+    return None
+
+
+def read_manifest_rows(
+    manifest: str | Path,
+    split: str | None = None,
+):
+    manifest = Path(manifest)
+
+    if not manifest.is_file():
+        raise FileNotFoundError(manifest)
+
+    with manifest.open(
+        "r",
+        encoding="utf-8",
+        errors="replace",
+        newline="",
+    ) as f:
+        reader = csv.DictReader(f)
+
+        fields = reader.fieldnames or []
+
+        path_key = _first_key(fields, PATH_KEYS)
+        class_name_key = _first_key(
+            fields,
+            CLASS_NAME_KEYS,
+        )
+        class_id_key = _first_key(
+            fields,
+            CLASS_ID_KEYS,
+        )
+        split_key = _first_key(
+            fields,
+            SPLIT_KEYS,
+        )
+
+        if path_key is None:
+            raise RuntimeError(
+                f"{manifest}: no path column. "
+                f"fields={fields}"
+            )
+
+        if class_name_key is None:
+            raise RuntimeError(
+                f"{manifest}: no class-name column. "
+                f"fields={fields}"
+            )
+
+        if split is not None and split_key is None:
+            raise RuntimeError(
+                f"{manifest}: split requested but "
+                f"no split column exists. fields={fields}"
+            )
+
+        rows = []
+
+        for row in reader:
+            if split is not None:
+                value = str(row[split_key]).strip().lower()
+
+                if value != split.lower():
+                    continue
+
+            rows.append({
+                "path": row[path_key],
+                "class_name": row[class_name_key],
+                "class_id_raw": (
+                    row[class_id_key]
+                    if class_id_key
+                    else None
+                ),
+            })
+
+    if not rows:
+        raise RuntimeError(
+            f"No rows found in {manifest} "
+            f"for split={split}"
+        )
+
+    return rows
+
+
+def discover_manifest_classes(
+    manifest: str | Path,
+):
+    rows = read_manifest_rows(
+        manifest,
+        split="train",
+    )
+
+    names = sorted({
+        r["class_name"]
+        for r in rows
+    })
+
+    if not names:
+        raise RuntimeError(
+            f"No classes found in {manifest}"
+        )
+
+    return names, {
+        name: i
+        for i, name in enumerate(names)
+    }
+
+
+class ManifestDataset(Dataset):
+    def __init__(
+        self,
+        manifest: str | Path,
+        split: str,
+        class_to_idx: dict[str, int],
+        transform: Callable | None = None,
+        root: str | Path | None = None,
+    ):
+        self.manifest = Path(manifest)
+        self.split = split
+        self.class_to_idx = dict(class_to_idx)
+        self.transform = transform
+
+        self.root = (
+            Path(root)
+            if root is not None
+            else None
+        )
+
+        rows = read_manifest_rows(
+            self.manifest,
+            split=split,
+        )
+
+        samples = []
+
+        for row in rows:
+            class_name = row["class_name"]
+
+            if class_name not in self.class_to_idx:
+                raise RuntimeError(
+                    f"{self.manifest}: "
+                    f"unknown class '{class_name}' "
+                    f"in split={split}"
+                )
+
+            p = Path(row["path"])
+
+            if not p.is_absolute():
+                if self.root is None:
+                    raise RuntimeError(
+                        f"Relative path without root: {p}"
+                    )
+                p = self.root / p
+
+            if not p.is_file():
+                raise FileNotFoundError(
+                    f"Manifest image missing: {p}"
+                )
+
+            samples.append(
+                (
+                    str(p),
+                    self.class_to_idx[class_name],
+                )
+            )
+
+        if not samples:
+            raise RuntimeError(
+                f"No samples for split={split}"
+            )
+
+        self.samples = samples
+        self.targets = [
+            y for _, y in samples
+        ]
+
+        self.classes = [
+            x
+            for x, _ in sorted(
+                self.class_to_idx.items(),
+                key=lambda kv: kv[1],
+            )
+        ]
+
+    def __len__(self):
+        return len(self.samples)
+
+    def __getitem__(self, index):
+        path, target = self.samples[index]
+
+        with Image.open(path) as im:
+            image = im.convert("RGB")
+
+        if self.transform is not None:
+            image = self.transform(image)
+
+        return image, target, path

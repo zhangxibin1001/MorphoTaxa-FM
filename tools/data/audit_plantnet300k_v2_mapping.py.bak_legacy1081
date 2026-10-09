@@ -1,0 +1,433 @@
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+import pandas as pd
+
+
+ROOT = Path(
+    "/root/autodl-tmp/datasets_raw/plantnet300kV2"
+)
+
+MAP_FILE = (
+    ROOT
+    / "metadata_v1_legacy"
+    / "class_idx_to_species_id.json"
+)
+
+SPECIES_FILE = (
+    ROOT
+    / "species_metadata.csv"
+)
+
+IMAGE_META_FILE = (
+    ROOT
+    / "plantnet300K_metadata.csv"
+)
+
+EXTS = {
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".bmp",
+    ".webp",
+    ".tif",
+    ".tiff",
+}
+
+EXPECTED_SPLITS = {
+    "train": 243866,
+    "val": 31115,
+    "test": 31106,
+}
+
+
+def load_class_mapping(path: Path):
+    obj = json.loads(
+        path.read_text(
+            encoding="utf-8"
+        )
+    )
+
+    if isinstance(obj, list):
+        mapping = {
+            i: int(v)
+            for i, v in enumerate(obj)
+        }
+
+    elif isinstance(obj, dict):
+        mapping = {
+            int(k): int(v)
+            for k, v in obj.items()
+        }
+
+    else:
+        raise TypeError(
+            f"Unexpected mapping type: "
+            f"{type(obj)}"
+        )
+
+    return mapping
+
+
+def main():
+    print("===== FILE CHECK =====")
+
+    for p in [
+        ROOT,
+        MAP_FILE,
+        SPECIES_FILE,
+        IMAGE_META_FILE,
+    ]:
+        print(p, "exists=", p.exists())
+        assert p.exists()
+
+    mapping = load_class_mapping(
+        MAP_FILE
+    )
+
+    print("\n===== CLASS MAPPING =====")
+    print("mapping length =", len(mapping))
+
+    assert set(mapping) == set(
+        range(1000)
+    ), (
+        "class indices must be "
+        "exactly 0..999"
+    )
+
+    species_ids = list(
+        mapping.values()
+    )
+
+    print(
+        "unique mapped species IDs =",
+        len(set(species_ids)),
+    )
+
+    assert len(set(species_ids)) == 1000
+
+    species = pd.read_csv(
+        SPECIES_FILE,
+        low_memory=False,
+    )
+
+    assert "species_id" in species.columns
+    assert "full_species" in species.columns
+
+    species["species_id"] = (
+        species["species_id"]
+        .astype(int)
+    )
+
+    if (
+        species["species_id"]
+        .duplicated()
+        .any()
+    ):
+        dup = species[
+            species["species_id"]
+            .duplicated(keep=False)
+        ]
+
+        raise RuntimeError(
+            "Duplicate species_id:\n"
+            + dup.head(20).to_string()
+        )
+
+    species_name = dict(
+        zip(
+            species["species_id"],
+            species["full_species"],
+        )
+    )
+
+    missing_species = sorted(
+        set(species_ids)
+        - set(species_name)
+    )
+
+    print(
+        "missing mapped species IDs =",
+        len(missing_species),
+    )
+
+    if missing_species:
+        print(
+            "first missing =",
+            missing_species[:20],
+        )
+
+        raise RuntimeError(
+            "Mapped species IDs missing "
+            "from species_metadata.csv"
+        )
+
+    print("\n===== EXAMPLE MAPPINGS =====")
+
+    for idx in [
+        0, 1, 2, 3, 4,
+        995, 996, 997, 998, 999,
+    ]:
+        sid = mapping[idx]
+
+        print(
+            f"{idx:04d}",
+            "-> species_id",
+            sid,
+            "->",
+            species_name[sid],
+        )
+
+    print("\n===== FOLDER CHECK =====")
+
+    expected_folders = {
+        f"{i:04d}"
+        for i in range(1000)
+    }
+
+    for split in [
+        "train",
+        "val",
+        "test",
+    ]:
+        found = {
+            p.name
+            for p in (ROOT / split).iterdir()
+            if p.is_dir()
+        }
+
+        print(
+            split,
+            "folders=",
+            len(found),
+        )
+
+        assert found == expected_folders
+
+    print("\n===== IMAGE METADATA =====")
+
+    meta = pd.read_csv(
+        IMAGE_META_FILE,
+        low_memory=False,
+    )
+
+    print("rows =", len(meta))
+
+    assert len(meta) == 306087
+
+    required = {
+        "species_id",
+        "split",
+        "PN_hash",
+    }
+
+    assert required.issubset(
+        meta.columns
+    )
+
+    meta["species_id"] = (
+        meta["species_id"]
+        .astype(int)
+    )
+
+    print(
+        "unique metadata species IDs =",
+        meta["species_id"].nunique(),
+    )
+
+    print("\nmetadata split counts:")
+    print(
+        meta["split"]
+        .value_counts()
+        .sort_index()
+    )
+
+    for split, expected in (
+        EXPECTED_SPLITS.items()
+    ):
+        n = int(
+            (meta["split"] == split)
+            .sum()
+        )
+
+        assert n == expected, (
+            split,
+            n,
+            expected,
+        )
+
+    mapped_set = set(
+        mapping.values()
+    )
+
+    metadata_species = set(
+        meta["species_id"]
+        .unique()
+        .tolist()
+    )
+
+    extra = metadata_species - mapped_set
+    missing = mapped_set - metadata_species
+
+    print(
+        "metadata species outside "
+        "mapping =",
+        len(extra),
+    )
+
+    print(
+        "mapped species absent from "
+        "metadata =",
+        len(missing),
+    )
+
+    assert not extra
+    assert not missing
+
+    # Inverse species_id -> folder index.
+    inverse = {
+        sid: idx
+        for idx, sid
+        in mapping.items()
+    }
+
+    print(
+        "\n===== FULL FILE/METADATA "
+        "CONSISTENCY ====="
+    )
+
+    # Key by (split, stem), because split is
+    # explicitly given in official metadata.
+    file_index = {}
+
+    for split in [
+        "train",
+        "val",
+        "test",
+    ]:
+        for folder in sorted(
+            (ROOT / split).iterdir()
+        ):
+            if not folder.is_dir():
+                continue
+
+            class_idx = int(folder.name)
+
+            for p in folder.iterdir():
+                if (
+                    not p.is_file()
+                    or p.suffix.lower()
+                    not in EXTS
+                ):
+                    continue
+
+                key = (
+                    split,
+                    p.stem,
+                )
+
+                if key in file_index:
+                    raise RuntimeError(
+                        "Duplicate image stem "
+                        f"inside split: {key}"
+                    )
+
+                file_index[key] = (
+                    class_idx
+                )
+
+    print(
+        "indexed image files =",
+        len(file_index),
+    )
+
+    assert len(file_index) == 306087
+
+    mismatch = []
+    missing_files = []
+
+    for row in meta.itertuples(
+        index=False
+    ):
+        split = str(row.split)
+        stem = str(row.PN_hash)
+        sid = int(row.species_id)
+
+        expected_idx = inverse[sid]
+
+        key = (
+            split,
+            stem,
+        )
+
+        if key not in file_index:
+            missing_files.append(
+                (
+                    split,
+                    stem,
+                    sid,
+                )
+            )
+
+            if len(missing_files) >= 20:
+                break
+
+            continue
+
+        actual_idx = file_index[key]
+
+        if actual_idx != expected_idx:
+            mismatch.append(
+                (
+                    split,
+                    stem,
+                    sid,
+                    expected_idx,
+                    actual_idx,
+                )
+            )
+
+            if len(mismatch) >= 20:
+                break
+
+    print(
+        "missing file matches =",
+        len(missing_files),
+    )
+
+    print(
+        "class mapping mismatches =",
+        len(mismatch),
+    )
+
+    if missing_files:
+        print(
+            "missing examples:",
+            missing_files[:10],
+        )
+
+    if mismatch:
+        print(
+            "mismatch examples:",
+            mismatch[:10],
+        )
+
+    assert not missing_files
+    assert not mismatch
+
+    print()
+    print(
+        "PLANTNET V2 CLASS MAPPING: PASS"
+    )
+    print(
+        "PLANTNET V2 METADATA: PASS"
+    )
+    print(
+        "PLANTNET V2 FILE CONSISTENCY: PASS"
+    )
+
+
+if __name__ == "__main__":
+    main()

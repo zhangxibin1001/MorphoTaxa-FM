@@ -1,0 +1,371 @@
+from __future__ import annotations
+
+from pathlib import Path
+
+import torch
+from torch import nn
+
+
+def _extract_state_dict(ckpt):
+    if not isinstance(ckpt, dict):
+        raise TypeError(
+            f"Checkpoint must be a dict, got {type(ckpt)}"
+        )
+
+    for key in (
+        "model",
+        "model_state_dict",
+        "state_dict",
+    ):
+        state = ckpt.get(key)
+
+        if isinstance(state, dict):
+            return state
+
+    raise KeyError(
+        "Could not find model state dict in checkpoint. "
+        f"keys={list(ckpt.keys())}"
+    )
+
+
+def _legacy_lora_candidate(
+    key: str,
+) -> str | None:
+    """
+    Map a non-parametrized C0 attention key to the corresponding
+    PyTorch-parametrized C1 key.
+
+    C0:
+        ...attn.in_proj_weight
+        ...attn.out_proj.weight
+
+    C1:
+        ...attn.parametrizations.in_proj_weight.original
+        ...attn.out_proj.parametrizations.weight.original
+    """
+
+    suffix = ".attn.in_proj_weight"
+
+    if key.endswith(suffix):
+        prefix = key[: -len(suffix)]
+
+        return (
+            prefix
+            + ".attn.parametrizations."
+            + "in_proj_weight.original"
+        )
+
+    suffix = ".attn.out_proj.weight"
+
+    if key.endswith(suffix):
+        prefix = key[: -len(suffix)]
+
+        return (
+            prefix
+            + ".attn.out_proj.parametrizations."
+            + "weight.original"
+        )
+
+    return None
+
+
+def _is_expected_new_lora_key(
+    key: str,
+) -> bool:
+    """
+    LoRA A/B do not exist in a C0 checkpoint.
+    """
+
+    return (
+        ".parametrizations." in key
+        and (
+            key.endswith(".lora_a")
+            or key.endswith(".lora_b")
+            or ".lora_a." in key
+            or ".lora_b." in key
+        )
+    )
+
+
+def _is_expected_new_semantic_key(
+    key: str,
+    source_keys: set[str],
+) -> bool:
+    """
+    Allows C1 -> C4-A initialization where the semantic calibration
+    parameters are intentionally new.
+
+    This is only enabled when the source checkpoint contains no
+    semantic parameters at all.
+    """
+
+    source_has_semantic = any(
+        k.startswith("semantic.")
+        or ".semantic." in k
+        or k.startswith("semantic_head.")
+        or ".semantic_head." in k
+        for k in source_keys
+    )
+
+    if source_has_semantic:
+        return False
+
+    return (
+        key.startswith("semantic.")
+        or ".semantic." in key
+        or key.startswith("semantic_head.")
+        or ".semantic_head." in key
+    )
+
+
+
+def _is_lora_key(key: str) -> bool:
+    return (
+        ".lora_a" in key
+        or ".lora_b" in key
+    )
+
+
+def _is_semantic_key(key: str) -> bool:
+    return (
+        key.startswith("semantic.")
+        or ".semantic." in key
+        or key.startswith("semantic_head.")
+        or ".semantic_head." in key
+    )
+
+
+def _portable_source_stage(ckpt) -> str:
+    stage = ckpt.get("source_stage")
+
+    if stage:
+        return str(stage).upper()
+
+    cfg = ckpt.get("cfg")
+
+    if isinstance(cfg, dict):
+        experiment = cfg.get(
+            "experiment",
+            {},
+        )
+
+        if isinstance(experiment, dict):
+            stage = experiment.get("stage")
+
+            if stage:
+                return str(stage).upper()
+
+    return ""
+
+
+def load_init_checkpoint_compatible(
+    model: nn.Module,
+    checkpoint_path: str | Path,
+):
+    checkpoint_path = Path(checkpoint_path)
+
+    if not checkpoint_path.is_file():
+        raise FileNotFoundError(
+            checkpoint_path
+        )
+
+    ckpt = torch.load(
+        checkpoint_path,
+        map_location="cpu",
+        weights_only=False,
+    )
+
+    source_state = _extract_state_dict(ckpt)
+
+    target_state = model.state_dict()
+    target_keys = set(target_state)
+    source_keys = set(source_state)
+
+    remapped_state = {}
+    remapped_pairs = []
+
+    for key, value in source_state.items():
+
+        # Normal exact match.
+        if key in target_keys:
+            remapped_state[key] = value
+            continue
+
+        # C0 -> parametrized C1 attention mapping.
+        candidate = _legacy_lora_candidate(
+            key
+        )
+
+        if (
+            candidate is not None
+            and candidate in target_keys
+        ):
+            remapped_state[candidate] = value
+
+            remapped_pairs.append(
+                (key, candidate)
+            )
+
+            continue
+
+        # Keep the original key so truly unexpected keys
+        # are still detected by load_state_dict.
+        remapped_state[key] = value
+
+    missing, unexpected = model.load_state_dict(
+        remapped_state,
+        strict=False,
+    )
+
+    bad_missing = []
+
+    checkpoint_format = str(
+        ckpt.get(
+            "checkpoint_format",
+            "full",
+        )
+    ).lower()
+
+    portable = (
+        checkpoint_format
+        == "portable_task_v1"
+    )
+
+    source_stage = (
+        _portable_source_stage(ckpt)
+        if portable
+        else ""
+    )
+
+    if portable and source_stage not in {
+        "C0",
+        "C1",
+        "C4A",
+    }:
+        raise RuntimeError(
+            "portable_task_v1 checkpoint has "
+            f"invalid source_stage={source_stage!r}"
+        )
+
+    for key in missing:
+
+        # --------------------------------------------
+        # New lightweight/portable checkpoint format.
+        # --------------------------------------------
+        if portable:
+
+            # Frozen pretrained backbone state is
+            # reconstructed from the configured
+            # pretrained model.
+            if key.startswith("backbone."):
+
+                # C0 -> C1:
+                # LoRA did not exist in C0, so new
+                # LoRA parameters may be absent.
+                #
+                # C1/C4A portable checkpoints MUST
+                # contain their LoRA adapter state.
+                if (
+                    _is_lora_key(key)
+                    and source_stage in {
+                        "C1",
+                        "C4A",
+                    }
+                ):
+                    bad_missing.append(key)
+
+                # Otherwise this is reconstructible
+                # frozen backbone state.
+                continue
+
+            # Semantic parameters are intentionally
+            # new during C1 -> C4A.
+            #
+            # But a C4A portable checkpoint must
+            # contain its semantic head.
+            if _is_semantic_key(key):
+                if source_stage == "C4A":
+
+                    # Legacy portable C4-A checkpoints
+                    # created before kappa became a
+                    # persistent state_dict buffer did
+                    # not contain semantic_head.kappa.
+                    #
+                    # Keep this exception deliberately
+                    # narrow. raw_alpha must exist, and
+                    # the checkpoint must not claim that
+                    # kappa was saved.
+                    saved_keys = ckpt.get(
+                        "saved_keys",
+                        [],
+                    )
+
+                    claims_saved_kappa = (
+                        isinstance(
+                            saved_keys,
+                            (list, tuple),
+                        )
+                        and
+                        "semantic_head.kappa"
+                        in saved_keys
+                    )
+
+                    legacy_kappa_missing = (
+                        key
+                        == "semantic_head.kappa"
+                        and
+                        "semantic_head.raw_alpha"
+                        in source_state
+                        and not claims_saved_kappa
+                    )
+
+                    if not legacy_kappa_missing:
+                        bad_missing.append(key)
+
+                continue
+
+            # classifier.* and all other task state
+            # must be explicitly present.
+            bad_missing.append(key)
+            continue
+
+        # --------------------------------------------
+        # Legacy/full checkpoint behavior unchanged.
+        # --------------------------------------------
+        if (
+            remapped_pairs
+            and _is_expected_new_lora_key(key)
+        ):
+            continue
+
+        if _is_expected_new_semantic_key(
+            key,
+            source_keys,
+        ):
+            continue
+
+        bad_missing.append(key)
+
+    bad_unexpected = list(unexpected)
+
+    if bad_missing or bad_unexpected:
+        raise RuntimeError(
+            "Checkpoint mismatch after compatibility mapping.\n"
+            f"bad_missing={bad_missing}\n"
+            f"bad_unexpected={bad_unexpected}\n"
+            f"remapped={len(remapped_pairs)}"
+        )
+
+    return {
+        "checkpoint": str(checkpoint_path),
+        "checkpoint_epoch": ckpt.get("epoch"),
+        "checkpoint_val": ckpt.get("val"),
+        "remapped_count": len(remapped_pairs),
+        "remapped_pairs": remapped_pairs,
+        "expected_missing": [
+            key
+            for key in missing
+            if key not in bad_missing
+        ],
+        "unexpected": bad_unexpected,
+    }

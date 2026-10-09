@@ -1,0 +1,403 @@
+from __future__ import annotations
+
+import csv
+from pathlib import Path
+from typing import Callable
+
+from PIL import Image
+from torch.utils.data import Dataset
+
+
+PATH_KEYS = (
+    "path",
+    "absolute_path",
+    "image_path",
+    "filepath",
+    "file",
+    "relpath",
+)
+
+CLASS_NAME_KEYS = (
+    "class_name",
+    "species",
+    "label_name",
+    "class",
+    "category",
+)
+
+CLASS_ID_KEYS = (
+    "class_id",
+    "label",
+    "protocol_label",
+    "target",
+)
+
+SPLIT_KEYS = (
+    "split",
+    "subset",
+    "partition",
+)
+
+
+def _first_key(fields, candidates):
+    for k in candidates:
+        if k in fields:
+            return k
+    return None
+
+
+def read_manifest_rows(
+    manifest: str | Path,
+    split: str | None = None,
+):
+    manifest = Path(manifest)
+
+    if not manifest.is_file():
+        raise FileNotFoundError(manifest)
+
+    with manifest.open(
+        "r",
+        encoding="utf-8",
+        errors="replace",
+        newline="",
+    ) as f:
+        reader = csv.DictReader(f)
+
+        fields = reader.fieldnames or []
+
+        path_key = _first_key(fields, PATH_KEYS)
+        class_name_key = _first_key(
+            fields,
+            CLASS_NAME_KEYS,
+        )
+        class_id_key = _first_key(
+            fields,
+            CLASS_ID_KEYS,
+        )
+        split_key = _first_key(
+            fields,
+            SPLIT_KEYS,
+        )
+
+        if path_key is None:
+            raise RuntimeError(
+                f"{manifest}: no path column. "
+                f"fields={fields}"
+            )
+
+        if class_name_key is None:
+            raise RuntimeError(
+                f"{manifest}: no class-name column. "
+                f"fields={fields}"
+            )
+
+        if split is not None and split_key is None:
+            raise RuntimeError(
+                f"{manifest}: split requested but "
+                f"no split column exists. fields={fields}"
+            )
+
+        rows = []
+
+        for row in reader:
+            if split is not None:
+                value = str(row[split_key]).strip().lower()
+
+                if value != split.lower():
+                    continue
+
+            rows.append({
+                "path": row[path_key],
+                "class_name": row[class_name_key],
+                "class_id_raw": (
+                    row[class_id_key]
+                    if class_id_key
+                    else None
+                ),
+            })
+
+    if not rows:
+        raise RuntimeError(
+            f"No rows found in {manifest} "
+            f"for split={split}"
+        )
+
+    return rows
+
+
+def discover_manifest_classes(manifest_path):
+    """
+    Discover classes from a manifest.
+
+    Canonical mode:
+        If a numeric ``label`` column exists, preserve the explicit
+        manifest label order exactly.  This is required for official
+        dataset protocols where classifier row i, semantic prototype
+        row i, metric class i, and manifest label i must refer to the
+        same class.
+
+    Legacy mode:
+        If no ``label`` column exists, fall back to deterministic
+        alphabetical ordering of unique class names.  This preserves
+        backward compatibility with older/simple manifests.
+    """
+    import csv
+    from pathlib import Path
+
+    manifest_path = Path(manifest_path)
+
+    with manifest_path.open(
+        "r",
+        encoding="utf-8",
+        errors="replace",
+    ) as f:
+        reader = csv.DictReader(f)
+
+        fields = set(
+            reader.fieldnames or []
+        )
+
+        if "class_name" not in fields:
+            raise RuntimeError(
+                "Manifest missing required "
+                "column: class_name"
+            )
+
+        has_label = (
+            "label" in fields
+        )
+
+        # -------------------------------------------------
+        # Canonical mode: explicit label column.
+        # -------------------------------------------------
+        if has_label:
+            label_to_name = {}
+            name_to_label = {}
+
+            for row_no, row in enumerate(
+                reader,
+                start=2,
+            ):
+                try:
+                    label = int(
+                        row["label"]
+                    )
+                except Exception as e:
+                    raise RuntimeError(
+                        f"Invalid label at manifest "
+                        f"row {row_no}: "
+                        f"{row.get('label')!r}"
+                    ) from e
+
+                name = str(
+                    row["class_name"]
+                ).strip()
+
+                if not name:
+                    raise RuntimeError(
+                        f"Empty class_name at "
+                        f"manifest row {row_no}"
+                    )
+
+                old_name = (
+                    label_to_name.get(label)
+                )
+
+                if (
+                    old_name is not None
+                    and old_name != name
+                ):
+                    raise RuntimeError(
+                        f"Label {label} maps to "
+                        "multiple class names: "
+                        f"{old_name!r} vs {name!r}"
+                    )
+
+                old_label = (
+                    name_to_label.get(name)
+                )
+
+                if (
+                    old_label is not None
+                    and old_label != label
+                ):
+                    raise RuntimeError(
+                        f"Class name {name!r} maps "
+                        "to multiple labels: "
+                        f"{old_label} vs {label}"
+                    )
+
+                label_to_name[label] = name
+                name_to_label[name] = label
+
+            if not label_to_name:
+                raise RuntimeError(
+                    f"No classes found in "
+                    f"{manifest_path}"
+                )
+
+            labels = sorted(
+                label_to_name
+            )
+
+            expected = list(
+                range(len(labels))
+            )
+
+            if labels != expected:
+                raise RuntimeError(
+                    "Manifest labels must be "
+                    "contiguous 0..N-1. "
+                    f"first={labels[:10]}, "
+                    f"last={labels[-10:]}"
+                )
+
+            class_names = [
+                label_to_name[i]
+                for i in expected
+            ]
+
+            class_to_idx = {
+                name: i
+                for i, name
+                in enumerate(class_names)
+            }
+
+            return (
+                class_names,
+                class_to_idx,
+            )
+
+        # -------------------------------------------------
+        # Legacy mode: no label column.
+        # Preserve historical deterministic behavior.
+        # -------------------------------------------------
+        unique_names = set()
+
+        for row_no, row in enumerate(
+            reader,
+            start=2,
+        ):
+            name = str(
+                row["class_name"]
+            ).strip()
+
+            if not name:
+                raise RuntimeError(
+                    f"Empty class_name at "
+                    f"manifest row {row_no}"
+                )
+
+            unique_names.add(name)
+
+        if not unique_names:
+            raise RuntimeError(
+                f"No classes found in "
+                f"{manifest_path}"
+            )
+
+        class_names = sorted(
+            unique_names
+        )
+
+        class_to_idx = {
+            name: i
+            for i, name
+            in enumerate(class_names)
+        }
+
+        return (
+            class_names,
+            class_to_idx,
+        )
+
+
+class ManifestDataset(Dataset):
+    def __init__(
+        self,
+        manifest: str | Path,
+        split: str,
+        class_to_idx: dict[str, int],
+        transform: Callable | None = None,
+        root: str | Path | None = None,
+    ):
+        self.manifest = Path(manifest)
+        self.split = split
+        self.class_to_idx = dict(class_to_idx)
+        self.transform = transform
+
+        self.root = (
+            Path(root)
+            if root is not None
+            else None
+        )
+
+        rows = read_manifest_rows(
+            self.manifest,
+            split=split,
+        )
+
+        samples = []
+
+        for row in rows:
+            class_name = row["class_name"]
+
+            if class_name not in self.class_to_idx:
+                raise RuntimeError(
+                    f"{self.manifest}: "
+                    f"unknown class '{class_name}' "
+                    f"in split={split}"
+                )
+
+            p = Path(row["path"])
+
+            if not p.is_absolute():
+                if self.root is None:
+                    raise RuntimeError(
+                        f"Relative path without root: {p}"
+                    )
+                p = self.root / p
+
+            if not p.is_file():
+                raise FileNotFoundError(
+                    f"Manifest image missing: {p}"
+                )
+
+            samples.append(
+                (
+                    str(p),
+                    self.class_to_idx[class_name],
+                )
+            )
+
+        if not samples:
+            raise RuntimeError(
+                f"No samples for split={split}"
+            )
+
+        self.samples = samples
+        self.targets = [
+            y for _, y in samples
+        ]
+
+        self.classes = [
+            x
+            for x, _ in sorted(
+                self.class_to_idx.items(),
+                key=lambda kv: kv[1],
+            )
+        ]
+
+    def __len__(self):
+        return len(self.samples)
+
+    def __getitem__(self, index):
+        path, target = self.samples[index]
+
+        with Image.open(path) as im:
+            image = im.convert("RGB")
+
+        if self.transform is not None:
+            image = self.transform(image)
+
+        return image, target, path
